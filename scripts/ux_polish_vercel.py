@@ -8,6 +8,7 @@ PUBLIC = RAIZ / "public"
 APP = PUBLIC / "static" / "app.js"
 CSS = PUBLIC / "static" / "estilo.css"
 POLISH = RAIZ / "static" / "ux-polish.css"
+ASSET_VERSION = "20260915-ux3"
 
 
 def replace_once(texto, antigo, novo, rotulo):
@@ -41,8 +42,6 @@ def main():
         "texto do clipping",
     )
 
-    # Ao remover uma tag aplicada, volta à paginação inicial para não deixar uma
-    # lista parcialmente expandida de um estado anterior.
     js = replace_once(
         js,
         'itens[parseInt(b.getAttribute("data-tag"), 10)].acao();\n          aplicar();',
@@ -50,7 +49,6 @@ def main():
         "remoção de tag de filtro",
     )
 
-    # Voltar/avançar do navegador passa a restaurar o estado visível dos filtros.
     js = replace_once(
         js,
         'lerUrl();\n    aplicar();',
@@ -77,12 +75,36 @@ def main():
     if marcador not in css:
         CSS.write_text(css + "\n\n" + marcador + "\n" + extra + "\n", encoding="utf-8")
 
+    # Cache busting: mantém os mesmos elementos <link>/<script>, alterando só a URL
+    # dos assets para garantir que o navegador/Vercel busque a versão nova.
+    html_alterados = 0
+    for html_path in PUBLIC.rglob("*.html"):
+        html = html_path.read_text(encoding="utf-8")
+        novo = html.replace(
+            'href="/static/estilo.css"',
+            f'href="/static/estilo.css?v={ASSET_VERSION}"',
+        ).replace(
+            'src="/static/app.js"',
+            f'src="/static/app.js?v={ASSET_VERSION}"',
+        )
+        if novo != html:
+            html_path.write_text(novo, encoding="utf-8")
+            html_alterados += 1
+
     if "termosFiltro.every" not in APP.read_text(encoding="utf-8"):
         raise RuntimeError("Patch de filtro de realizações não foi aplicado")
     if "UX-POLISH-VERCEL" not in CSS.read_text(encoding="utf-8"):
         raise RuntimeError("Camada de organização visual não foi aplicada")
+    if html_alterados == 0:
+        raise RuntimeError("Cache busting não foi aplicado em nenhum HTML")
 
-    print("UX Vercel OK: organização visual aplicada e filtros corrigidos sem alterar o HTML estrutural.")
+    home = (PUBLIC / "index.html").read_text(encoding="utf-8")
+    if f'/static/estilo.css?v={ASSET_VERSION}' not in home:
+        raise RuntimeError("Home não referencia a versão nova do CSS")
+    if f'/static/app.js?v={ASSET_VERSION}' not in home:
+        raise RuntimeError("Home não referencia a versão nova do JS")
+
+    print(f"UX Vercel OK: organização visual forte, filtros corrigidos e assets versionados em {html_alterados} HTMLs.")
 
 
 if __name__ == "__main__":
