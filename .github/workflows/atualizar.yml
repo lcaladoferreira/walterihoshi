@@ -33,6 +33,7 @@ jobs:
         run: |
           python3 scripts/monitorar.py
           python3 scripts/gerar.py
+          python3 scripts/inline_css.py
 
       - name: Publica dados atualizados (clipping e fila de validação)
         run: |
