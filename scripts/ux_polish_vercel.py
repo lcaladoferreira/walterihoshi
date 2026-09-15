@@ -7,8 +7,8 @@ RAIZ = Path(__file__).resolve().parent.parent
 PUBLIC = RAIZ / "public"
 APP = PUBLIC / "static" / "app.js"
 CSS = PUBLIC / "static" / "estilo.css"
-POLISH = RAIZ / "static" / "ux-polish.css"
-ASSET_VERSION = "20260915-ux3"
+POLISH = RAIZ / "static" / "ux-polish-v4.css"
+ASSET_VERSION = "20260915-ux4"
 
 
 def replace_once(texto, antigo, novo, rotulo):
@@ -75,8 +75,6 @@ def main():
     if marcador not in css:
         CSS.write_text(css + "\n\n" + marcador + "\n" + extra + "\n", encoding="utf-8")
 
-    # Cache busting: mantém os mesmos elementos <link>/<script>, alterando só a URL
-    # dos assets para garantir que o navegador/Vercel busque a versão nova.
     html_alterados = 0
     for html_path in PUBLIC.rglob("*.html"):
         html = html_path.read_text(encoding="utf-8")
