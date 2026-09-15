@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-09-15T05:53:40",
+ "atualizado_em": "2026-09-15T19:35:16",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-e0cbd341694d193c",
+   "data": "2026-09-14",
+   "titulo": "Walter Ihoshi se posiciona contra bets e promete defender famílias endividadas - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPa2xqc2VmajVmQmZzUEdnOEFCOUhIM2FIalEzREVNWUJ6dElpdktER0FyaDJtcUZYRmgyRHZiY1BOeFl5Z0owZmVXaWxvZWF0UjAwVmsxQ0dLR2ZyaGt1aXdpaG9IZEJZRGhqMnJxYktJQWl2SEtvQ191Z2R1Nkw0cDI5R3lKUWZjNENmNEZxODd1OS1MSmNwa3hRdFp0a082RllXekc2OUMzTFkwTlJYN2pEa2k?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
   {
    "id": "clip-seed-001",
    "data": "2026-09-11",
@@ -14,6 +25,28 @@
    "coletado_em": "2026-09-15"
   },
   {
+   "id": "clip-a6ac46b8e91b816d",
+   "data": "2026-09-11",
+   "titulo": "Ihoshi cumpre agenda em Marília e região e recebe apoio de Vinicius - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQOVlSa0hLMXFBRG1wWTZSWmFKTWZOd2hBdS1vRFJSR2pRU1FjWHBza1ZqX1VSOERpcHEzY0dIc0tCOTJ6QXdZdGhVejR4YzZ6NkQyN3A4OURJQi1WMmVhRkJNX1I5NXdwM2tBajY2Nmpia0pqSHF6N0hEU21ndmQ2RWEwVVppcFFZU2dpSmk5TEMzSmF6Tm4xYndBSG02d2ZwSHZfellvbldBSTZlTjBZV2VhOA?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-f192867c76e0ea61",
+   "data": "2026-09-09",
+   "titulo": "Na disputa por vaga na Câmara, Ihoshi resgata pauta de remédios mais baratos - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOdklZUVVYQlJCODBFMldXalcwcFNRTlAtMVJFYklnY2djRWppdHE2SGo4Y1lHbHA0NVRCNENaT21BUkV6MnZoa2RzM0FzTGhNbHVUUjVpbTdFdVVxNmZJVDRnSHhNcXB3WDV2YlpUUnM1SGlUUFVvUkE2Z0kydDkyZ244M3NhTkZEWUpaNWtUOVRrTlFjQVRrdWpTOS1yTjgxaHg4Q0FId3VDSWVJUUFpWEU0MFhQalVSTk9JQjlB?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": "saude",
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
    "id": "clip-seed-002",
    "data": "2026-09-07",
    "titulo": "Iniciativa de Walter Ihoshi gerou mais empresas e empregos. Ele apoia a instalação do Instituto Federal em Marília",
@@ -22,6 +55,28 @@
    "fonte_nivel": 60,
    "tema_proposto": "empreendedorismo",
    "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-916dd65d552997f4",
+   "data": "2026-09-01",
+   "titulo": "Ihoshi ajuda Marília a conquistar R$ 36 milhões para ciclovia, recapeamento e parque - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOd2NTTFRTbGZSWFdadXlSY3ROYklPYV9zbTVOcEpRRW9LZnVCT1RYZ3NMTlhLYk9lSWJiWGRUbWVKdTh2SEJ0UzU5WW1FZmduYU12SGFMdU5qdVFLVnE1UEFjUlNzVkZ2VEw5WW12bWVpaVJXa0oydDZUVFBkSk51Y3JBWFhIc0JCTjBUVklaRExhRTRucm1fOXEtUTFTbDRwZnA5allaMXBVTDhfVTBSM3VhUDBvbzVpRjJJVUIxS1ZoVHJqVldvUzRfUDBESHY5am53?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-ce66f3f3705d2a7f",
+   "data": "2026-08-30",
+   "titulo": "Walter Ihoshi Candidato a Deputado Federal em São Paulo nas eleições 2026 - g1.globo.com",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOYTR0OWtSbW9uazlqZXJRT0llN3RvYlZaSHR3eHJ5TGVQSTZJb19VUFl2SVFTdjZ4MTZSVEpNOWxKVVZXbjJ5NVhvRjlQazlBRW1TMDYxM0tXNFZ1RWVwUzU1bVMyMzNQZDNmWFo2MmcxWDE5WW9xX1FmTDdvSWU4NGdrdEQzRE16Q0k1c2NsT0pQWEQxLW0yLWNpcUFxNnZXV2xBaFIwRlg?oc=5",
+   "fonte": "g1.globo.com",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "sao-paulo",
    "coletado_em": "2026-09-15"
   },
   {
@@ -47,6 +102,17 @@
    "coletado_em": "2026-09-15"
   },
   {
+   "id": "clip-e7de9887cb80c269",
+   "data": "2026-08-28",
+   "titulo": "Conheça a trajetória política de Walter Ihoshi e suas propostas para a região - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQaXhQVHZ6UmpCVVltWnByZDc3OUZzOEZuMnY3R2YzSkZHSDlBZ2pDc1MtS2FJUU1ndHpNbnlRNUlwYlZjajc4akpjSGtaQ2NZTGRlM3pjbzJIRUdrejhxUkJ6LW5fbnlpTE9SX2NpcldTUkhxQjVpRVJmQWxJallqYVNGbm1sekhFdi1vTjQzQ051OXZtR1ZpTEd0bDVlUFljNUdfTExfUl9lbWNUc2lWZy1iU2kwVC11VG82aEpIcElkOVZuYjJfamxIT09pQQ?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
    "id": "clip-seed-005",
    "data": "2026-08-27",
    "titulo": "Trajetória de Walter Ihoshi une raízes imigrantes, experiência empresarial, gestão da Jucesp e forte liderança política",
@@ -54,6 +120,17 @@
    "fonte": "Conexão Marília",
    "fonte_nivel": 60,
    "tema_proposto": "desburocratizacao",
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-seed-007",
+   "data": "2026-08-25",
+   "titulo": "Walter Ihoshi tem atuação voltada para o fortalecimento dos hospitais de Marília, com recursos e interlocução com Estado",
+   "link": "https://conexaomarilia.com.br/2026/08/25/walter-ihoshi-tem-atuacao-voltada-para-o-fortalecimento-dos-hospitais-de-marilia-com-recursos-e-interlocucao-com-estado/",
+   "fonte": "Conexão Marília",
+   "fonte_nivel": 60,
+   "tema_proposto": "saude",
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
   },
@@ -69,13 +146,13 @@
    "coletado_em": "2026-09-15"
   },
   {
-   "id": "clip-seed-007",
-   "data": "2026-08-25",
-   "titulo": "Walter Ihoshi tem atuação voltada para o fortalecimento dos hospitais de Marília, com recursos e interlocução com Estado",
-   "link": "https://conexaomarilia.com.br/2026/08/25/walter-ihoshi-tem-atuacao-voltada-para-o-fortalecimento-dos-hospitais-de-marilia-com-recursos-e-interlocucao-com-estado/",
+   "id": "clip-2aae3070e40b478d",
+   "data": "2026-08-21",
+   "titulo": "Walter Ihoshi ajuda Marília conquistar R$ 36 milhões para ciclovia, recapeamento e Parque da Criança - Conexão Marília",
+   "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNWmFqTXlaamVXazk0eXgzM2ZNQW1ka21YVGtsRVFwaGNiQWZHRnBuRGZNM0h3LThtZkE2Z0VnVmEybzRfUFJTR3ZpbndXWE9jVUw4anZBSTk5dkxmdnJocUVaODFTZWFfZ2xpTkg4MDJIcTFNS1JfVlBXZ1JxNURqc0VhbHU2ZHpEU2xvVWg0M19KdjRxcTN0Sm9ac292OHhrSE5FVWhtTjZucm9kclJKLVk3dXdOZWViZWxWeURMNG5XUnk3eDZLYTlSMGprWDRSTVhuX2lNTQ?oc=5",
    "fonte": "Conexão Marília",
    "fonte_nivel": 60,
-   "tema_proposto": "saude",
+   "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
   },

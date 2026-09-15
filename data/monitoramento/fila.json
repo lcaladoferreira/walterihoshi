@@ -1,23 +1,32 @@
 {
-  "descricao": "Fila de entrada do pipeline de monitoramento. Novos registros identificados pela rotina (scripts/monitorar.py ou curadoria manual) entram aqui, um objeto por linha de assunto, aguardando validação. Nada daqui é publicado até ter fonte, tema, território, tipo de atuação e nível de evidência definidos. Veja /fontes (metodologia).",
-  "regras": [
-    "Publique apenas registros com nível de evidência >= 60.",
-    "Alegações politicamente sensíveis exigem fonte oficial ou pelo menos duas fontes profissionais independentes.",
-    "Nunca converter participação em autoria, apoio em realização individual ou promessa em entrega.",
-    "Registrar sempre: fonte primária, URL, data de consulta e nível de evidência."
-  ],
-  "estagios": ["COLETA", "DEDUPLICAÇÃO", "EXTRAÇÃO DE ENTIDADES", "CLASSIFICAÇÃO POR TEMA", "CLASSIFICAÇÃO TERRITORIAL", "IDENTIFICAÇÃO DO TIPO DE ATUAÇÃO", "VALIDAÇÃO DE EVIDÊNCIA", "PUBLICAÇÃO"],
-  "fila": [
-    {
-      "id": "exemplo-2026-09-15-001",
-      "status": "exemplo — não publicar",
-      "titulo": "Exemplo de item na fila: entrevista de Walter Ihoshi a veículo regional (tema: pequenos negócios)",
-      "fonte_url": "https://exemplo.com/materia",
-      "fonte_nivel_proposto": 60,
-      "tema_proposto": "micro-e-pequenas-empresas",
-      "municipio_proposto": null,
-      "tipo_atuacao_proposto": "ENTREVISTA",
-      "notas": "Item de exemplo ilustrando o formato. Substituir por itens reais na primeira execução da rotina."
-    }
-  ]
+ "descricao": "Fila de entrada do pipeline de monitoramento. Novos registros identificados pela rotina (scripts/monitorar.py ou curadoria manual) entram aqui, um objeto por linha de assunto, aguardando validação. Nada daqui é publicado até ter fonte, tema, território, tipo de atuação e nível de evidência definidos. Veja /fontes (metodologia).",
+ "regras": [
+  "Publique apenas registros com nível de evidência >= 60.",
+  "Alegações politicamente sensíveis exigem fonte oficial ou pelo menos duas fontes profissionais independentes.",
+  "Nunca converter participação em autoria, apoio em realização individual ou promessa em entrega.",
+  "Registrar sempre: fonte primária, URL, data de consulta e nível de evidência."
+ ],
+ "estagios": [
+  "COLETA",
+  "DEDUPLICAÇÃO",
+  "EXTRAÇÃO DE ENTIDADES",
+  "CLASSIFICAÇÃO POR TEMA",
+  "CLASSIFICAÇÃO TERRITORIAL",
+  "IDENTIFICAÇÃO DO TIPO DE ATUAÇÃO",
+  "VALIDAÇÃO DE EVIDÊNCIA",
+  "PUBLICAÇÃO"
+ ],
+ "fila": [
+  {
+   "id": "exemplo-2026-09-15-001",
+   "status": "exemplo — não publicar",
+   "titulo": "Exemplo de item na fila: entrevista de Walter Ihoshi a veículo regional (tema: pequenos negócios)",
+   "fonte_url": "https://exemplo.com/materia",
+   "fonte_nivel_proposto": 60,
+   "tema_proposto": "micro-e-pequenas-empresas",
+   "municipio_proposto": null,
+   "tipo_atuacao_proposto": "ENTREVISTA",
+   "notas": "Item de exemplo ilustrando o formato. Substituir por itens reais na primeira execução da rotina."
+  }
+ ]
 }
