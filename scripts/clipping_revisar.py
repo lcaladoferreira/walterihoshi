@@ -16,7 +16,7 @@ NOVO_FORM = '''<form class="filtros" id="filtros-clipping-v2" aria-label="Filtra
 </form><p id="clip-aviso-v2" class="dica clip-aviso-v2" hidden></p>'''
 
 
-def ocultar_estado_vazio_legado(html):
+def remover_estado_vazio_legado(html):
     frase = 'Nenhuma menção com esse filtro'
     pos = html.find(frase)
     if pos < 0:
@@ -24,14 +24,10 @@ def ocultar_estado_vazio_legado(html):
     inicio = html.rfind('<div class="estado estado-vazio"', 0, pos)
     if inicio < 0:
         return html
-    fim_abertura = html.find('>', inicio)
-    if fim_abertura < 0:
+    fim = html.find('</div>', pos)
+    if fim < 0:
         return html
-    abertura = html[inicio:fim_abertura + 1]
-    if ' hidden' not in abertura:
-        nova = abertura[:-1] + ' hidden data-clipping-legado="1">'
-        html = html[:inicio] + nova + html[fim_abertura + 1:]
-    return html
+    return html[:inicio] + html[fim + len('</div>'):]
 
 
 def main():
@@ -59,20 +55,19 @@ def main():
         flags=re.S,
     )
 
-    html = ocultar_estado_vazio_legado(html)
+    html = remover_estado_vazio_legado(html)
 
-    # Remove qualquer versão anterior do script e injeta apenas a atual.
     html = re.sub(
         r'<script src="/static/clipping-v2\.js\?v=[^"]+" defer></script>',
         '',
         html,
     )
-    script = '<script src="/static/clipping-v2.js?v=20260915-clip3" defer></script>'
+    script = '<script src="/static/clipping-v2.js?v=20260915-clip5" defer></script>'
     if script not in html:
         html = html.replace('</body>', script + '</body>', 1)
 
     HTML.write_text(html, encoding='utf-8')
-    print('Clipping UX OK: estado legado ocultado, chips de data removidos e 7 dias como padrão.')
+    print('Clipping UX OK: bloco vazio legado removido e navegação redundante por data removida.')
     return 0
 
 

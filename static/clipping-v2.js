@@ -21,7 +21,7 @@ function init(){
    li.hidden=!ok;if(ok)n++;
   });
   $$('.clip-dia').forEach(function(sec){var v=$$('.clip-item:not([hidden])',sec).length;sec.hidden=v===0;var c=$('.conta',sec);if(c)c.textContent='('+v+')';});
-  if(saida)saida.innerHTML='<b>'+n+'</b> menção'+(n===1?'':'ões')+' exibida'+(n===1?'':'s')+'.';
+  if(saida)saida.innerHTML=n===1?'<b>1</b> menção exibida.':'<b>'+n+'</b> menções exibidas.';
   if(aviso){
    aviso.hidden=n!==0;
    if(per==='hoje')aviso.textContent='Nenhuma menção publicada hoje nas fontes monitoradas. Altere o período para “Últimos 7 dias”.';
