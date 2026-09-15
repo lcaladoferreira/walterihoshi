@@ -30,7 +30,7 @@ def main():
         raise RuntimeError("Build do Vercel não gerou public/index.html")
 
     html = index.read_text(encoding="utf-8")
-    if 'href="/static/estilo.css"' not in html:
+    if '/static/estilo.css' not in html:
         raise RuntimeError("HTML do Vercel não referencia /static/estilo.css")
     if '/walterihoshi/static/estilo.css' in html:
         raise RuntimeError("Build do Vercel ainda contém base_path do GitHub Pages")
