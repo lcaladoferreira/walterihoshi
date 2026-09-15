@@ -23,6 +23,7 @@ def main():
 
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "gerar.py")], cwd=RAIZ, check=True)
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "seo_p0.py")], cwd=RAIZ, check=True)
+    subprocess.run([sys.executable, str(RAIZ / "scripts" / "ux_polish_vercel.py")], cwd=RAIZ, check=True)
 
     index = RAIZ / "public" / "index.html"
     if not index.exists():
@@ -39,6 +40,12 @@ def main():
     css = RAIZ / "public" / "static" / "estilo.css"
     if not css.exists() or css.stat().st_size < 1000:
         raise RuntimeError("CSS principal não foi copiado para public/static/estilo.css")
+    if "UX-POLISH-VERCEL" not in css.read_text(encoding="utf-8"):
+        raise RuntimeError("Camada de organização visual não foi aplicada ao CSS final")
+
+    app = RAIZ / "public" / "static" / "app.js"
+    if not app.exists() or "termosFiltro.every" not in app.read_text(encoding="utf-8"):
+        raise RuntimeError("Correções de filtro não foram aplicadas ao JavaScript final")
 
     sitemap = RAIZ / "public" / "sitemap.xml"
     if not sitemap.exists() or "https://walterihoshi.vercel.app/" not in sitemap.read_text(encoding="utf-8"):
@@ -48,7 +55,7 @@ def main():
     if not robots.exists() or "https://walterihoshi.vercel.app/sitemap.xml" not in robots.read_text(encoding="utf-8"):
         raise RuntimeError("robots.txt não aponta para o sitemap de produção")
 
-    print("Build Vercel OK: raiz /, CSS correto, SEO P0 validado e output em public/.")
+    print("Build Vercel OK: raiz /, SEO P0, organização visual e filtros validados em public/.")
 
 
 if __name__ == "__main__":
