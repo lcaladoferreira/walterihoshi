@@ -1,6 +1,9 @@
 name: Atualização diária do acervo
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "17 11 * * *"   # 08:17 (Brasília) — varredura da manhã
     - cron: "17 23 * * *"   # 20:17 (Brasília) — varredura da noite, fecha o dia
