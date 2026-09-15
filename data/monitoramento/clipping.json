@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-09-15T20:21:13",
+ "atualizado_em": "2026-09-15T20:31:26",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -36,6 +36,17 @@
    "coletado_em": "2026-09-15"
   },
   {
+   "id": "clip-00bde2fd2b0cb96a",
+   "data": "2026-09-11",
+   "titulo": "\"Temos que pensar no melhor mas se preparar para o pior\", diz Vinicius sobre alerta climático - marilianoticia.com.br",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOY2hQSGJFQi1abVh5MFdqQ1M3QkhhMDdkQUtMaWp2RE8xd2JILTAtMXpiQTJNdVdfb0xXQmdienphWEIwTDRBUVZYcm5JajJ5T2ZkSzhsTFhmaDBNLU5OeFNaRzlZbjJkZ3RreWdmSmp2ZnRfT01sbUpzX3JCSjNMNS1QajZTa2xQR2xwcDhLWW9xcS1NNGoxN2dWWVdIODIwX3NmQTgzcmhOTzd2SDdhOHRKSlNvVDB4Mzk4NjY2bXNLRzNs?oc=5",
+   "fonte": "marilianoticia.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
    "id": "clip-f192867c76e0ea61",
    "data": "2026-09-09",
    "titulo": "Na disputa por vaga na Câmara, Ihoshi resgata pauta de remédios mais baratos - Marília Notícia",
@@ -54,6 +65,17 @@
    "fonte": "Jornal do Povo Marília",
    "fonte_nivel": 60,
    "tema_proposto": "empreendedorismo",
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-d834193a05c74bb0",
+   "data": "2026-09-03",
+   "titulo": "Marília e região têm sete candidatos a deputado federal; veja quem são - marilianoticia.com.br",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPY1p3OWg4QkItTFR4VU00QkNRVVJwY3VTLU9oV0gwb3lxcktId3hmOWpqcTRaVWdBSWI5X0h2MWZ2c0pqWllRUWZtb2xVZE1jZUEyVElCSjNBa0liRnFlQTBYeVFPUjh2NWNuOERiUEJvM2w0WDV1dXBFY3pHdm1LOXNGSlR0RFJjZjJiMDhyM1pKSV90azVYY2ttWmpFODRNUU51WEdOLWRzWF93RjE1ZWc3RUF4UQ?oc=5",
+   "fonte": "marilianoticia.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
   },
@@ -168,6 +190,17 @@
    "coletado_em": "2026-09-15"
   },
   {
+   "id": "clip-16f0f360fa37d819",
+   "data": "2026-08-16",
+   "titulo": "Campanha eleitoral nas ruas e propaganda virtual começam neste domingo - marilianoticia.com.br",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxORC1vbG5ESXhUVFkzbnBOR21EVmFkS2lWWEkybkpleEI0cXBXeFBEYUltbDhldUJRcnk2SVN5a2FZTVNmWGFubzA4ZnV5bGFaOEY4Z3h5VTlCRjZZNU9Oc3gyRF9uNFlaRmk0V1pzNGl4RnpHNGFYVS04QmtLcUQ5WXRDUVFEbG82MU9GUXU5bmduR0xQWVhzQ3JWQnF4UnllZmFtb1NVdURZY2hqZW5KZExtYkg?oc=5",
+   "fonte": "marilianoticia.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
    "id": "clip-seed-009",
    "data": "2026-08-12",
    "titulo": "Ihoshi quer retomar agenda de apoio a pequenos negócios no Congresso",
@@ -187,6 +220,94 @@
    "fonte_nivel": 60,
    "tema_proposto": null,
    "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-6ff192ef14ab5eba",
+   "data": "2026-08-08",
+   "titulo": "SC Sagamihara x Roasso Kumamoto placar ao vivo, H2H e escalações - Sofascore",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQY3dtM25NRGVYcXJiNGJlYVRsV3hQc0xwTDRhRUdkZ3d6bTA1eDlfZHV1YjRWaFdxX3pBVUROZ3BMSHNhNy1zOXYzNXBhSG1qdXFtaHFoS01uQkVPOE4zd096MF9hZU9SUHRMLWVydHBtc05oTDU0UnVzanNZaW0wVHZZZEVsb0xZUlE?oc=5",
+   "fonte": "Sofascore",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-e921f65827a2df58",
+   "data": "2026-08-08",
+   "titulo": "MN TV: Quantidade de imóveis fechados no centro chama atenção - marilianoticia.com.br",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQZGtKRWxZVUFYaE5nOU1kN2FZMG85ZDFRdmZrSVQ0eU9qSFo4ZlctYVRQbGJxRFBtcE5PVUpERHZndzZZTjBRYjMtcU42U0E5WjNHS29oZGozX1FmRkgzcy1WMlhvQ3BFcjVGSHRTY1pSSGxidWMxSU44Q1lDSlJfMVA4aUpEZjRjYzZwckxHUlBRdnlvamIzcThnaWZxaWc?oc=5",
+   "fonte": "marilianoticia.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-41322ce1cc72646c",
+   "data": "2026-07-29",
+   "titulo": "MN TV: Técnicos do Seripa periciam motores de avião que caiu em Marília - marilianoticia.com.br",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxORjF1NENfWGtBMlhPRThSOU9mUlY1emc1T29RakpTdndJNExYdzV5Q3hDOUk1dXN0ZFViSnJDZ2ZKVS1aTmhoVVhXMDNtRklNNkFtdFIxWTUtbTNZQ2o4aEw4UGdzMjZ2VkcyU2lVVzhtWDdoRFlWb3NGb3g5Rl9HeTZNZ3Y2RUhyVVNmQ3NGc2F1Y0F0Sk1zYmlvNUgxUDVKck5vSndzNlJSUQ?oc=5",
+   "fonte": "marilianoticia.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-ce0dd6411b753f28",
+   "data": "2026-07-09",
+   "titulo": "MN TV: Florada das cerejeiras marca abertura da festa em Garça - marilianoticia.com.br",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQTHVFQXZpT005ZWhDc1FUYUhRQ1l6djRPOVc5UE9jdXN2N3BaMWpYSG92RUFmWVM1aXU3OU8yOUh1dUU3VF9fSmNRUk5yUl9tVE9GVm9fb0t0NFRzbTN2LWVHdUZJTjhyc1NCNXdMTWE0eXNfY05FU1pPeUhOTGYyQVQwLUVpRjAtb3dCRHRQLUdmREpDMWljTTdXQUh5dw?oc=5",
+   "fonte": "marilianoticia.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-a534043d795530f9",
+   "data": "2026-07-01",
+   "titulo": "Pré-candidato à Presidência da República, Caiado vem a Marília - marilianoticia.com.br",
+   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOT2djZGZGRVJndXBvSjVtVks3b085d3lrRDN0SnU4WHVDU2pydmJ3SkRCcGNYZU1vMGFSMTgtUGdmZk9rVExmNWpVVTNPajZkQTlQM0ppWkRXUjZab1pNenFrSUNyRno2Sy1uREp3VmozQTQxQlNreHd1aWo1Snh0QTNtNHdudGRROVoxajhsUXFWQjJ2SWUxbDJRLVFnTjRmQ0djWWRoYS1xQ19VWDdXRHAwSWc1QTJwcUZIeVowYkszUQ?oc=5",
+   "fonte": "marilianoticia.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-1f6cac7e7f8e2e5c",
+   "data": "2026-06-27",
+   "titulo": "MN TV: Transmissão travada na hora do jogo? Aí não dá! - marilianoticia.com.br",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQZTBwV0hHbGo5WHp0X2d4Y2RLRll4Tk03eTJRbkN6aV9UTDVxUmdKb2hQRU41Y2JZVEg5NVdYa3UwT3lNbm5QZ0lVUjF5RzhGbUtQaWsyT3lNVHFXS2Q5aGNFZHRFcjY1WGpGM3BLRjVoV0ktdHhYcDBRbmN2RTBVV1gyU0V2YjljNjQtRjlxbWc?oc=5",
+   "fonte": "marilianoticia.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-f4a80594581f7ade",
+   "data": "2026-06-19",
+   "titulo": "Caiado defende apoio ao empresariado e aproximação com o Japão em São Paulo - DComercio",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPc1lva1dMQ0xENmpMM0lrV0RrU1o1VnhDd2dDNk4xNk9uMm1pZHpVZU5UYjBod095ZVVLWEVlLWZZOGhyZGx1UHVMaV9GMDZfTG5TOFFZQ0tURkM0NEszZ0ZMLW9rR01TVTllY2ZrSlkzYUFZRmNVTVJ3OWxvS2ltUE5NWDY0ZDVXbHlrUlcwSmRLclN1al9GVll2WTVQckN3RUxUa1p3SjlnVUliMUFHV2ExZw?oc=5",
+   "fonte": "DComercio",
+   "fonte_nivel": 60,
+   "tema_proposto": "relacoes-brasil-japao",
+   "municipio_proposto": "sao-paulo",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-cd60aa99e7a8766e",
+   "data": "2026-06-18",
+   "titulo": "Caiado diz que caso de Jaques Wagner é “marca forte do PT” - Poder360",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPNk1XMlgzU2NaVmhjemk0clRqUzRaWHdwLVJlZ0QwWnZIRFRTLWhVY014YktmZmRMcS15bGpKS01GbGVBYjg0enJpZ05KMmItOG1XeUVBZTdEcjFNckZvYlJ0aENGZW9VajNIWnRpVDJ6dXoxbzFIcXhoVi1NQXlqMFplTXJ4dnNWNlNLYkw1ZFQtWmlVSDRfajBHR29scENRblE?oc=5",
+   "fonte": "Poder360",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
    "coletado_em": "2026-09-15"
   }
  ]
