@@ -39,6 +39,13 @@ jobs:
           git diff --cached --quiet || git commit -m "Clipping/monitoramento diário: coleta e regeração ($(date -u +%F))"
           git push
 
+      # Portão de qualidade: roda depois do commit dos dados (a coleta não para
+      # por causa de CSS) e antes de publicar. Se a verificação falhar, o job
+      # falha e o site NÃO é republicado — o endereço público segue com a última
+      # versão boa até alguém corrigir. A suíte não tem dependências.
+      - name: Verificação de UX e acessibilidade (bloqueia publicação quebrada)
+        run: python3 scripts/testar_ux.py
+
       - name: Publica o site (branch gh-pages)
         uses: peaceiris/actions-gh-pages@v4
         with:

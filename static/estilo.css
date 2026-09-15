@@ -232,7 +232,7 @@ kbd {
   display: flex; align-items: center; gap: 10px;
   min-height: var(--topo-altura); padding: 8px var(--margem);
 }
-.marca { display: flex; flex-direction: column; margin-right: auto; min-width: 0; padding: 4px 0; }
+.marca { display: flex; flex-direction: column; justify-content: center; margin-right: auto; min-width: 0; min-height: var(--alvo); padding: 4px 0; }
 .marca-nome { font-size: 1.12rem; font-weight: 700; letter-spacing: .1em; color: #fff; white-space: nowrap; }
 .marca-nome::first-letter { color: var(--gold-400); }
 .marca-sub { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-300); }
@@ -242,7 +242,7 @@ kbd {
 /* botões de utilidade do topo (busca, tema, menu) */
 .util {
   display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0;
-  min-height: 40px; padding: 8px 14px; cursor: pointer;
+  min-height: var(--alvo); padding: 8px 14px; cursor: pointer;
   border: 1px solid rgba(201, 162, 75, .4); border-radius: 999px;
   background: rgba(255, 255, 255, .06); color: #e7ecf5;
   font: 700 .84rem/1 var(--sem-serif); letter-spacing: .02em;
@@ -257,7 +257,7 @@ kbd {
 .nav-principal { display: flex; align-items: stretch; gap: 2px; flex-wrap: wrap; }
 .nav-grupo { position: relative; display: flex; align-items: center; }
 .nav-grupo > summary, .nav-item {
-  display: inline-flex; align-items: center; gap: 6px; min-height: 40px;
+  display: inline-flex; align-items: center; gap: 6px; min-height: var(--alvo);
   padding: 8px 12px; border-radius: 999px; cursor: pointer; list-style: none;
   color: #ccd5e4; font-size: .84rem; font-weight: 600; letter-spacing: .02em;
   transition: background var(--transicao), color var(--transicao);
@@ -276,7 +276,7 @@ kbd {
   border-radius: var(--raio-s); box-shadow: 0 24px 48px -18px rgba(0, 0, 0, .8);
 }
 .nav-menu li a {
-  display: block; padding: 10px 12px; border-radius: var(--raio-xs);
+  display: flex; align-items: center; min-height: var(--alvo); padding: 10px 12px; border-radius: var(--raio-xs);
   color: #dde3ee; font-size: .86rem; font-weight: 600;
 }
 .nav-menu li a:hover { background: rgba(255, 255, 255, .1); color: #fff; text-decoration: none; }
@@ -307,7 +307,7 @@ body.menu-aberto .drawer { transform: translateX(0); visibility: visible; }
 }
 .drawer-titulo { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-300); font-weight: 700; }
 .drawer-fechar {
-  min-width: var(--alvo); min-height: 40px; border-radius: 999px; cursor: pointer;
+  min-width: var(--alvo); min-height: var(--alvo); border-radius: 999px; cursor: pointer;
   border: 1px solid rgba(201, 162, 75, .4); background: rgba(255, 255, 255, .06); color: #fff;
   font-size: .82rem; font-weight: 700;
 }
@@ -334,7 +334,10 @@ body.menu-aberto .drawer { transform: translateX(0); visibility: visible; }
 .trilha ol { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; list-style: none; margin: 0; padding: 0; }
 .trilha li { display: flex; align-items: center; gap: 6px; }
 .trilha li + li::before { content: "/"; color: var(--linha-forte); }
-.trilha a { color: var(--tinta-2); text-decoration: underline; text-decoration-color: var(--linha-forte); }
+.trilha a {
+  display: inline-flex; align-items: center; min-height: 32px;
+  color: var(--tinta-2); text-decoration: underline; text-decoration-color: var(--linha-forte);
+}
 .trilha a:hover { text-decoration-color: var(--gold-500); }
 .trilha [aria-current="page"] { color: var(--tinta); font-weight: 700; }
 
@@ -352,7 +355,7 @@ body.menu-aberto .drawer { transform: translateX(0); visibility: visible; }
 .sumario ol { list-style: none; margin: 0; padding: 0; }
 .sumario li { margin: 0; }
 .sumario a {
-  display: block; padding: 5px 8px 5px 10px; margin-left: -12px;
+  display: flex; align-items: center; min-height: 34px; padding: 5px 8px 5px 10px; margin-left: -12px;
   border-left: 2px solid transparent; border-radius: 0 var(--raio-xs) var(--raio-xs) 0;
   color: var(--tinta-2); line-height: 1.4;
 }
@@ -463,7 +466,10 @@ section { margin: 42px 0; }
   content: ""; position: absolute; left: 0; bottom: 0; width: 56px; height: 3px; border-radius: 2px;
   background: linear-gradient(90deg, var(--gold-500), var(--gold-300));
 }
-.ver-tudo { font-size: .88rem; font-weight: 700; white-space: nowrap; color: var(--navy-700); padding: 6px 0; }
+.ver-tudo {
+  display: inline-flex; align-items: center; min-height: var(--alvo);
+  font-size: .88rem; font-weight: 700; white-space: nowrap; color: var(--navy-700); padding: 6px 0;
+}
 .ver-tudo::after { content: " →"; transition: margin var(--transicao); }
 .ver-tudo:hover::after { margin-left: 4px; }
 
@@ -484,8 +490,10 @@ section { margin: 42px 0; }
 .btn[disabled] { opacity: .5; cursor: not-allowed; transform: none; }
 
 /* --- cartões --- */
-.grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-top: 16px; }
-.grade-grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; margin-top: 16px; }
+/* `min(320px, 100%)` impede a faixa de ficar mais larga que o container: em telas
+   de 320px (ou menos) a grade vira uma coluna e a página não rola para o lado. */
+.grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 20px; margin-top: 16px; }
+.grade-grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr)); gap: 20px; margin-top: 16px; }
 .grade.densa { grid-template-columns: 1fr; gap: 12px; }
 
 .card {
@@ -560,12 +568,15 @@ section { margin: 42px 0; }
 .ev-meter > span { display: block; height: 100%; border-radius: 3px; background: currentColor; }
 
 .chip {
-  display: inline-flex; align-items: center; min-height: 26px; background: var(--azul-bg); color: var(--azul);
-  font-size: .76rem; font-weight: 700; padding: 3px 11px; border-radius: 999px; margin: 0 6px 6px 0;
-  border: 1px solid transparent; position: relative; z-index: 2;
-  transition: border-color var(--transicao), transform var(--transicao);
+  display: inline-flex; align-items: center; min-height: 32px; background: var(--azul-bg); color: var(--azul);
+  font-family: var(--sem-serif); font-size: .76rem; font-weight: 700; padding: 3px 11px;
+  border-radius: 999px; margin: 0 6px 6px 0;
+  border: 1px solid transparent; position: relative; z-index: 2; cursor: pointer;
+  transition: border-color var(--transicao), transform var(--transicao), background var(--transicao), color var(--transicao);
 }
 .chip:hover { border-color: currentColor; transform: translateY(-1px); text-decoration: none; }
+/* Estado selecionado precisa ser visível — antes só o aria-pressed mudava. */
+.chip[aria-pressed="true"], .chip.ativo { background: var(--navy-800); color: #fff; border-color: var(--navy-800); }
 .chip-loc { background: var(--verde-bg); color: var(--verde); }
 
 /* --- filtros (facetas) --- */
@@ -597,12 +608,15 @@ section { margin: 42px 0; }
   font-weight: 800; padding: 0 0 8px;
 }
 .filtro-chips .opcoes { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip-opcao { position: relative; display: inline-flex; }
+.chip-opcao { position: relative; display: inline-flex; max-width: 100%; }
 .chip-opcao input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+/* O rótulo pode ser longo ("Somente fontes oficiais/institucionais (80+)").
+   Ele quebra em vez de forçar rolagem horizontal da página inteira. */
 .chip-opcao span {
-  display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 6px 14px;
+  display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 6px 14px;
   border: 1.5px solid var(--linha-forte); border-radius: 999px; background: var(--papel);
-  font-size: .82rem; font-weight: 700; color: var(--tinta-2); white-space: nowrap;
+  font-size: .82rem; font-weight: 700; color: var(--tinta-2);
+  max-width: 100%; white-space: normal; overflow-wrap: anywhere; text-align: left;
   transition: border-color var(--transicao), background var(--transicao), color var(--transicao);
 }
 .chip-opcao span .n { font-size: .72rem; color: var(--tinta-3); font-weight: 800; }
@@ -618,20 +632,20 @@ section { margin: 42px 0; }
 .filtro-contagem { margin: 0; font-size: .9rem; color: var(--tinta-2); }
 .filtro-contagem b { color: var(--tinta); font-variant-numeric: tabular-nums; }
 .filtro-acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-.filtro-acoes .btn { min-height: 38px; padding: 8px 16px; font-size: .84rem; }
+.filtro-acoes .btn { min-height: var(--alvo); padding: 8px 18px; font-size: .84rem; }
 .densidade { display: inline-flex; border: 1.5px solid var(--linha-forte); border-radius: 999px; overflow: hidden; }
 .densidade button {
-  min-height: 36px; padding: 6px 14px; border: 0; cursor: pointer; background: transparent;
+  min-height: 40px; padding: 6px 16px; border: 0; cursor: pointer; background: transparent;
   color: var(--tinta-2); font: 700 .8rem/1 var(--sem-serif);
 }
 .densidade button[aria-pressed="true"] { background: var(--navy-800); color: #fff; }
 .filtros-aplicados { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 4px; padding: 0; list-style: none; }
 .filtro-tag {
-  display: inline-flex; align-items: center; gap: 8px; min-height: 30px; padding: 4px 8px 4px 12px;
+  display: inline-flex; align-items: center; gap: 8px; min-height: 34px; padding: 4px 8px 4px 12px;
   background: var(--ambar-bg); color: var(--ambar); border-radius: 999px; font-size: .8rem; font-weight: 700;
 }
 .filtro-tag button {
-  min-width: 24px; min-height: 24px; border: 0; border-radius: 50%; cursor: pointer;
+  min-width: 28px; min-height: 28px; border: 0; border-radius: 50%; cursor: pointer;
   background: rgba(127, 127, 127, .18); color: inherit; font-size: .9rem; line-height: 1;
 }
 .filtro-tag button:hover { background: rgba(127, 127, 127, .34); }
@@ -686,7 +700,22 @@ html.sem-js .carregar-mais, html.sem-js .densidade { display: none; }
 }
 
 /* --- tabelas --- */
-.tabela-wrap { overflow-x: auto; border-radius: var(--raio); box-shadow: var(--sombra-1); margin-top: 12px; }
+/* Toda tabela gerada vive dentro de .tabela-wrap: a rolagem horizontal fica contida
+   no bloco (nunca na página), com sombra nas bordas como pista visual — só CSS, e
+   portanto visível também sem JavaScript. O wrapper é focável para quem usa teclado. */
+.tabela-wrap {
+  overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
+  border-radius: var(--raio); box-shadow: var(--sombra-1); margin-top: 12px;
+  background:
+    linear-gradient(90deg, var(--cartao) 30%, transparent) left center / 48px 100% no-repeat local,
+    linear-gradient(270deg, var(--cartao) 30%, transparent) right center / 48px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, color-mix(in srgb, var(--tinta) 22%, transparent), transparent) left center / 16px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, color-mix(in srgb, var(--tinta) 22%, transparent), transparent) right center / 16px 100% no-repeat scroll,
+    var(--cartao);
+}
+.tabela-wrap > .tabela { background: transparent; }
+.tabela-wrap:focus-visible { outline: 3px solid var(--foco); outline-offset: 2px; }
+.tabela-dica { display: none; margin: 8px 0 0; font-size: .82rem; color: var(--tinta-2); }
 .tabela { width: 100%; border-collapse: collapse; background: var(--cartao); font-size: .9rem; }
 .tabela caption {
   caption-side: top; text-align: left; padding: 0 0 8px; font-size: .82rem;
@@ -724,6 +753,7 @@ html.sem-js .carregar-mais, html.sem-js .densidade { display: none; }
 
 /* filtro de período na linha do tempo */
 .filtro-anos { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 4px; }
+.filtro-anos .chip { min-height: 36px; padding: 5px 14px; }
 
 /* --- atualizações --- */
 .atualizacoes { list-style: none; padding: 0; }
@@ -767,7 +797,7 @@ html.sem-js .carregar-mais, html.sem-js .densidade { display: none; }
 #campo-busca:focus { outline: none; border-color: var(--gold-500); box-shadow: 0 0 0 4px rgba(201, 162, 75, .22), var(--sombra-1); }
 .busca-limpar {
   position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
-  min-width: 36px; min-height: 36px; border: 0; border-radius: 50%; cursor: pointer;
+  min-width: 40px; min-height: 40px; border: 0; border-radius: 50%; cursor: pointer;
   background: var(--papel-alt); color: var(--tinta-2); font-size: 1rem; display: none;
 }
 html.com-js .busca-limpar.visivel { display: block; }
@@ -784,7 +814,7 @@ html.com-js .busca-limpar.visivel { display: block; }
   padding-top: 18px; border-top: 1px solid var(--linha); font-size: .88rem;
 }
 .compartilhar a, .compartilhar button {
-  display: inline-flex; align-items: center; min-height: 40px;
+  display: inline-flex; align-items: center; min-height: var(--alvo);
   padding: 8px 16px; border-radius: 999px; border: 1.5px solid var(--navy-700);
   background: var(--cartao); color: var(--navy-700); font-weight: 700; cursor: pointer; font-size: .84rem;
   transition: background var(--transicao), color var(--transicao), transform var(--transicao);
@@ -842,10 +872,11 @@ html.com-js .busca-limpar.visivel { display: block; }
 }
 .rodape ul { list-style: none; margin: 0; padding: 0; }
 .rodape li { margin: 5px 0; }
-.rodape li a { display: inline-block; padding: 3px 0; min-height: 28px; }
+.rodape li a { display: inline-flex; align-items: center; padding: 3px 0; min-height: 34px; }
 .rodape-base { border-top: 1px solid rgba(255, 255, 255, .12); padding-top: 18px; }
 .rodape-resp { color: var(--sobre-escuro-3); font-size: .84rem; }
-.rodape-links { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.rodape-links { display: flex; flex-wrap: wrap; gap: 2px 10px; }
+.rodape-links a { display: inline-flex; align-items: center; min-height: 28px; }
 
 /* ============ 7. ADAPTAÇÃO ========================================= */
 @media (max-width: 1000px) {
@@ -860,9 +891,57 @@ html.com-js .busca-limpar.visivel { display: block; }
   .anterior-proximo .proximo { text-align: left; }
 }
 
+/* Busca do hero: em telas estreitas o campo vira uma faixa de poucos pixels se
+   ficar lado a lado com o botão. Abaixo de 560px os dois empilham.
+   Na mesma faixa o hero é reordenado: título → subtítulo → busca → atalhos →
+   texto de apoio. Sem isso, no celular a primeira tela terminava sem nenhuma
+   ação visível — quem chega tinha que rolar para descobrir o que fazer aqui.
+   A reordenação não afeta a ordem de tabulação (só há um elemento focável). */
+@media (max-width: 560px) {
+  .busca-destaque { flex-direction: column; gap: 8px; max-width: none; }
+  .busca-destaque input { border-right: 2px solid transparent; border-radius: 12px; }
+  .busca-destaque button { border-radius: 12px; min-height: var(--alvo); }
+  .campo-busca-emb { flex-direction: column; gap: 8px; }
+
+  .hero { display: flex; flex-direction: column; }
+  .hero > * { margin-bottom: 0; }
+  .hero-eyebrow { order: 1; }
+  .hero h1 { order: 2; }
+  .hero-sub { order: 3; margin-bottom: 14px; }
+  .busca-destaque { order: 4; }
+  .atalhos { order: 5; margin: 16px 0 12px; }
+  .hero-texto { order: 6; }
+  .hero-exemplos { order: 7; margin-top: 14px !important; }
+  .hero-principio { order: 8; }
+  .hero-stats { order: 9; }
+}
+
+/* Topo em telas muito estreitas (320px e menos): aperta espaços para que a marca
+   e os três botões de utilidade caibam sem colisão. */
+@media (max-width: 400px) {
+  .topo-barra { gap: 6px; }
+  .marca-nome { font-size: 1rem; letter-spacing: .06em; }
+  .util { padding: 8px 9px; }
+  .util-tema { min-width: 36px; }
+}
+
+/* 320px e menos (Galaxy Fold): a marca ganha duas linhas em vez de empurrar os
+   botões — e o token de altura do topo acompanha, para âncoras e sumário. */
+@media (max-width: 340px) {
+  :root { --topo-altura: 74px; }
+  .marca-nome { white-space: normal; font-size: .95rem; line-height: 1.2; letter-spacing: .05em; }
+  /* "Trajetória completa (1961–2026)" não cabe em uma linha aqui: melhor quebrar
+     do que empurrar a página 6px para o lado. */
+  .ver-tudo { white-space: normal; max-width: 100%; }
+}
+
 @media (max-width: 760px) {
   :root { --margem: 16px; }
   body { font-size: 16px; }
+  .tabela-dica { display: block; }
+  /* Sem largura mínima o navegador espreme as colunas em telas estreitas e o texto
+     vira uma tira vertical. Com a largura mínima, o bloco rola (e a dica aparece). */
+  .tabela-wrap > .tabela { min-width: 480px; }
   .ficha { grid-template-columns: 1fr; }
   .tl-item { grid-template-columns: 1fr; gap: 2px; }
   .timeline::before, .tl-item::before { display: none; }

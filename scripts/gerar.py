@@ -561,6 +561,25 @@ def lista_registros(registros, vazio="Nenhum registro documentado nesta coleçã
     cards = "".join(card_registro(r, i) for i, r in enumerate(registros))
     return '<div class="grade">%s</div>' % cards
 
+def tabela_responsiva(rotulo, colunas, corpo, dica="Tabela rolável — arraste para o lado para ver todas as colunas."):
+    """Tabela sempre dentro de um bloco rolável, focável e rotulado.
+
+    Sem o contêiner, uma tabela mais larga que o conteúdo faz a **página inteira**
+    rolar para o lado em telas pequenas (medido em /mandatos/ e /fontes/ a 320px).
+    Com ele, a rolagem fica contida no bloco. `tabindex="0"` + `role="region"` +
+    `aria-label` mantêm a rolagem alcançável por teclado e leitor de tela
+    (WCAG 2.1.1 e 1.4.10), e a dica só aparece onde a tabela pode rolar.
+    """
+    return (
+        '<div class="tabela-wrap" role="region" tabindex="0" aria-label="%s">'
+        '<table class="tabela"><thead><tr>%s</tr></thead><tbody>%s</tbody></table>'
+        '</div><p class="tabela-dica">%s</p>'
+        % (esc(rotulo),
+           "".join('<th scope="col">%s</th>' % esc(c) for c in colunas),
+           corpo, esc(dica))
+    )
+
+
 def sec_fontes(ids, titulo="Fontes desta seção"):
     return '<section class="secao-fontes"><h2>%s</h2>%s</section>' % (
         esc(titulo), "".join(fonte_link(fid) for fid in ids)
@@ -574,11 +593,11 @@ def pag_home():
         "<p class='hero-eyebrow'>Base pública e verificável</p>"
         "<h1>Walter Ihoshi</h1>"
         "<p class='hero-sub'>Uma trajetória de trabalho por São Paulo, documentada em fonte por fonte.</p>"
-        "<p>Explore projetos, ações, realizações, mandatos, municípios e documentos que registram a atuação pública de "
-        "<strong>Walter Shindi Iihoshi</strong> — três mandatos na Câmara dos Deputados (2007–2019), presidência da "
-        "Jucesp (2019–2023) e diretoria de convênios do Governo de São Paulo (2023–2026).</p>"
+        "<p class='hero-texto'>Explore projetos, ações, realizações, mandatos, municípios e documentos que registram "
+        "a atuação pública de <strong>Walter Shindi Iihoshi</strong> — três mandatos na Câmara dos Deputados "
+        "(2007–2019), presidência da Jucesp (2019–2023) e diretoria de convênios do Governo de São Paulo (2023–2026).</p>"
         '<form class="busca-destaque" action="%s" method="get">'
-        '<input type="search" name="q" placeholder="Pesquise por município, projeto ou assunto" aria-label="Pesquisar no acervo">'
+        '<input type="search" name="q" placeholder="Município, projeto ou tema" aria-label="Pesquisar no acervo">'
         "<button type='submit'>Pesquisar no acervo</button></form>"
         '<p class="hero-exemplos">Experimente: '
         '<a href="%s">JUCESP</a> &middot; <a href="%s">Cadastro Positivo</a> &middot; '
@@ -1001,9 +1020,10 @@ def pag_timeline():
                ", ".join(esc(F[f]["nome"]) for f in ev["fontes"] if f in F))
         )
     decadas = sorted({int(str(ev["ano"])[:4]) // 10 * 10 for ev in TIMELINE})
-    botoes = '<button type="button" data-decada="" aria-pressed="true">Todas as décadas <span class="n">%d</span></button>' % len(TIMELINE)
+    botoes = ('<button type="button" class="chip" data-decada="" aria-pressed="true">'
+              'Todas as décadas <span class="n">%d</span></button>') % len(TIMELINE)
     botoes += "".join(
-        '<button type="button" data-decada="%d" aria-pressed="false">%d <span class="n">%d</span></button>'
+        '<button type="button" class="chip" data-decada="%d" aria-pressed="false">%d <span class="n">%d</span></button>'
         % (d, d, sum(1 for ev in TIMELINE if int(str(ev["ano"])[:4]) // 10 * 10 == d))
         for d in decadas
     )
@@ -1039,8 +1059,8 @@ def pag_mandatos():
         "Nas de 2011 e 2015 entrou como suplente e foi efetivado ao longo da legislatura — este acervo diferencia "
         "eleição, suplência e exercício.</p>"
         "<h2>Legislaturas e exercício</h2>"
-        '<table class="tabela"><thead><tr><th>Cargo</th><th>Período</th><th>Partido</th></tr></thead>'
-        "<tbody>" + tabela + "</tbody></table>"
+        + tabela_responsiva("Legislaturas, cargos e partidos",
+                            ("Cargo", "Período", "Partido"), tabela) +
         "<h2>Como entrou em cada legislatura</h2>"
         "<ul class='marcas'>"
         "<li><strong>2007–2011 (53ª):</strong> eleito em 2006 pelo PFL com 101.097 votos; posse em 01/02/2007.</li>"
@@ -1075,8 +1095,8 @@ def pag_mandatos():
         "<h2>Funções de liderança</h2>"
         "<p>Vice-líder da bancada do DEM (26/08/2010) e do PSD (03/05/2017). <a href='" + l("/realizacoes/vice-lider-bancadas/") + "'>Registro detalhado</a>.</p>"
         "<h2>Histórico eleitoral</h2>"
-        '<table class="tabela"><thead><tr><th>Ano</th><th>Partido</th><th>Resultado</th><th>Votos</th></tr></thead>'
-        "<tbody>" + elei + "</tbody></table>"
+        + tabela_responsiva("Histórico eleitoral: ano, partido, resultado e votos",
+                            ("Ano", "Partido", "Resultado", "Votos"), elei) +
         "<p class='nota-tabela'>" + esc(ELEICOES["nota_mandatos"]) + "</p>"
         "<h2>Votações nominais e discursos</h2>"
         "<p>Os sistemas oficiais da Casa registram votações nominais e discursos de cada parlamentar por legislatura. "
@@ -1249,7 +1269,7 @@ def pag_fontes():
         "entidades oficiais e imprensa profissional. Publicações do próprio interessado valem como registro de "
         "posicionamento ou proposta — nunca como prova de realização.</p>"
         "<h2>Níveis de evidência</h2>"
-        '<table class="tabela"><thead><tr><th>Escala</th><th>Critério</th></tr></thead><tbody>' + niveis + "</tbody></table>"
+        + tabela_responsiva("Escala de níveis de evidência e critérios", ("Escala", "Critério"), niveis) +
         "<p>Registros com evidência abaixo de 60 não são publicados como fato. Registros entre 60 e 69 (valores "
         "declarados em entrevistas ou publicações de período eleitoral) são marcados com nota de evidência visível.</p>"
         "<h2>Tipos de atuação</h2>"

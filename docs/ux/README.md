@@ -9,6 +9,7 @@ alteração não desfaça uma decisão sem saber que ela foi tomada.
 | [arquitetura-informacao.md](arquitetura-informacao.md) | Como o conteúdo está organizado e por quê |
 | [fluxos-e-estados.md](fluxos-e-estados.md) | Fluxos principais e a matriz de estados de cada tela |
 | [acessibilidade-e-verificacao.md](acessibilidade-e-verificacao.md) | Regras de acessibilidade e como verificar |
+| [responsividade-e-medicao.md](responsividade-e-medicao.md) | O que foi medido em navegador real, o que estava quebrado e as regras que passaram a valer |
 
 ---
 
