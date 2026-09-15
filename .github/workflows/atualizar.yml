@@ -2,7 +2,8 @@ name: Atualização diária do acervo
 
 on:
   schedule:
-    - cron: "17 11 * * *"  # diariamente (11:17 UTC = 08:17 no horário de Brasília)
+    - cron: "17 11 * * *"   # 08:17 (Brasília) — varredura da manhã
+    - cron: "17 23 * * *"   # 20:17 (Brasília) — varredura da noite, fecha o dia
   workflow_dispatch:
 
 permissions:
@@ -25,16 +26,23 @@ jobs:
       - name: Coleta de dados oficiais (Câmara dos Deputados)
         run: python3 scripts/coletar_camara.py
 
-      - name: Monitoramento de novas menções (fila de validação)
-        run: python3 scripts/monitorar.py
+      - name: Clipping diário — monitora menções a Walter Ihoshi e regenera o site
+        run: |
+          python3 scripts/monitorar.py
+          python3 scripts/gerar.py
 
-      - name: Geração do site estático
-        run: python3 scripts/gerar.py
-
-      - name: Publica alterações (dados coletados, fila e site)
+      - name: Publica dados atualizados (clipping e fila de validação)
         run: |
           git config user.name "acervo-bot"
           git config user.email "actions@github.com"
-          git add data/ public/
-          git diff --cached --quiet || git commit -m "Atualização diária do acervo: coleta e regeração do site ($(date -u +%F))"
+          git add data/
+          git diff --cached --quiet || git commit -m "Clipping/monitoramento diário: coleta e regeração ($(date -u +%F))"
           git push
+
+      - name: Publica o site (branch gh-pages)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+          commit_message: "Site atualizado (${{ github.run_number }})"

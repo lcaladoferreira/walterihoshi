@@ -1,0 +1,116 @@
+{
+ "atualizado_em": "2026-09-15T05:53:40",
+ "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
+ "itens": [
+  {
+   "id": "clip-seed-001",
+   "data": "2026-09-11",
+   "titulo": "Prefeito Vinicius Camarinha enaltece trabalho e apoia Walter Ihoshi",
+   "link": "https://www.jornaldopovomarilia.net/post/deputado-federal-prefeito-vinicius-camarinha-enaltece-trabalho-e-apoia-walter-ihoshi",
+   "fonte": "Jornal do Povo Marília",
+   "fonte_nivel": 60,
+   "tema_proposto": "convenios",
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-seed-002",
+   "data": "2026-09-07",
+   "titulo": "Iniciativa de Walter Ihoshi gerou mais empresas e empregos. Ele apoia a instalação do Instituto Federal em Marília",
+   "link": "https://www.jornaldopovomarilia.net/post/deputado-federal-iniciativa-de-walter-ihoshi-gerou-mais-empresas-e-empregos-ele-apoia-a-instala%C3%A7%C3%A3o",
+   "fonte": "Jornal do Povo Marília",
+   "fonte_nivel": 60,
+   "tema_proposto": "empreendedorismo",
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-seed-003",
+   "data": "2026-08-29",
+   "titulo": "Maioria dos deputados mais votados de fora ignorou Marília após eleição",
+   "link": "https://marilianoticia.com.br/mariliaeregiao/maioria-dos-deputados-mais-votados-de-fora-ignorou-marilia-apos-eleicao",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 70,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-seed-004",
+   "data": "2026-08-28",
+   "titulo": "Em campanha, Ihoshi lembra trajetória política e aposta em atuação municipalista",
+   "link": "https://marilianoticia.com.br/mariliaeregiao/marilia/em-campanha-ihoshi-lembra-trajetoria-politica-e-aposta-em-atuacao-municipalista",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-seed-005",
+   "data": "2026-08-27",
+   "titulo": "Trajetória de Walter Ihoshi une raízes imigrantes, experiência empresarial, gestão da Jucesp e forte liderança política",
+   "link": "https://conexaomarilia.com.br/2026/08/27/trajetoria-de-walter-ihoshi-une-raizes-imigrantes-experiencia-empresarial-gestao-da-jucesp-e-forte-lideranca-politica/",
+   "fonte": "Conexão Marília",
+   "fonte_nivel": 60,
+   "tema_proposto": "desburocratizacao",
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-seed-006",
+   "data": "2026-08-25",
+   "titulo": "Walter Ihoshi destaca atuação por recursos e ampliação da rede hospitalar de Marília",
+   "link": "https://marilianoticia.com.br/walter-ihoshi-destaca-atuacao-por-recursos-e-ampliacao-da-rede-hospitalar-de-marilia/",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": "saude",
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-seed-007",
+   "data": "2026-08-25",
+   "titulo": "Walter Ihoshi tem atuação voltada para o fortalecimento dos hospitais de Marília, com recursos e interlocução com Estado",
+   "link": "https://conexaomarilia.com.br/2026/08/25/walter-ihoshi-tem-atuacao-voltada-para-o-fortalecimento-dos-hospitais-de-marilia-com-recursos-e-interlocucao-com-estado/",
+   "fonte": "Conexão Marília",
+   "fonte_nivel": 60,
+   "tema_proposto": "saude",
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-seed-008",
+   "data": "2026-08-20",
+   "titulo": "Ihoshi ajuda Marília a conquistar R$ 36 milhões para ciclovia, recapeamento e parque da criança",
+   "link": "https://marilianoticia.com.br/ihoshi-ajuda-marilia-a-conquistar-r-36-milhoes-para-ciclovia-recapeamento-e-parque-da-crianca/",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": "convenios",
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-seed-009",
+   "data": "2026-08-12",
+   "titulo": "Ihoshi quer retomar agenda de apoio a pequenos negócios no Congresso",
+   "link": "https://marilianoticia.com.br/ihoshi-quer-retomar-agenda-de-apoio-a-pequenos-negocios-no-congresso/amp/",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": "micro-e-pequenas-empresas",
+   "municipio_proposto": null,
+   "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-seed-010",
+   "data": "2026-08-09",
+   "titulo": "Ihoshi aposta na experiência e nos serviços prestados à região para voltar à Câmara",
+   "link": "https://marilianoticia.com.br/ihoshi-aposta-na-experiencia-e-nos-servicos-prestados-a-regiao-para-voltar-a-camara-2/",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-15"
+  }
+ ]
+}

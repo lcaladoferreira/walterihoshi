@@ -21,6 +21,7 @@ Princípio central: `FATO → EVIDÊNCIA → CONTEXTO → TERRITÓRIO → TEMA �
 | `/comunidade-nikkei/` | Relação histórica com a comunidade nipo-brasileira |
 | `/fontes/` | Metodologia, fontes catalogadas e níveis de evidência |
 | `/atualizacoes/` | Novos registros incorporados ao acervo |
+| `/clipping/` | Clipping do dia: menções a Walter Ihoshi na imprensa (coleta automática) |
 | `/busca/` | Busca global (funciona offline, no próprio HTML) |
 
 Cada registro identifica: **tipo de atuação** (autoria, relatoria, gestão, articulação, emenda, evento…), cargo exercido, período, resultado documentado, fontes com URL e data de consulta, e **nível de evidência** (escala 50–100; abaixo de 60 não é publicado como fato).
@@ -76,14 +77,29 @@ Dependências: **apenas Python 3 padrão** (sem frameworks). O site é 100% est�
 
 **Obrigatório**: fatos, datas, documentos, fontes com link, linguagem clara, distinção entre proposta e realização.
 
-## ⚠️ Pendência obrigatória antes da publicação em período eleitoral
+## Identificação do responsável (período eleitoral)
 
-Walter Ihoshi é candidato a deputado federal por São Paulo (PSD, nº 5599) nas eleições de 2026. Antes de publicar o site em período eleitoral, complete em `data/config.json`:
+Walter Ihoshi é candidato a deputado federal por São Paulo (PSD, nº 5599) nas eleições de 2026. O responsável pela publicação deste site, exibido no rodapé de todas as páginas, está definido em `data/config.json`:
 
-- `autor.responsavel` — nome do responsável pela publicação (exigência de identificação em material eleitoral);
-- `autor.contato` — canal para correções.
+- **Responsável:** Leandro Calado — [lcfconsulting.com.br](https://lcfconsulting.com.br)
 
-O rodapé do site exibirá essa identificação automaticamente. O acervo não realiza impulsionamento nem publicidade paga; registros baseados apenas em fontes de período eleitoral carregam nota de evidência visível.
+O acervo não realiza impulsionamento nem publicidade paga; registros baseados apenas em fontes de período eleitoral carregam nota de evidência visível.
+
+## Clipping diário (o que sai de novo, todos os dias)
+
+A rotina `scripts/monitorar.py` roda **duas vezes por dia** via GitHub Actions (08:17 e 20:17, horário de Brasília) e garante as novidades do dia:
+
+1. **Coleta** — varre o Google News RSS com três consultas (`"Walter Ihoshi"`, `"Walter Iihoshi"`, `"Walter Shindi"`), cobrindo imprensa nacional e regional;
+2. **Deduplicação** — itens já vistos ficam registrados em `data/monitoramento/vistos.json`;
+3. **Classificação** — tema e município propostos por palavras-chave;
+4. **Publicação no clipping** — menções inéditas entram em `data/monitoramento/clipping.json` e aparecem automaticamente na página `/clipping/` (agrupadas por dia: Hoje, Ontem, …), na home e no feed RSS;
+5. **Fila de validação** — menções provenientes de fontes oficiais/institucionais entram também em `data/monitoramento/fila.json` como candidatas a **registro verificado** do acervo (nada vira registro sem curadoria).
+
+### Publicação automática do site
+
+O mesmo workflow publica o site regenerado na branch **`gh-pages`** a cada execução. Para ativar o endereço público `https://<usuario>.github.io/walterihoshi/`, habilite o GitHub Pages do repositório apontando para a branch `gh-pages` (Settings → Pages). Ajuste `site_url`/`base_path` em `data/config.json` se usar domínio próprio.
+
+> Nota: workflows agendados (`schedule`) só executam a partir da branch padrão — após o merge deste PR para `main`, o cron passa a valer automaticamente.
 
 ## Nota sobre o nome
 

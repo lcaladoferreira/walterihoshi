@@ -9,8 +9,9 @@
   "autor": {
     "nome": "Acervo de Atuação Pública de Walter Ihoshi",
     "tipo": "projeto independente de documentação pública",
-    "responsavel": "PREENCHER: nome do responsável pelo site (obrigatório em período eleitoral — ver README)",
-    "contato": "PREENCHER: e-mail de contato para correções"
+    "responsavel": "Leandro Calado",
+    "site": "https://lcfconsulting.com.br",
+    "contato": "https://lcfconsulting.com.br"
   },
   "candidatura_2026": {
     "cargo": "Deputado Federal por São Paulo",

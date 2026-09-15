@@ -35,6 +35,14 @@ TIMELINE = carregar("timeline.json")["eventos"]
 ELEICOES = carregar("eleicoes.json")
 ATUALIZACOES = carregar("atualizacoes.json")["atualizacoes"]
 
+_clip_raw = None
+_clip_path = os.path.join(DADOS, "monitoramento", "clipping.json")
+if os.path.exists(_clip_path):
+    with open(_clip_path, encoding="utf-8") as _f:
+        _clip_raw = json.load(_f)
+CLIPPING = (_clip_raw or {}).get("itens", [])
+CLIPPING_ATUALIZADO_EM = (_clip_raw or {}).get("atualizado_em")
+
 F = {f["id"]: f for f in FONTES["fontes"]}
 R = {r["id"]: r for r in REALIZACOES}
 T = {t["id"]: t for t in TEMAS}
@@ -92,8 +100,11 @@ def badge_evidencia(score):
     ]
     for corte, rotulo, classe in rotulos:
         if score >= corte:
-            return '<span class="badge %s" title="Nível de evidência %s/100">Evidência %s &middot; %s</span>' % (classe, score, score, rotulo)
-    return '<span class="badge ev-baixa" title="Nível de evidência %s/100">Evidência %s</span>' % (score, score)
+            return ('<span class="badge %s" title="Nível de evidência %s/100">Evidência %s &middot; %s'
+                    '<span class="ev-meter"><span style="width:%d%%"></span></span></span>'
+                    % (classe, score, score, rotulo, score))
+    return ('<span class="badge ev-baixa" title="Nível de evidência %s/100">Evidência %s'
+            '<span class="ev-meter"><span style="width:%d%%"></span></span></span>' % (score, score, score))
 
 def chip_temas(temas_ids):
     return "".join(
@@ -115,6 +126,16 @@ def tipo_rotulo(tipo):
         "ENTREVISTA": "Entrevista", "AÇÃO INSTITUCIONAL": "Ação institucional",
     }
     return mapa.get(tipo, tipo)
+
+EMOJI_TEMAS = {
+    "micro-e-pequenas-empresas": "🏪", "empreendedorismo": "🚀", "desburocratizacao": "⚡",
+    "comercio": "🛒", "credito": "💳", "cadastro-positivo": "✅", "desenvolvimento-economico": "📈",
+    "saude": "🏥", "defesa-do-consumidor": "🧾", "administracao-publica": "🏛️", "convenios": "🤝",
+    "comunidade-nikkei": "🎌", "relacoes-brasil-japao": "🌏", "seguranca": "🛡️", "educacao": "🎓",
+}
+
+def emoji_tema(tid):
+    return EMOJI_TEMAS.get(tid, "📌")
 
 # ---------------------------------------------------------------- JSON-LD
 def jsonld_person():
@@ -221,6 +242,7 @@ NAV = [
     ("/jucesp/", "Jucesp"),
     ("/convenios/", "Convênios"),
     ("/comunidade-nikkei/", "Comunidade nikkei"),
+    ("/clipping/", "Clipping do dia"),
     ("/fontes/", "Fontes e método"),
 ]
 
@@ -248,18 +270,33 @@ def rodape():
         "<p>%s</p>"
         '<p class="rodape-links"><a href="%s">Realizações</a> &middot; <a href="%s">Linha do tempo</a> '
         '&middot; <a href="%s">Fontes e metodologia</a> &middot; <a href="%s">Últimas atualizações</a> '
-        '&middot; <a href="%s">Busca</a> &middot; <a href="%s" target="_blank" rel="noopener">Feed RSS</a></p>'
+        '&middot; <a href="%s">Clipping</a> &middot; <a href="%s">Busca</a> &middot; '
+        '<a href="%s" target="_blank" rel="noopener">Feed RSS</a></p>'
         '<p class="rodape-resp">%s</p>'
         "<p>Atualizado em %s &middot; Dados e código auditáveis no repositório.</p>"
         "</div></footer>" % (
             esc(CFG["nome_projeto"]), esc(CFG["tagline"]),
             esc(CFG["descricao"]),
             l("/realizacoes/"), l("/linha-do-tempo/"), l("/fontes/"), l("/atualizacoes/"),
-            l("/busca/"), l("/feed.xml"),
-            esc(CFG["autor"]["tipo"]) + ". " + ("Responsável pelo site: " + esc(CFG["autor"]["responsavel"]) + ".") if "PREENCHER" not in CFG["autor"]["responsavel"] else "Identificação do responsável pelo site a ser completada antes da publicação em período eleitoral (ver página de metodologia).",
+            l("/clipping/"), l("/busca/"), l("/feed.xml"),
+            rodape_responsavel(),
             fmt_data(HOJE),
         )
     )
+
+def rodape_responsavel():
+    autor = CFG.get("autor", {})
+    resp = autor.get("responsavel", "")
+    site = autor.get("site", "")
+    partes = [esc(autor.get("tipo", ""))]
+    if resp and "PREENCHER" not in resp:
+        trecho = "Responsável pelo site: <strong>%s</strong>" % esc(resp)
+        if site:
+            trecho += ' &middot; <a href="%s" target="_blank" rel="noopener">%s</a>' % (esc(site), esc(site.replace("https://", "").replace("http://", "").rstrip("/")))
+        partes.append(trecho + ".")
+    else:
+        partes.append("Identificação do responsável pelo site a ser completada antes da publicação em período eleitoral (ver página de metodologia).")
+    return " ".join(partes)
 
 def pagina(caminho, titulo, descricao, conteudo, jsonld, og_tipo="website", trilha=None):
     """Monta e grava uma página HTML."""
@@ -282,6 +319,8 @@ def pagina(caminho, titulo, descricao, conteudo, jsonld, og_tipo="website", tril
         '<meta property="og:url" content="%s">\n'
         '<meta property="og:image" content="%s">\n'
         '<meta name="twitter:card" content="summary_large_image">\n'
+        '<meta name="theme-color" content="#101f38">\n'
+        '<link rel="icon" type="image/svg+xml" href="%s">\n'
         '<link rel="stylesheet" href="%s">\n'
         '<link rel="alternate" type="application/rss+xml" title="%s" href="%s">\n'
         "%s\n</head>\n<body>\n%s\n<main id=\"conteudo\">%s</main>\n%s\n</body>\n</html>"
@@ -290,6 +329,7 @@ def pagina(caminho, titulo, descricao, conteudo, jsonld, og_tipo="website", tril
         esc(CFG["nome_projeto"]), esc(titulo), esc(descricao), u(caminho),
         u("/static/og.png"), l("/static/estilo.css"),
         esc(CFG["nome_projeto"]), l("/feed.xml"),
+        l("/static/favicon.svg"),
         bloco_jsonld(jsonld),
         cabecalho(caminho if caminho != "/" else "/"),
         conteudo, rodape(),
@@ -345,6 +385,12 @@ def pag_home():
         '<a href="%s">Marília</a> &middot; <a href="%s">microempresas</a> &middot; '
         '<a href="%s">Japão</a> &middot; <a href="%s">desburocratização</a></p>'
         '<p class="hero-principio"><strong>%s</strong> — cada realização traz cargo, tipo de atuação e fontes consultadas.</p>'
+        '<div class="hero-stats">'
+        '<div class="stat"><b>%d</b><span>registros documentados</span></div>'
+        '<div class="stat"><b>%d</b><span>fontes catalogadas</span></div>'
+        '<div class="stat"><b>%d</b><span>temas</span></div>'
+        '<div class="stat"><b>%d</b><span>municípios</span></div>'
+        "</div>"
         "</section>"
         % (
             l("/busca/"),
@@ -352,6 +398,7 @@ def pag_home():
             l("/busca/") + "?q=Mar%C3%ADlia", l("/busca/") + "?q=microempresas",
             l("/busca/") + "?q=Jap%C3%A3o", l("/busca/") + "?q=desburocratiza%C3%A7%C3%A3o",
             esc(CFG["tagline"]),
+            len(REALIZACOES), len(FONTES["fontes"]), len(TEMAS), len(MUNICIPIOS),
         )
     )
     conteudo += (
@@ -361,8 +408,8 @@ def pag_home():
     )
     # Temas
     cards_tema = "".join(
-        '<a class="card-tema" href="%s"><h3>%s</h3><p>%s</p><span>%d registro(s) documentado(s) &rarr;</span></a>'
-        % (l("/temas/%s/" % t["id"]), esc(t["nome"]), esc(t["resumo"][:150] + "…"), num_registros_tema(t["id"]))
+        '<a class="card-tema" href="%s"><h3><span class="tema-emoji">%s</span> %s</h3><p>%s</p><span>%d registro(s) documentado(s) &rarr;</span></a>'
+        % (l("/temas/%s/" % t["id"]), emoji_tema(t["id"]), esc(t["nome"]), esc(t["resumo"][:150] + "…"), num_registros_tema(t["id"]))
         for t in TEMAS if not t.get("apenas_proposta")
     )
     conteudo += (
@@ -390,6 +437,23 @@ def pag_home():
         '<a class="ver-tudo" href="%s">Trajetória completa (1961–2026)</a></div>'
         '<ul class="tl-mini">%s</ul></section>' % (l("/linha-do-tempo/"), tl_resumo)
     )
+    clip_ult = sorted(CLIPPING, key=lambda x: x.get("data", ""), reverse=True)[:5]
+    if clip_ult:
+        clip_html = "".join(
+            '<li class="clip-item"><span class="clip-data">%s</span>'
+            '<div><a href="%s" target="_blank" rel="noopener nofollow">%s</a>'
+            '<p class="clip-meta">%s%s</p></div></li>'
+            % (fmt_data(c.get("data")), esc(c["link"]), esc(c["titulo"]), esc(c.get("fonte", "")),
+               (" &middot; " + esc(T[c["tema_proposto"]]["nome"])) if c.get("tema_proposto") and c["tema_proposto"] in T else "")
+            for c in clip_ult
+        )
+        conteudo += (
+            '<section><div class="secao-cab"><h2>Clipping — menções na imprensa</h2>'
+            '<a class="ver-tudo" href="%s">Clipping completo</a></div>'
+            '<p class="lead">Coleta diária automática de menções a Walter Ihoshi na imprensa e em fontes oficiais. '
+            "Menções não são registros verificados do acervo.</p>"
+            '<ul class="clip-lista">%s</ul></section>' % (l("/clipping/"), clip_html)
+        )
     ups = sorted(ATUALIZACOES, key=lambda x: x["data"], reverse=True)[:3]
     ups_html = "".join(
         '<li><time>%s</time><strong>%s</strong><p>%s</p></li>'
@@ -514,8 +578,8 @@ def pag_realizacao(r):
 
 def pag_temas_lista():
     cards = "".join(
-        '<a class="card-tema" href="%s"><h3>%s</h3><p>%s</p><span>%s</span></a>'
-        % (l("/temas/%s/" % t["id"]), esc(t["nome"]), esc(t["resumo"]),
+        '<a class="card-tema" href="%s"><h3><span class="tema-emoji">%s</span> %s</h3><p>%s</p><span>%s</span></a>'
+        % (l("/temas/%s/" % t["id"]), emoji_tema(t["id"]), esc(t["nome"]), esc(t["resumo"]),
            ("Só proposta de campanha — sem realização documentada nesta versão" if t.get("apenas_proposta")
             else "%d registro(s) documentado(s) &rarr;" % num_registros_tema(t["id"])))
         for t in TEMAS
@@ -541,7 +605,7 @@ def pag_tema(t):
                   "entrega.</div>")
     conteudo = (
         '<p class="breadcrumb"><a href="%s">Início</a> / <a href="%s">Temas</a> / %s</p>'
-        "<h1>Walter Ihoshi e %s</h1>"
+        "<h1><span class=\"tema-emoji grande\">%s</span> Walter Ihoshi e %s</h1>"
         '<p class="lead">%s</p>%s'
         '<dl class="ficha"><dt>Cargos em que atuou no tema</dt><dd>%s</dd>'
         "<dt>Registros documentados</dt><dd>%d</dd></dl>"
@@ -550,7 +614,7 @@ def pag_tema(t):
         "%s"
     ) % (
         l("/"), l("/temas/"), esc(t["nome"]),
-        esc(t["nome"]), esc(t["resumo"]), alerta,
+        emoji_tema(t["id"]), esc(t["nome"]), esc(t["resumo"]), alerta,
         cargos, len(regs),
         lista_registros(regs, "Nenhum registro documentado neste tema nesta versão do acervo."),
         chip_municipios(sorted({m for r in regs for m in r["municipios"]})) or "—",
@@ -843,8 +907,12 @@ def pag_fontes():
            ('<span class="fonte-nota">%s</span>' % esc(f["nota"])) if f.get("nota") else "")
         for f in sorted(FONTES["fontes"], key=lambda x: -x["nivel"])
     )
-    conteudo = (
-        '<p class="breadcrumb"><a href="%s">Início</a> / Fontes e método</p>'
+    autor = CFG.get("autor", {})
+    resp_nome = esc(autor.get("responsavel", ""))
+    resp_site = esc(autor.get("site", ""))
+    resp_site_limpo = esc(autor.get("site", "").replace("https://", "").replace("http://", "").rstrip("/"))
+    migalha = '<p class="breadcrumb"><a href="%s">Início</a> / Fontes e método</p>' % l("/")
+    conteudo = migalha + (
         "<h1>Fontes, metodologia e critérios</h1>"
         '<p class="lead">Este acervo segue a lógica <strong>fato → evidência → contexto → território → tema → fonte</strong>. '
         "Nenhuma realização é publicada sem fonte verificável; nada é criado por inferência.</p>"
@@ -858,7 +926,7 @@ def pag_fontes():
         "entidades oficiais e imprensa profissional. Publicações do próprio interessado valem como registro de "
         "posicionamento ou proposta — nunca como prova de realização.</p>"
         "<h2>Níveis de evidência</h2>"
-        '<table class="tabela"><thead><tr><th>Escala</th><th>Critério</th></tr></thead><tbody>%s</tbody></table>'
+        '<table class="tabela"><thead><tr><th>Escala</th><th>Critério</th></tr></thead><tbody>' + niveis + "</tbody></table>"
         "<p>Registros com evidência abaixo de 60 não são publicados como fato. Registros entre 60 e 69 (valores "
         "declarados em entrevistas ou publicações de período eleitoral) são marcados com nota de evidência visível.</p>"
         "<h2>Tipos de atuação</h2>"
@@ -872,22 +940,28 @@ def pag_fontes():
         "<p>O acervo é atualizado com rotina de monitoramento contínua (coleta → deduplicação → extração de entidades "
         "→ classificação por tema e território → identificação do tipo de atuação → validação de evidência → "
         "publicação). Correções podem ser solicitadas pelo contato indicado no rodapé; alterações ficam registradas no "
-        "histórico do repositório público do projeto e na página de <a href='%s'>atualizações</a>.</p>"
-        "<p>Última atualização desta versão: <strong>%s</strong>.</p>"
+        "histórico do repositório público do projeto e na página de <a href='" + l("/atualizacoes/") + "'>atualizações</a>.</p>"
+        "<p>Última atualização desta versão: <strong>" + fmt_data(HOJE) + "</strong>.</p>"
         "<h2 id='eleitoral'>Nota de natureza eleitoral</h2>"
         "<p>Este site foi publicado no período eleitoral de 2026, ano em que Walter Ihoshi é candidato a deputado "
         "federal por São Paulo (PSD, nº 5599). Para cumprir as regras eleitorais aplicáveis: (i) o responsável pela "
-        "publicação deve estar identificado no rodapé de todas as páginas; (ii) o acervo não impulsiona conteúdo nem "
+        "publicação está identificado no rodapé de todas as páginas; (ii) o acervo não impulsiona conteúdo nem "
         "contrata publicidade; (iii) realizações históricas estão separadas de propostas de campanha; (iv) registros "
         "com fontes de período eleitoral têm nota de evidência explícita; (v) nenhum conteúdo sintético enganoso é "
-        "utilizado. O preenchimento da identificação do responsável é condição para publicação definitiva.</p>"
+        "utilizado. Responsável pela publicação deste site: <strong>" + resp_nome + "</strong> "
+        "(<a href='" + resp_site + "' target='_blank' rel='noopener'>" + resp_site_limpo + "</a>).</p>"
+        "<h2>Clipping diário</h2>"
+        "<p>A página de <a href='" + l("/clipping/") + "'>clipping</a> reúne, com atualização automática (duas coletas "
+        "por dia), todas as menções a Walter Ihoshi localizadas na imprensa e em fontes oficiais, com link para o "
+        "original. Menções são publicadas como menções — a existência da matéria é o fato documentado. Apenas itens "
+        "validados curatorialmente são promovidos a registros do acervo, com tipo de atuação e nível de evidência.</p>"
         "<h2>Registro de fontes consultadas</h2>"
-        "<p class='lead'>%d fontes catalogadas nesta versão:</p><div class='lista-fontes'>%s</div>"
-    ) % (l("/"), niveis, l("/atualizacoes/"), fmt_data(HOJE), len(FONTES["fontes"]), fontes_html)
-    # remove tabela vazia extra: niveis já embutido
+        "<p class='lead'>" + str(len(FONTES["fontes"])) + " fontes catalogadas nesta versão:</p>"
+        "<div class='lista-fontes'>" + fontes_html + "</div>"
+    )
     pagina("/fontes/", "Fontes e metodologia — como este acervo é construído",
            "Metodologia do acervo: seleção de fontes, níveis de evidência, tipos de atuação, diferença entre "
-           "proposta e realização, correções e nota de natureza eleitoral.",
+           "proposta e realização, clipping diário, correções e nota de natureza eleitoral.",
            conteudo, [jsonld_colecao("Fontes e metodologia", "Critérios do acervo.", "/fontes/")],
            trilha=[("Início", "/"), ("Fontes e método", "/fontes/")])
 
@@ -915,6 +989,66 @@ def pag_atualizacoes():
            "Novos registros incorporados ao acervo de Walter Ihoshi, com fontes, temas e municípios.",
            conteudo, [jsonld_colecao("Atualizações", "Registro de incorporações ao acervo.", "/atualizacoes/")],
            trilha=[("Início", "/"), ("Atualizações", "/atualizacoes/")])
+
+# ---------------------------------------------------------------- clipping
+def pag_clipping():
+    itens = sorted(CLIPPING, key=lambda x: (x.get("data", ""), x.get("titulo", "")), reverse=True)
+    if itens:
+        dias = []
+        por_dia = {}
+        for c in itens:
+            d = (c.get("data") or "")[:10]
+            if d not in por_dia:
+                dias.append(d)
+            por_dia.setdefault(d, []).append(c)
+        dias.sort(reverse=True)
+        ontem_iso = str(date.fromordinal(date.today().toordinal() - 1))
+        blocos = []
+        for d in dias:
+            if d == HOJE:
+                rotulo = "Hoje (%s)" % fmt_data(d)
+            elif d == ontem_iso:
+                rotulo = "Ontem (%s)" % fmt_data(d)
+            else:
+                rotulo = fmt_data(d)
+            linhas = "".join(
+                '<li class="clip-item"><div class="clip-esq">%s</div>'
+                '<div><a href="%s" target="_blank" rel="noopener nofollow">%s</a>'
+                "<p class='clip-meta'>%s &middot; nível da fonte: %s%s%s</p></div></li>"
+                % (
+                    badge_evidencia(min(c.get("fonte_nivel", 60), 100)),
+                    esc(c["link"]), esc(c["titulo"]), esc(c.get("fonte", "")),
+                    c.get("fonte_nivel", "—"),
+                    (" &middot; " + esc(T[c["tema_proposto"]]["nome"])) if c.get("tema_proposto") and c["tema_proposto"] in T else "",
+                    (" &middot; " + esc(M[c["municipio_proposto"]]["nome"])) if c.get("municipio_proposto") and c["municipio_proposto"] in M else "",
+                )
+                for c in por_dia[d]
+            )
+            blocos.append("<section class='clip-dia'><h2>%s <span class='conta'>(%d)</span></h2><ul class='clip-lista'>%s</ul></section>" % (esc(rotulo), len(por_dia[d]), linhas))
+        corpo = "".join(blocos)
+        atualizado = ("Última coleta: <strong>%s</strong>." % esc(str(CLIPPING_ATUALIZADO_EM)[:10].replace("-", "/"))) if CLIPPING_ATUALIZADO_EM else ""
+    else:
+        corpo = ("<p class='lead'>Ainda não há menções coletadas. A rotina diária de monitoramento (duas execuções "
+                 "por dia) alimenta automaticamente esta página com tudo o que a imprensa e as fontes oficiais "
+                 "publicarem sobre Walter Ihoshi.</p>")
+        atualizado = ""
+    migalha = '<p class="breadcrumb"><a href="%s">Início</a> / Clipping</p>' % l("/")
+    conteudo = migalha + (
+        "<h1>Clipping do dia — menções a Walter Ihoshi</h1>"
+        '<p class="lead">Monitoramento diário e automático do nome <strong>Walter Ihoshi / Walter Iihoshi</strong> '
+        "na imprensa e em fontes oficiais. Cada menção leva ao veículo original.</p>"
+        "<div class='alerta'><strong>Como ler esta página:</strong> o clipping registra menções — a existência da "
+        "matéria é o fato documentado. Ele não equivale aos <a href='%s'>registros verificados do acervo</a>: menções "
+        "com conteúdo relevante são validadas (fonte, tipo de atuação, resultado) e promovidas a registros com nível "
+        "de evidência.</div>%s" % (l("/realizacoes/"), atualizado)
+    ) + corpo
+    pagina("/clipping/", "Clipping do dia: o que a imprensa publica sobre Walter Ihoshi",
+           "Monitoramento diário de menções a Walter Ihoshi (Walter Iihoshi) na imprensa e em fontes oficiais, "
+           "com link para cada matéria e separação clara entre menção e registro verificado.",
+           conteudo,
+           [jsonld_colecao("Clipping diário", "Menções a Walter Ihoshi coletadas automaticamente.", "/clipping/")],
+           trilha=[("Início", "/"), ("Clipping", "/clipping/")])
+
 
 # ---------------------------------------------------------------- busca
 def montar_indice_busca():
@@ -948,6 +1082,10 @@ def montar_indice_busca():
         itens.append({"t": "%s — %s" % (ev["ano"], ev["titulo"]), "d": ev["texto"],
                       "u": l("/linha-do-tempo/"), "cat": "Linha do tempo",
                       "ch": "%s %s %s" % (ev["ano"], ev["titulo"], ev["texto"])})
+    for c in CLIPPING[:40]:
+        itens.append({"t": c["titulo"], "d": "Menção em %s (%s)" % (c.get("fonte", ""), fmt_data(c.get("data"))),
+                      "u": l("/clipping/"), "cat": "Clipping",
+                      "ch": "%s %s" % (c["titulo"], c.get("fonte", ""))})
     return itens
 
 JS_BUSCA = """
@@ -1019,11 +1157,17 @@ def gerar_robots():
         f.write("User-agent: *\nAllow: /\n\nSitemap: %s\n" % u("/sitemap.xml"))
 
 def gerar_feed():
-    itens = "".join(
+    itens_acervo = "".join(
         "<item><title>%s</title><link>%s</link><guid>%s</guid><pubDate>%s</pubDate><description>%s</description></item>"
         % (esc(up["titulo"]), u("/atualizacoes/"), u("/atualizacoes/") + "#" + up["data"], up["data"], esc(up["texto"]))
         for up in sorted(ATUALIZACOES, key=lambda x: x["data"], reverse=True)
     )
+    itens_clip = "".join(
+        "<item><title>[Clipping] %s</title><link>%s</link><guid>%s</guid><pubDate>%s</pubDate><description>Menção em %s</description></item>"
+        % (esc(c["titulo"]), esc(c["link"]), esc(c["link"]), c.get("data", HOJE), esc(c.get("fonte", "")))
+        for c in sorted(CLIPPING, key=lambda x: x.get("data", ""), reverse=True)[:10]
+    )
+    itens = itens_acervo + itens_clip
     with open(os.path.join(SAIDA, "feed.xml"), "w", encoding="utf-8") as f:
         f.write(
             '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel>'
@@ -1070,6 +1214,7 @@ def main():
     pag_nikkei()
     pag_fontes()
     pag_atualizacoes()
+    pag_clipping()
     pag_busca()
 
     # script auxiliar de compartilhamento
@@ -1079,7 +1224,8 @@ def main():
     paginas = [("/", "daily", "1.0"), ("/realizacoes/", "weekly", "0.9"), ("/temas/", "weekly", "0.8"),
                ("/municipios/", "weekly", "0.8"), ("/linha-do-tempo/", "monthly", "0.8"),
                ("/mandatos/", "monthly", "0.9"), ("/jucesp/", "monthly", "0.9"), ("/convenios/", "weekly", "0.8"),
-               ("/comunidade-nikkei/", "monthly", "0.8"), ("/fontes/", "monthly", "0.6"),
+               ("/comunidade-nikkei/", "monthly", "0.8"), ("/clipping/", "daily", "0.8"),
+               ("/fontes/", "monthly", "0.6"),
                ("/atualizacoes/", "daily", "0.7"), ("/busca/", "weekly", "0.5")]
     paginas += [("/realizacoes/%s/" % r["id"], "monthly", "0.8") for r in REALIZACOES]
     paginas += [("/temas/%s/" % t["id"], "monthly", "0.7") for t in TEMAS]
