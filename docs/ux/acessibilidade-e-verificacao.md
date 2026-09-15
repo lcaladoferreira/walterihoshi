@@ -14,8 +14,12 @@ inclusive dentro do topo escuro (cor de foco diferente lá). Cartão com link
 esticado recebe `:focus-within` com o mesmo contorno — o clique é no cartão
 inteiro, mas a parada de tabulação continua sendo uma só, no título.
 
-**Área de toque.** Controles primários têm `min-height: 44px` (token `--alvo`);
-chips secundários nunca ficam abaixo de 24×24.
+**Área de toque.** Controles primários têm `min-height: 44px` (token `--alvo`):
+botões da barra, itens da navegação e do menu suspenso, fechar do drawer,
+"ver tudo", compartilhar e ações dos filtros. Trilha, sumário e rodapé ficam em
+32–34px; nada fica abaixo de 24×24 (WCAG 2.5.8). O que ainda não chega aos 44px
+está listado como aviso em `scripts/medir_responsividade.js`, medido no
+navegador — não estimado.
 
 **Nomes acessíveis.** Nenhum campo depende só de `placeholder`. Cada `<input>` e
 `<select>` tem `<label for>`; os `<input>` das facetas ficam *dentro* do
@@ -47,7 +51,7 @@ python3 scripts/gerar.py
 python3 scripts/testar_ux.py
 ```
 
-15 checagens sobre as 61 páginas HTML geradas:
+17 checagens sobre as 61 páginas HTML geradas:
 
 1. estrutura de página (skip link primeiro no `<body>`, `<main>` focável, container, live region, tema, menu, `app.js` carregado)
 2. conteúdo principal dentro do container
@@ -64,6 +68,8 @@ python3 scripts/testar_ux.py
 13. página 404 com caminho de recuperação e fora do sitemap
 14. orientação em páginas longas (sumário, salto por seção ou atalhos)
 15. hierarquia de títulos sem saltos e com o chrome sem `<h2>`
+16. responsividade estrutural (grade com `min()`, toda tabela dentro do bloco rolável rotulado, rótulo de faceta que quebra, empilhamento da busca e ajuste do topo em 320px)
+17. alvos de toque mínimos nas ações principais (44px onde o projeto declara 44px)
 
 Sai com código 1 em qualquer falha — dá para plugar no CI.
 
@@ -84,9 +90,36 @@ anúncio, alternância e persistência de tema, abrir/fechar o drawer com `Esc`,
 O `node_modules/` está no `.gitignore`. O site publicado continua sem nenhuma
 dependência — isto é ferramenta de desenvolvimento.
 
-### Nota sobre o que não foi verificado
+### 3. Medição em navegador real (Node + Playwright, opcional)
 
-Não há navegador no ambiente onde isto foi escrito, então **renderização visual
-e responsividade real não foram inspecionadas** — foram verificadas por
-construção (breakpoints, `clamp()`, `min-height`, tokens) e pelas checagens
-estruturais acima. Métricas de Core Web Vitals também não foram medidas.
+```bash
+npm install playwright && npx playwright install chromium
+python3 scripts/gerar.py
+node scripts/medir_responsividade.js
+```
+
+Mede 14 páginas × 9 larguras de tela (280 a 1440px) e falha quando:
+
+1. a **página** rola para o lado (`scrollWidth` maior que a viewport);
+2. um elemento visível ultrapassa a viewport sem um ancestral que contenha a
+   rolagem;
+3. conteúdo é cortado por `overflow` escondido;
+4. um controle fica abaixo de 24×24px (piso `AA` da WCAG 2.5.8).
+
+Elementos entre 24px e 44px saem como **aviso**, não como falha: estão
+conformes, só não alcançam o alvo confortável do projeto. Links no meio de frases
+são ignorados — exceção explícita da WCAG 2.5.8.
+
+Em contêiner onde o Chromium já existe:
+`CHROMIUM_PATH=/usr/bin/chromium node scripts/medir_responsividade.js`.
+
+### O que ainda não foi verificado
+
+- **Métricas de Core Web Vitals** (LCP, CLS, INP) — não foram medidas, nem em
+  laboratório nem em campo.
+- **Leitores de tela reais** (NVDA, VoiceOver, TalkBack). O que existe é
+  verificação estrutural: nomes acessíveis, landmarks, `aria-live`, foco e
+  ordem de tabulação conferidos no HTML e no DOM após o `app.js` rodar.
+- **Navegadores além do Chromium.** A medição de responsividade usa um só motor;
+  `backdrop-filter`, `color-mix()` e `:has()` têm caminho de degradação, mas não
+  foram testados em Firefox ou Safari.

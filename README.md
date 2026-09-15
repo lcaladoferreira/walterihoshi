@@ -59,11 +59,12 @@ Dependências: **apenas Python 3 padrão** (sem frameworks). O site é 100% est�
 
 ```bash
 python3 scripts/gerar.py
-python3 scripts/testar_ux.py            # 15 checagens sobre o HTML gerado (sem dependências)
+python3 scripts/testar_ux.py            # 17 checagens sobre o HTML gerado (sem dependências)
 node scripts/testar_ux_interacoes.js    # opcional: exercita o app.js real no jsdom (npm i --no-save jsdom)
+node scripts/medir_responsividade.js    # opcional: mede o layout real em 14 páginas × 9 telas (npm i playwright)
 ```
 
-As duas suítes rodam sobre o que **sai do build**, não sobre uma reimplementação, e saem com código 1 em qualquer falha.
+As suítes rodam sobre o que **sai do build**, não sobre uma reimplementação, e saem com código 1 em qualquer falha. A medição de responsividade abre um Chromium de verdade e reprova rolagem lateral da página, conteúdo cortado e alvo de toque abaixo de 24×24 (WCAG 2.5.8).
 
 ## UX e acessibilidade
 
@@ -78,6 +79,8 @@ Resumo do que a interface faz:
 - **Sumário gerado no build** com scroll-spy nas páginas longas, barra de progresso de leitura e voltar ao topo.
 - **Tema claro/escuro/automático** persistido e aplicado antes da primeira pintura.
 - **Progressive enhancement**: o `app.js` só acelera; com script bloqueado o acervo continua completo.
+- **Responsivo de fato**: sem rolagem lateral da página em nenhuma das 9 larguras medidas (280–1440px) e em nenhuma das 61 páginas. Grades, tabelas, facetas e o topo foram corrigidos a partir de medição em navegador — ver [`docs/ux/responsividade-e-medicao.md`](docs/ux/responsividade-e-medicao.md).
+- **Celular com a ação na primeira tela**: no hero, busca e atalhos vêm antes do texto de apoio; tabela larga rola dentro do próprio bloco, com dica e rótulo acessível.
 
 ### Deploy
 

@@ -480,6 +480,115 @@ def chk_saida_sem_janela():
     registrar("Conteúdo principal dentro do container (largura limitada + respiro)", problemas)
 
 
+
+def chk_responsividade():
+    """Regressões de responsividade medidas em navegador real (Chromium headless).
+
+    Cada item aqui já foi um defeito visto em produção: rolagem lateral na página
+    inteira em telas de 320px, tabela espremida em tira vertical e busca do hero
+    reduzida a uma faixa de poucos pixels.
+    """
+    css = open(os.path.join(STATIC, "estilo.css"), encoding="utf-8").read()
+    problemas = []
+
+    # 1. grades: sem min() o minmax(320px, 1fr) deixa a faixa mais larga que o
+    #    container em telas de 320px e a página inteira ganha rolagem lateral.
+    for grade in (".grade {", ".grade-grade {"):
+        trecho = css.split(grade, 1)[-1].split("}", 1)[0]
+        if "minmax(" not in trecho or "min(" not in trecho:
+            problemas.append("%s usa minmax() sem min(...) — estoura a viewport a 320px" % grade.split(" ")[0])
+
+    # 2. toda tabela do site precisa estar dentro do bloco rolável
+    faltando_wrap, sem_rotulo = [], []
+    for caminho in paginas_html():
+        t = open(caminho, encoding="utf-8").read()
+        for m in re.finditer(r'<table class="tabela"', t):
+            antes = t[:m.start()]
+            if 'class="tabela-wrap"' not in antes[antes.rfind("<table"):] and \
+               'class="tabela-wrap"' not in antes[-400:]:
+                faltando_wrap.append(relativo(caminho))
+                break
+        for m in re.finditer(r'<div class="tabela-wrap"([^>]*)>', t):
+            atributos = m.group(1)
+            if 'tabindex="0"' not in atributos or "aria-label" not in atributos or 'role="region"' not in atributos:
+                sem_rotulo.append(relativo(caminho))
+                break
+    if faltando_wrap:
+        problemas.append("tabela fora de .tabela-wrap (rola a página inteira): %s"
+                         % ", ".join(sorted(set(faltando_wrap))[:6]))
+    if sem_rotulo:
+        problemas.append(".tabela-wrap sem role/tabindex/aria-label (rolagem inalcançável por teclado): %s"
+                         % ", ".join(sorted(set(sem_rotulo))[:6]))
+    if ".tabela-wrap" in css and "overflow-x: auto" not in css.split(".tabela-wrap {", 1)[-1].split("}", 1)[0]:
+        problemas.append(".tabela-wrap sem overflow-x: auto")
+    if ".tabela-dica" not in css:
+        problemas.append("sem dica visível de tabela rolável (.tabela-dica)")
+
+    # 3. rótulos de faceta não podem ser nowrap: em 360px o item mais longo
+    #    ("Somente fontes oficiais/institucionais (80+)") empurrava a página.
+    chips = css.split(".chip-opcao span {", 1)[-1].split("}", 1)[0] if ".chip-opcao span {" in css else ""
+    if "nowrap" in chips:
+        problemas.append(".chip-opcao span com white-space: nowrap — rótulo longo estoura a página")
+
+    # 4. a busca do hero precisa empilhar em telas estreitas
+    if "flex-direction: column" not in css.split(".busca-destaque", 1)[-1].split("@media", 1)[0] + css:
+        problemas.append("sem empilhamento de .busca-destaque em telas estreitas")
+    if not re.search(r"@media \(max-width: 5[0-9]{2}px\)", css):
+        problemas.append("sem ponto de quebra para a busca do hero abaixo de 600px")
+
+    # 5. telas de 320px: topo precisa de ajuste próprio
+    if "@media (max-width: 340px)" not in css:
+        problemas.append("sem ajuste de topo para telas de 320px e menos")
+
+    registrar("Responsividade (grades, tabelas roláveis, busca e topo em telas estreitas)", problemas)
+
+
+def chk_alvos_minimos():
+    """Alvos de toque principais: 44px (WCAG 2.5.5/2.5.8) nas ações de topo,
+    navegação, filtros e compartilhamento."""
+    css = open(os.path.join(STATIC, "estilo.css"), encoding="utf-8").read()
+    problemas = []
+
+    def bloco(seletor, limite=180):
+        if seletor not in css:
+            return ""
+        return css.split(seletor, 1)[-1][:limite]
+
+    exigencias = [
+        (".util {", "var(--alvo)", "botões de utilidade do topo"),
+        (".nav-grupo > summary, .nav-item {", "var(--alvo)", "itens da navegação principal"),
+        (".nav-menu li a {", "var(--alvo)", "itens do menu suspenso"),
+        (".drawer-fechar {", "var(--alvo)", "botão fechar do menu mobile"),
+        (".ver-tudo {", "var(--alvo)", "atalho 'ver tudo' dos cabeçalhos de seção"),
+        (".compartilhar a, .compartilhar button {", "var(--alvo)", "botões de compartilhar"),
+        (".filtro-acoes .btn {", "var(--alvo)", "ações dos filtros (limpar, aplicar)"),
+    ]
+    for seletor, token, rotulo in exigencias:
+        trecho = bloco(seletor)
+        if not trecho:
+            problemas.append("%s: seletor %s ausente" % (rotulo, seletor.strip()))
+        elif token not in trecho:
+            problemas.append("%s abaixo de 44px (%s sem %s)" % (rotulo, seletor.strip(), token))
+
+    # a marca é o caminho de volta para a home: precisa de alvo confortável
+    if "min-height" not in bloco(".marca {"):
+        problemas.append("link da marca sem altura mínima de toque")
+
+    # em telas estreitas a busca do hero também precisa de 44px de altura
+    if 'min-height: var(--alvo)' not in css.split("@media (max-width: 560px)", 1)[-1][:600]:
+        problemas.append("botão da busca do hero sem 44px de altura em telas estreitas")
+    # altura numérica: o alternador de densidade é um controle pequeno de propósito,
+    # mas não pode descer abaixo de 40px
+    bloco_densidade = css.split(".densidade button {", 1)[-1].split("}", 1)[0]
+    m_altura = re.search(r"min-height:\s*(\d+)px", bloco_densidade)
+    if m_altura and int(m_altura.group(1)) < 40:
+        problemas.append("alternador de densidade com %spx de altura (mínimo 40px)"
+                         % m_altura.group(1))
+    if '.chip[aria-pressed="true"]' not in css:
+        problemas.append("sem estado visível para chip selecionado (aria-pressed)")
+    registrar("Alvos de toque mínimos nas ações principais (44px)", problemas)
+
+
 # ------------------------------------------------------------------ saída
 def main():
     if not os.path.isdir(SAIDA):
@@ -500,6 +609,8 @@ def main():
     chk_404()
     chk_sumario()
     chk_hierarquia_titulos()
+    chk_responsividade()
+    chk_alvos_minimos()
 
     total_paginas = len(paginas_html())
     print("=" * 72)
