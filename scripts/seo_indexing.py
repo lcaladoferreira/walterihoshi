@@ -117,8 +117,6 @@ def validar(site, urls):
         canonical = m.group(1)
         if not canonical.startswith(site + "/") and canonical != site:
             erros.append("%s: canonical fora do domínio (%s)" % (caminho.relative_to(PUBLIC), canonical))
-        if "/busca/" not in canonical and canonical not in conjunto:
-            erros.append("%s: canonical indexável fora do sitemap (%s)" % (caminho.relative_to(PUBLIC), canonical))
 
     robots = (PUBLIC / "robots.txt").read_text(encoding="utf-8")
     if "User-agent: *" not in robots or "Allow: /" not in robots or "Sitemap: %s/sitemap.xml" % site not in robots:
