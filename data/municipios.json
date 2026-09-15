@@ -1,0 +1,75 @@
+{
+  "nota": "Páginas territoriais são criadas apenas quando existe evidência real de atuação. A regional de Marília, sob responsabilidade de Walter Ihoshi a partir de setembro de 2023, abrange 51 municípios do Centro-Oeste paulista — mas o acervo só abre página individual para municípios com registros documentados, conforme a metodologia.",
+  "municipios": [
+    {
+      "id": "sao-paulo",
+      "nome": "São Paulo (capital)",
+      "regiao": "Capital",
+      "resumo": "Cidade natal e base inicial da trajetória: formação na FGV, carreira empresarial, vice-presidência da Associação Comercial de São Paulo (2003), Subprefeitura do Jabaquara (2005) e participação em sessões solenes e eventos da comunidade nikkei na Liberdade.",
+      "destaques": [
+        "Subprefeito do Jabaquara (2005)",
+        "Vice-presidente da Diretoria Executiva da ACSP (2003)",
+        "Sessão solene da Alesp pelos 107 anos da imigração japonesa (2015)",
+        "Homenagem aos políticos nipo-brasileiros no Bunkyo (2025)",
+        "Sede da Jucesp, autarquia que presidiu entre 2019 e 2023"
+      ],
+      "fontes": ["camara-bio", "site-oficial", "alesp-107-anos", "bunkyo-2025"]
+    },
+    {
+      "id": "marilia",
+      "nome": "Marília",
+      "regiao": "Centro-Oeste paulista (DRS IX)",
+      "resumo": "Município de domicílio eleitoral desde a primeira reeleição e centro político regional de Ihoshi. Como deputado federal, destinou emendas à Santa Casa e ao HCFamema; como diretor regional do Governo do Estado (2023–2026), intermediou convênios para infraestrutura, e participa anualmente do Japan Fest do Nikkey Clube.",
+      "destaques": [
+        "Emendas parlamentares para a Santa Casa de Misericórdia (cerca de R$ 3 milhões acumulados até 2018, segundo o hospital)",
+        "Emenda ao HCFamema formalizada via portarias do Ministério da Saúde (2019)",
+        "Convênios estaduais para ciclovia, recapeamento e Parque da Criança anunciados a partir de 2024",
+        "Diretoria regional da Secretaria de Governo (51 municípios, desde 2023)",
+        "Participação anual no Japan Fest do Nikkey Clube; articulação da visita da Princesa Mako (2018)"
+      ],
+      "fontes": ["santacasa-marilia", "marilianoticia-convenios-2024", "odiariodovale-convenios", "nipponja-japan-fest"]
+    },
+    {
+      "id": "suzano",
+      "nome": "Suzano",
+      "regiao": "Região Metropolitana de São Paulo / Alto Tietê",
+      "resumo": "Município com expressiva comunidade nikkei. Em março de 2025, o então diretor de Convênios do Estado visitou a Câmara Municipal, recebido pelo presidente Artur Takayama; meses depois, participou no Bunkyo da homenagem em que Takayama recebeu diploma.",
+      "destaques": [
+        "Visita institucional à Câmara Municipal (24/03/2025)",
+        "Presença na homenagem do Bunkyo a vereadores nipo-brasileiros eleitos em 2024"
+      ],
+      "fontes": ["camara-suzano", "bunkyo-2025"]
+    },
+    {
+      "id": "assis",
+      "nome": "Assis",
+      "regiao": "Sudoeste paulista",
+      "resumo": "Em 2020–2021, Ihoshi visitou Assis para tratar da crise financeira do município, do setor de oncologia do Hospital Regional de Assis e da disponibilização de emendas parlamentares, conforme registro da Câmara Municipal.",
+      "destaques": [
+        "Visitas oficiais ao município (2020–2021)",
+        "Interlocução pelo setor de oncologia do Hospital Regional de Assis"
+      ],
+      "fontes": ["camara-assis"]
+    },
+    {
+      "id": "registro",
+      "nome": "Registro",
+      "regiao": "Vale do Ribeira",
+      "resumo": "Cidade da ponte sobre o rio Ribeira de Iguape, na BR-116, que passou a se chamar Ponte Comendador Hiroshi Sumida por força de lei federal de autoria de Ihoshi (PL 2448/2007 → Lei nº 12.207/2010), homenageando o vereador nikkei considerado um dos responsáveis pela duplicação da rodovia.",
+      "destaques": [
+        "Lei nº 12.207/2010, de autoria de Ihoshi, denomina a Ponte Comendador Hiroshi Sumida"
+      ],
+      "fontes": ["lei-12207", "camara-news-ponte-sumida"]
+    },
+    {
+      "id": "cafelandia",
+      "nome": "Cafelândia",
+      "regiao": "Centro-Oeste paulista",
+      "resumo": "Sede da Colônia Hirano, primeira colônia de imigrantes japoneses ao longo da Estrada de Ferro Noroeste, fundada em 1915. Ihoshi participou das comemorações do centenário da colônia em agosto de 2015 e entregou homenagem às famílias de pioneiros.",
+      "destaques": [
+        "Participação no centenário da Colônia Hirano (2015)"
+      ],
+      "fontes": ["bunkyo-hirano"]
+    }
+  ]
+}

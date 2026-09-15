@@ -1,0 +1,24 @@
+{
+  "nome_projeto": "Walter Ihoshi — Acervo de Atuação Pública",
+  "marca_curta": "Acervo Walter Ihoshi",
+  "descricao": "Base pública e verificável da trajetória, realizações, projetos e atuação de Walter Ihoshi (Walter Shindi Iihoshi): mandatos na Câmara dos Deputados, presidência da JUCESP, diretoria de convênios do Estado de São Paulo e relação com a comunidade nipo-brasileira. Cada registro traz fonte e nível de evidência.",
+  "tagline": "Veja o que foi feito. Consulte as fontes.",
+  "site_url": "https://lcaladoferreira.github.io",
+  "base_path": "/walterihoshi",
+  "idioma": "pt-BR",
+  "autor": {
+    "nome": "Acervo de Atuação Pública de Walter Ihoshi",
+    "tipo": "projeto independente de documentação pública",
+    "responsavel": "Leandro Calado",
+    "site": "https://lcfconsulting.com.br",
+    "contato": "https://lcfconsulting.com.br"
+  },
+  "candidatura_2026": {
+    "cargo": "Deputado Federal por São Paulo",
+    "partido": "PSD",
+    "numero": "5599",
+    "situacao": "candidato registrado nas eleições de 2026"
+  },
+  "data_construcao": "2026-09-15",
+  "versao_dados": "2026-09-15"
+}

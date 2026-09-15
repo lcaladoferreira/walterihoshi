@@ -1,0 +1,111 @@
+{
+  "temas": [
+    {
+      "id": "micro-e-pequenas-empresas",
+      "nome": "Micro e Pequenas Empresas",
+      "resumo": "Atuação concentrada em simplificação tributária e crédito para pequenos negócios: comissões especiais do SuperSimples (PLP 25/2007) e da tributação do setor (PLP 420/2014), frente parlamentar mista da micro e pequena empresa e relatoria do Novo Cadastro Positivo.",
+      "cargos": ["Deputado Federal (2007–2019)"],
+      "fontes": ["camara-bio", "camara-ficha-plp441"]
+    },
+    {
+      "id": "empreendedorismo",
+      "nome": "Empreendedorismo",
+      "resumo": "Da vice-presidência da Associação Comercial de São Paulo (2003) à presidência da Jucesp (2019–2023), com foco em reduzir barreiras à abertura e ao crescimento de empresas.",
+      "cargos": ["Vice-presidente da ACSP (2003)", "Presidente da Jucesp (2019–2023)"],
+      "fontes": ["camara-bio", "dcomercio-recorde-2021"]
+    },
+    {
+      "id": "desburocratizacao",
+      "nome": "Desburocratização",
+      "resumo": "Modernização do registro empresarial paulista: digitalização de processos, adesão ao Balcão Único (2021) e simplificação da abertura de empresas na Jucesp.",
+      "cargos": ["Presidente da Jucesp (2019–2023)"],
+      "fontes": ["dcomercio-balcao-unico", "dcomercio-recorde-2021"]
+    },
+    {
+      "id": "comercio",
+      "nome": "Comércio",
+      "resumo": "Trajetória construída no comércio: formação de administrador, diretoria em entidades do setor e pautas de defesa do comércio e do consumo na Câmara dos Deputados.",
+      "cargos": ["Vice-presidente da ACSP (2003)", "Deputado Federal (2007–2019)"],
+      "fontes": ["camara-bio"]
+    },
+    {
+      "id": "credito",
+      "nome": "Crédito",
+      "resumo": "Relatoria do Novo Cadastro Positivo (PLP 441/2017 → LC 166/2019), que mudou as regras do histórico de crédito de consumidores e empresas, e audiências públicas sobre cadastros e negativação.",
+      "cargos": ["Deputado Federal (2007–2019)"],
+      "fontes": ["camara-ficha-plp441", "camara-api"]
+    },
+    {
+      "id": "cadastro-positivo",
+      "nome": "Cadastro Positivo",
+      "resumo": "Tema central do último mandato: relatoria do PLP 441/2017, de autoria do Senado, transformado na Lei Complementar 166/2019. Ihoshi defendeu a inclusão automática com direito de exclusão e o uso do histórico de pagamentos para reduzir juros e ampliar crédito.",
+      "cargos": ["Deputado Federal (PSD-SP, 2015–2019)"],
+      "fontes": ["camara-ficha-plp441", "camara-news-cadastro-positivo"]
+    },
+    {
+      "id": "desenvolvimento-economico",
+      "nome": "Desenvolvimento Econômico",
+      "resumo": "Atuação em comissões de Desenvolvimento Econômico e em pautas de ambiente de negócios, registro empresarial e defesa da indústria regional (Parque Tecnológico de Marília, apoio ao Distrito Industrial).",
+      "cargos": ["Deputado Federal (2007–2019)", "Presidente da Jucesp (2019–2023)", "Diretor de Convênios (2023–2026)"],
+      "fontes": ["camara-bio", "visaonoticias-jucesp"]
+    },
+    {
+      "id": "saude",
+      "nome": "Saúde",
+      "resumo": "Emendas parlamentares para hospitais filantrôpicos e públicos de Marília (Santa Casa e HCFamema), interlocução pelo Hospital Regional de Assis e coordenação da Frente Parlamentar pela Desoneração Tributária dos Medicamentos.",
+      "cargos": ["Deputado Federal (2007–2019)"],
+      "fontes": ["santacasa-marilia", "camara-news-frente-remedios", "camara-assis"]
+    },
+    {
+      "id": "defesa-do-consumidor",
+      "nome": "Defesa do Consumidor",
+      "resumo": "Oito anos de atuação na Comissão de Defesa do Consumidor da Câmara, incluindo cargos de 2º e 3º vice-presidente, audiências públicas sobre cadastros de crédito e negativação, e a relatoria que modernizou o Cadastro Positivo.",
+      "cargos": ["Deputado Federal (2007–2019)"],
+      "fontes": ["camara-bio"]
+    },
+    {
+      "id": "administracao-publica",
+      "nome": "Administração Pública",
+      "resumo": "Três experiências em cargos executivos: subprefeito do Jabaquara (2005), presidente da Jucesp (2019–2023) e diretor regional de convênios do Governo de São Paulo (2023–2026).",
+      "cargos": ["Subprefeito (2005)", "Presidente da Jucesp (2019–2023)", "Diretor de Convênios (2023–2026)"],
+      "fontes": ["site-oficial", "giromarilia-jucesp", "marilia-gov-regional"]
+    },
+    {
+      "id": "convenios",
+      "nome": "Convênios do Estado de São Paulo",
+      "resumo": "A partir de setembro de 2023, como diretor regional da Secretaria de Governo em Marília, mediação entre o Governo do Estado e as prefeituras de 51 municípios do Centro-Oeste paulista para destravar convênios e recursos.",
+      "cargos": ["Diretor de Convênios (2023–2026)"],
+      "fontes": ["odiariodovale-convenios", "marilia-gov-regional"]
+    },
+    {
+      "id": "comunidade-nikkei",
+      "nome": "Comunidade Nipo-Brasileira",
+      "resumo": "Filho de imigrantes japoneses, criado na Liberdade, Ihoshi construiu pontes entre o poder público e a comunidade nikkei: requerimentos e eventos pelo centenário da imigração (2008), participação em sessões solenes, apoio a kaikans e festivais como o Japan Fest de Marília.",
+      "cargos": ["Deputado Federal (2007–2019)", "Diretor de Convênios (2023–2026)"],
+      "fontes": ["camara-news-sessao-centenario", "bunkyo-2025", "alesp-107-anos", "nipponja-japan-fest"]
+    },
+    {
+      "id": "relacoes-brasil-japao",
+      "nome": "Relações Brasil–Japão",
+      "resumo": "Indicação pela criação de consulado em Hamamatsu (2008), participação no Grupo Parlamentar Brasil-Japão e no seminário do centenário, comissão externa sobre produtos japoneses após Fukushima (2011) e lei que homenageou o líder comunitário Hiroshi Sumida em Registro.",
+      "cargos": ["Deputado Federal (2007–2019)"],
+      "fontes": ["camara-api", "camara-news-seminario-centenario", "lei-12207"]
+    },
+    {
+      "id": "seguranca",
+      "nome": "Segurança",
+      "resumo": "Não há, nesta versão do acervo, realização documentada de Walter Ihoshi na área de segurança pública. Existe proposta de campanha para 2026 (ampliar o acesso dos municípios da região aos fundos de segurança pública), registrada na página de propostas eleitorais.",
+      "cargos": [],
+      "fontes": ["site-oficial"],
+      "apenas_proposta": true
+    },
+    {
+      "id": "educacao",
+      "nome": "Educação",
+      "resumo": "Não há, nesta versão do acervo, realização documentada de Walter Ihoshi na área de educação. Existe proposta de campanha para 2026 (apoio à instalação de um campus do Instituto Federal em Marília), registrada na página de propostas eleitorais.",
+      "cargos": [],
+      "fontes": ["site-oficial"],
+      "apenas_proposta": true
+    }
+  ]
+}

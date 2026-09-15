@@ -1,0 +1,68 @@
+{
+  "nome_usual": "Walter Ihoshi",
+  "nome_civil": "Walter Shindi Iihoshi",
+  "variantes_busca": [
+    "Walter Ihoshi",
+    "Walter Iihoshi",
+    "Walter Shindi Ihoshi",
+    "Walter Shindi Iihoshi",
+    "Walter Ioshi",
+    "Walter Ihoshi deputado",
+    "Walter Ihoshi deputado federal",
+    "Walter Ihoshi PSD"
+  ],
+  "nascimento": "1961-07-17",
+  "naturalidade": "São Paulo (SP)",
+  "filiacao": ["Migaku Iihoshi", "Yoshiko Iihoshi"],
+  "profissao": "Administrador",
+  "escolaridade": "Pós-graduação",
+  "partido_atual": "PSD",
+  "resumo": "Administrador e político brasileiro, filho de imigrantes japoneses. Foi deputado federal por São Paulo em três legislaturas (2007–2011, 2011–2015 e 2015–2019), presidente da Junta Comercial do Estado de São Paulo (Jucesp, 2019–2023) e diretor regional da Secretaria de Governo e Relações Institucionais do Estado de São Paulo, responsável por convênios na regional de Marília (2023–2026). É candidato a deputado federal pelo PSD nas eleições de 2026.",
+  "cargos": [
+    {
+      "cargo": "Deputado Federal por São Paulo",
+      "periodo": "01/02/2007 – 31/01/2011 (53ª Legislatura)",
+      "partido": "PFL",
+      "fontes": ["camara-bio"]
+    },
+    {
+      "cargo": "Deputado Federal por São Paulo (suplente, em exercício em múltiplos períodos)",
+      "periodo": "15/02/2011 – 31/01/2015 (54ª Legislatura)",
+      "partido": "DEM / PSD",
+      "fontes": ["camara-bio"]
+    },
+    {
+      "cargo": "Deputado Federal por São Paulo (suplente em exercício de fev. a out. 2015; efetivado em 01/01/2017)",
+      "periodo": "03/02/2015 – 31/01/2019 (55ª Legislatura)",
+      "partido": "PSD",
+      "fontes": ["camara-bio"]
+    },
+    {
+      "cargo": "Presidente da Junta Comercial do Estado de São Paulo (Jucesp)",
+      "periodo": "fevereiro de 2019 – início de 2023",
+      "partido": "—",
+      "fontes": ["giromarilia-jucesp", "crtsp-jucesp", "eparaguacu-jucesp"]
+    },
+    {
+      "cargo": "Diretor de Convênios / diretor regional da Secretaria de Governo e Relações Institucionais do Estado de São Paulo (Escritório Regional de Marília)",
+      "periodo": "setembro de 2023 – 2026",
+      "partido": "—",
+      "fontes": ["odiariodovale-convenios", "marilia-gov-regional", "psd-escritorio-marilia"]
+    }
+  ],
+  "formacao": [
+    "Administração Pública, com especialização em Marketing e Finanças — Fundação Getulio Vargas (FGV), 1984 (registro na biografia oficial da Câmara dos Deputados)",
+    "Comércio Internacional — University of California, Los Angeles (UCLA), 1987–1988 (registro na biografia oficial da Câmara dos Deputados)"
+  ],
+  "origem": {
+    "resumo": "Filho de imigrantes japoneses: o pai, Migaku Iihoshi, era imigrante japonês da região de Kumamoto; a mãe, Yoshiko Iihoshi, filha de japoneses, nasceu em Guaiçara (SP). Cresceu no bairro da Liberdade, em São Paulo, segundo relato no site oficial do candidato.",
+    "fontes": ["camara-bio", "site-oficial"]
+  },
+  "sameAs": [
+    "https://www.camara.leg.br/deputados/141560",
+    "https://walterihoshi.com.br/",
+    "https://twitter.com/walterihoshi",
+    "https://pt.wikipedia.org/wiki/Walter_Shindi_Ihoshi"
+  ],
+  "nota_nome": "O nome civil, registrado na Câmara dos Deputados e no TSE, é 'Walter Shindi Iihoshi' (com dois 'i'). Na vida pública e na imprensa, porém, é frequente o uso de 'Walter Ihoshi'. Este acervo utiliza 'Walter Ihoshi' como forma de tratamento e registra a grafia civil em todos os pontos em que a precisão documental é necessária. As duas grafias são tratadas como variantes de busca equivalentes."
+}

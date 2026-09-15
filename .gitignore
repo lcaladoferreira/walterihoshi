@@ -1,0 +1,12 @@
+# Saída do build
+public/
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Dados brutos coletados (regeneráveis por scripts/coletar_camara.py)
+data/bruto/
+
+# Sistema
+.DS_Store
