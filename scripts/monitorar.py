@@ -25,6 +25,7 @@ Consultas monitoradas (Google News RSS, cobre imprensa nacional e regional):
 A rotina é tolerante a falhas de rede (avisa e sai 0) para não quebrar o
 build diário do GitHub Actions.
 """
+import hashlib
 import json
 import os
 import re
