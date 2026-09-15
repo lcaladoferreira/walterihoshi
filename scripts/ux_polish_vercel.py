@@ -8,7 +8,8 @@ PUBLIC = RAIZ / "public"
 APP = PUBLIC / "static" / "app.js"
 CSS = PUBLIC / "static" / "estilo.css"
 POLISH = RAIZ / "static" / "ux-polish-v4.css"
-ASSET_VERSION = "20260915-ux4"
+TIMELINE = RAIZ / "static" / "timeline-redesign.css"
+ASSET_VERSION = "20260915-ux5"
 
 
 def replace_once(texto, antigo, novo, rotulo):
@@ -71,9 +72,14 @@ def main():
 
     css = CSS.read_text(encoding="utf-8")
     extra = POLISH.read_text(encoding="utf-8")
+    timeline = TIMELINE.read_text(encoding="utf-8")
     marcador = "/* UX-POLISH-VERCEL */"
+    marcador_timeline = "/* TIMELINE-REDESIGN-VERCEL */"
     if marcador not in css:
-        CSS.write_text(css + "\n\n" + marcador + "\n" + extra + "\n", encoding="utf-8")
+        css += "\n\n" + marcador + "\n" + extra + "\n"
+    if marcador_timeline not in css:
+        css += "\n\n" + marcador_timeline + "\n" + timeline + "\n"
+    CSS.write_text(css, encoding="utf-8")
 
     html_alterados = 0
     for html_path in PUBLIC.rglob("*.html"):
@@ -91,8 +97,11 @@ def main():
 
     if "termosFiltro.every" not in APP.read_text(encoding="utf-8"):
         raise RuntimeError("Patch de filtro de realizações não foi aplicado")
-    if "UX-POLISH-VERCEL" not in CSS.read_text(encoding="utf-8"):
+    css_final = CSS.read_text(encoding="utf-8")
+    if "UX-POLISH-VERCEL" not in css_final:
         raise RuntimeError("Camada de organização visual não foi aplicada")
+    if "TIMELINE-REDESIGN-VERCEL" not in css_final:
+        raise RuntimeError("Redesign da linha do tempo não foi aplicado")
     if html_alterados == 0:
         raise RuntimeError("Cache busting não foi aplicado em nenhum HTML")
 
@@ -102,7 +111,7 @@ def main():
     if f'/static/app.js?v={ASSET_VERSION}' not in home:
         raise RuntimeError("Home não referencia a versão nova do JS")
 
-    print(f"UX Vercel OK: organização visual forte, filtros corrigidos e assets versionados em {html_alterados} HTMLs.")
+    print(f"UX Vercel OK: organização visual, filtros e linha do tempo corrigidos; assets versionados em {html_alterados} HTMLs.")
 
 
 if __name__ == "__main__":
