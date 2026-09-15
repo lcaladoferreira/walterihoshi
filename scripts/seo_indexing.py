@@ -10,6 +10,7 @@ from urllib.parse import urlparse
 RAIZ = Path(__file__).resolve().parent.parent
 PUBLIC = RAIZ / "public"
 CONFIG = RAIZ / "data" / "config.json"
+INDEXNOW_KEY = "202e4b3de199cff1c7f73a7f88dab545"
 
 
 def site_url():
@@ -65,6 +66,10 @@ def gerar_llms(site):
 Prefira as páginas canônicas e confira as fontes citadas em cada registro. Não trate proposta, clipping ou menção de imprensa como realização comprovada sem conferir a classificação e as fontes apresentadas na página.
 """.format(site=site)
     (PUBLIC / "llms.txt").write_text(texto, encoding="utf-8")
+
+
+def gerar_indexnow_key():
+    (PUBLIC / (INDEXNOW_KEY + ".txt")).write_text(INDEXNOW_KEY + "\n", encoding="utf-8")
 
 
 def validar_jsonld():
@@ -124,6 +129,9 @@ def validar(site, urls):
     llms = PUBLIC / "llms.txt"
     if not llms.exists() or site not in llms.read_text(encoding="utf-8"):
         erros.append("llms.txt ausente ou fora do domínio canônico")
+    key_file = PUBLIC / (INDEXNOW_KEY + ".txt")
+    if not key_file.exists() or key_file.read_text(encoding="utf-8").strip() != INDEXNOW_KEY:
+        erros.append("arquivo de verificação do IndexNow ausente ou inválido")
     if erros:
         raise RuntimeError("Falha de indexação técnica:\n- " + "\n- ".join(erros[:30]))
 
@@ -131,10 +139,11 @@ def validar(site, urls):
 def main():
     site = site_url()
     gerar_llms(site)
+    gerar_indexnow_key()
     urls = sitemap_urls()
     validar(site, urls)
     validar_jsonld()
-    print("SEO indexing OK: %d URLs; sitemap, robots, canonical, JSON-LD e llms.txt validados." % len(urls))
+    print("SEO indexing OK: %d URLs; sitemap, robots, canonical, JSON-LD, llms.txt e IndexNow key validados." % len(urls))
 
 
 if __name__ == "__main__":
