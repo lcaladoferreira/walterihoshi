@@ -1,0 +1,40 @@
+name: Atualização diária do acervo
+
+on:
+  schedule:
+    - cron: "17 11 * * *"  # diariamente (11:17 UTC = 08:17 no horário de Brasília)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atualizar-acervo
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Coleta de dados oficiais (Câmara dos Deputados)
+        run: python3 scripts/coletar_camara.py
+
+      - name: Monitoramento de novas menções (fila de validação)
+        run: python3 scripts/monitorar.py
+
+      - name: Geração do site estático
+        run: python3 scripts/gerar.py
+
+      - name: Publica alterações (dados coletados, fila e site)
+        run: |
+          git config user.name "acervo-bot"
+          git config user.email "actions@github.com"
+          git add data/ public/
+          git diff --cached --quiet || git commit -m "Atualização diária do acervo: coleta e regeração do site ($(date -u +%F))"
+          git push

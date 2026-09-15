@@ -1,0 +1,47 @@
+{
+  "atualizacoes": [
+    {
+      "data": "2026-09-15",
+      "titulo": "Carga inicial do acervo: 25 registros documentados",
+      "texto": "Publicação da primeira versão do acervo com realizações, linha do tempo, páginas temáticas, territoriais, dossiês (Jucesp, convênios, comunidade nikkei), metodologia e busca.",
+      "tipo": "versão",
+      "registros": ["cadastro-positivo", "ponte-hiroshi-sumida", "desburocratizacao-jucesp"]
+    },
+    {
+      "data": "2026-09-15",
+      "titulo": "Incorporado: relatoria do Novo Cadastro Positivo (PLP 441/2017)",
+      "texto": "Registro com fonte primária na ficha de tramitação da Câmara dos Deputados; resultado: Lei Complementar 166/2019.",
+      "tipo": "registro",
+      "registros": ["cadastro-positivo"],
+      "tema": "cadastro-positivo",
+      "municipio": null
+    },
+    {
+      "data": "2026-09-15",
+      "titulo": "Incorporado: autoria da Lei nº 12.207/2010 (Ponte Comendador Hiroshi Sumida, Registro/SP)",
+      "texto": "Projeto de lei de autoria de Walter Ihoshi sancionado em 19/01/2010; fontes: Agência Câmara, texto da lei e base de dados abertos.",
+      "tipo": "registro",
+      "registros": ["ponte-hiroshi-sumida"],
+      "tema": "comunidade-nikkei",
+      "municipio": "registro"
+    },
+    {
+      "data": "2026-09-15",
+      "titulo": "Incorporado: gestão na Jucesp (2019–2023) com Balcão Único e recorde de aberturas em 2021",
+      "texto": "Dossiê dedicado separa o que foi presidido, coordenado e o que são resultados da autarquia com fatores conjunturais.",
+      "tipo": "registro",
+      "registros": ["nomeacao-jucesp", "desburocratizacao-jucesp"],
+      "tema": "desburocratizacao",
+      "municipio": "sao-paulo"
+    },
+    {
+      "data": "2026-09-15",
+      "titulo": "Incorporado: diretoria de convênios da regional de Marília (2023–2026)",
+      "texto": "Nomeação de setembro de 2023 e convênios anunciados para Marília, com notas de evidência para valores declarados em período eleitoral.",
+      "tipo": "registro",
+      "registros": ["diretor-convenios-marilia", "convenios-marilia-2023-2026"],
+      "tema": "convenios",
+      "municipio": "marilia"
+    }
+  ]
+}

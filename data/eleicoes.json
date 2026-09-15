@@ -1,0 +1,12 @@
+{
+  "nota": "Histórico eleitoral de Walter Ihoshi em eleições proporcionais, conforme registros do TSE e compilações da imprensa. Dados de votos por eleição devem ser conferidos no sistema oficial do TSE antes de uso definitivo.",
+  "candidaturas": [
+    {"ano": 2006, "cargo": "Deputado Federal — SP", "partido": "PFL", "resultado": "Eleito", "votos": 101097, "fontes": ["congressoemfoco-2006", "tse-divulga"]},
+    {"ano": 2010, "cargo": "Deputado Federal — SP", "partido": "DEM", "resultado": "Suplente; exerceu o mandato em múltiplos períodos (2011–2015)", "votos": null, "fontes": ["folha-2010", "blogdorodrigo-2022", "camara-bio"]},
+    {"ano": 2014, "cargo": "Deputado Federal — SP", "partido": "PSD", "resultado": "Suplente; exerceu o mandato de fev. a out. 2015 e foi efetivado em 01/01/2017", "votos": 88070, "fontes": ["plural-2026", "camara-bio"]},
+    {"ano": 2018, "cargo": "Deputado Federal — SP", "partido": "PSD", "resultado": "Suplente (mandato encerrado em 31/01/2019)", "votos": 66428, "fontes": ["plural-2026", "blogdorodrigo-2022"]},
+    {"ano": 2022, "cargo": "Deputado Federal — SP", "partido": "PSD", "resultado": "Suplente", "votos": 55027, "fontes": ["plural-2026", "marilianoticia-votos-2022"]},
+    {"ano": 2026, "cargo": "Deputado Federal — SP", "partido": "PSD (número 5599)", "resultado": "Candidatura registrada — eleições de outubro de 2026", "votos": null, "fontes": ["plural-2026"]}
+  ],
+  "nota_mandatos": "Walter Ihoshi é chamado de 'três vezes deputado federal' porque exerceu efetivamente mandatos em três legislaturas (2007–2011, 2011–2015 e 2015–2019). Nas legislaturas de 2011 e 2015, entrou como suplente e foi efetivado durante o período, conforme os registros de suplência da Câmara dos Deputados. Este acervo diferencia eleição, suplência e exercício do mandato."
+}
