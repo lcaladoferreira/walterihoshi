@@ -1,0 +1,6 @@
+/* Critical visibility contract for JS-driven filters.
+   Author-level display rules (.card { display:flex }, empty-state layouts, etc.)
+   must never override the semantic hidden attribute toggled by app.js. */
+[hidden] {
+  display: none !important;
+}
