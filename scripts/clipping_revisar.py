@@ -16,21 +16,19 @@ NOVO_FORM = '''<form class="filtros" id="filtros-clipping-v2" aria-label="Filtra
 </form><p id="clip-aviso-v2" class="dica clip-aviso-v2" hidden></p>'''
 
 
-def ocultar_estado_vazio_legado(html):
-    frase = 'Nenhuma menção com esse filtro'
-    pos = html.find(frase)
-    if pos < 0:
-        return html
-    inicio = html.rfind('<div class="estado estado-vazio"', 0, pos)
-    if inicio < 0:
-        return html
-    fim_abertura = html.find('>', inicio)
-    if fim_abertura < 0:
-        return html
-    abertura = html[inicio:fim_abertura + 1]
-    if ' hidden' not in abertura:
-        nova = abertura[:-1] + ' hidden data-clipping-legado="1">'
-        html = html[:inicio] + nova + html[fim_abertura + 1:]
+def remover_estado_vazio_legado(html):
+    """Remove de vez o estado vazio antigo do gerador.
+
+    Esse bloco era pensado para o filtro legado e não pode coexistir com o
+    clipping-v2, porque aparece mesmo quando há menções visíveis.
+    """
+    padrao = re.compile(
+        r'<div class="estado estado-vazio">\s*'
+        r'<p class="estado-titulo">Nenhuma menção com esse filtro</p>\s*'
+        r'<p>.*?</p>\s*</div>',
+        re.S,
+    )
+    html, _ = padrao.subn('', html, count=1)
     return html
 
 
@@ -51,6 +49,7 @@ def main():
     if n == 0 and 'id="filtros-clipping-v2"' not in html:
         print('AVISO: formulário legado do clipping não encontrado; mantendo HTML existente.')
 
+    # O seletor de período substitui a navegação por chips de datas.
     html = re.sub(
         r'<nav class="filtro-anos" data-navegacao-secoes[^>]*>.*?</nav>',
         '',
@@ -59,7 +58,8 @@ def main():
         flags=re.S,
     )
 
-    html = ocultar_estado_vazio_legado(html)
+    # Não esconder: remover fisicamente para impedir reaparecimento por CSS.
+    html = remover_estado_vazio_legado(html)
 
     # Remove qualquer versão anterior do script e injeta apenas a atual.
     html = re.sub(
@@ -67,12 +67,16 @@ def main():
         '',
         html,
     )
-    script = '<script src="/static/clipping-v2.js?v=20260915-clip3" defer></script>'
+    script = '<script src="/static/clipping-v2.js?v=20260915-clip4" defer></script>'
     if script not in html:
         html = html.replace('</body>', script + '</body>', 1)
 
     HTML.write_text(html, encoding='utf-8')
-    print('Clipping UX OK: estado legado ocultado, chips de data removidos e 7 dias como padrão.')
+
+    if 'Nenhuma menção com esse filtro' in html:
+        raise RuntimeError('Estado vazio legado do clipping ainda está no HTML')
+
+    print('Clipping UX OK: estado legado removido, chips de data removidos e 7 dias como padrão.')
     return 0
 
 
