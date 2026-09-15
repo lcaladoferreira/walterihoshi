@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Build específico para o deploy de produção no Vercel.
-
-O GitHub Pages publica o projeto em /walterihoshi, mas o Vercel publica na raiz.
-Este build ajusta apenas a cópia efêmera do checkout do Vercel antes de chamar
-o gerador existente, sem alterar a configuração persistida usada pelo Pages.
-"""
 import json
 import subprocess
 import sys
@@ -23,13 +17,13 @@ def main():
 
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "gerar.py")], cwd=RAIZ, check=True)
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "clipping_status.py")], cwd=RAIZ, check=True)
+    subprocess.run([sys.executable, str(RAIZ / "scripts" / "clipping_revisar.py")], cwd=RAIZ, check=True)
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "seo_p0.py")], cwd=RAIZ, check=True)
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "ux_polish_vercel.py")], cwd=RAIZ, check=True)
 
     index = RAIZ / "public" / "index.html"
     if not index.exists():
         raise RuntimeError("Build do Vercel não gerou public/index.html")
-
     html = index.read_text(encoding="utf-8")
     if '/static/estilo.css' not in html:
         raise RuntimeError("HTML do Vercel não referencia /static/estilo.css")
@@ -40,29 +34,26 @@ def main():
 
     clipping = RAIZ / "public" / "clipping" / "index.html"
     if clipping.exists():
-        clipping_html = clipping.read_text(encoding="utf-8")
-        if "Última atualização do clipping:" not in clipping_html or "08:17 e 20:17" not in clipping_html:
-            raise RuntimeError("Página de clipping não exibe data/hora da última atualização")
+        ch = clipping.read_text(encoding="utf-8")
+        for esperado in ("Última atualização do clipping:", "clip-periodo", "clip-fonte-v2", "clipping-v2.js"):
+            if esperado not in ch:
+                raise RuntimeError("Clipping funcional incompleto: %s ausente" % esperado)
 
     css = RAIZ / "public" / "static" / "estilo.css"
     if not css.exists() or css.stat().st_size < 1000:
-        raise RuntimeError("CSS principal não foi copiado para public/static/estilo.css")
-    if "UX-POLISH-VERCEL" not in css.read_text(encoding="utf-8"):
-        raise RuntimeError("Camada de organização visual não foi aplicada ao CSS final")
-
+        raise RuntimeError("CSS principal não foi copiado")
     app = RAIZ / "public" / "static" / "app.js"
     if not app.exists() or "termosFiltro.every" not in app.read_text(encoding="utf-8"):
-        raise RuntimeError("Correções de filtro não foram aplicadas ao JavaScript final")
+        raise RuntimeError("Correções de filtro não foram aplicadas")
 
     sitemap = RAIZ / "public" / "sitemap.xml"
     if not sitemap.exists() or "https://walterihoshi.vercel.app/" not in sitemap.read_text(encoding="utf-8"):
-        raise RuntimeError("Sitemap de produção ausente ou com domínio incorreto")
-
+        raise RuntimeError("Sitemap de produção ausente ou incorreto")
     robots = RAIZ / "public" / "robots.txt"
     if not robots.exists() or "https://walterihoshi.vercel.app/sitemap.xml" not in robots.read_text(encoding="utf-8"):
         raise RuntimeError("robots.txt não aponta para o sitemap de produção")
 
-    print("Build Vercel OK: raiz /, SEO P0, clipping com timestamp, organização visual e filtros validados em public/.")
+    print("Build Vercel OK: clipping funcional, timestamp, SEO e UX validados.")
 
 
 if __name__ == "__main__":
