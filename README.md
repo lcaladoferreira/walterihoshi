@@ -55,6 +55,30 @@ python3 scripts/gerar.py            # gera o site em public/
 
 Dependências: **apenas Python 3 padrão** (sem frameworks). O site é 100% estático, renderizado no build — conteúdo crítico não depende de JavaScript.
 
+### Verificação de UX e acessibilidade
+
+```bash
+python3 scripts/gerar.py
+python3 scripts/testar_ux.py            # 15 checagens sobre o HTML gerado (sem dependências)
+node scripts/testar_ux_interacoes.js    # opcional: exercita o app.js real no jsdom (npm i --no-save jsdom)
+```
+
+As duas suítes rodam sobre o que **sai do build**, não sobre uma reimplementação, e saem com código 1 em qualquer falha.
+
+## UX e acessibilidade
+
+As decisões de projeto estão documentadas em [`docs/ux/`](docs/ux/): arquitetura de informação, fluxos e matriz de estados, regras de acessibilidade e como verificar.
+
+Resumo do que a interface faz:
+
+- **Navegação agrupada por intenção** (Acervo / Dossiês / Acompanhe) com `aria-current`, drawer mobile com foco preso e `Esc`, e trilha de navegação como landmark em toda página interna.
+- **Facetas em `/realizacoes/`**: texto, tipo de atuação, tema, município e nível mínimo de evidência, com ordenação, contagem anunciada, revelação progressiva, densidade alternável e **estado dos filtros na URL** (recorte compartilhável).
+- **Busca instantânea** com realce dos termos, filtro por tipo de conteúdo, navegação por teclado (`/` ou `Ctrl`+`K`, `↑`/`↓`, `Enter`, `Esc`), buscas recentes e alternativa navegável sem JavaScript.
+- **Estados sempre declarados**: vazio, erro, 404 e fim de lista têm explicação e ação de saída — nenhuma tela morta.
+- **Sumário gerado no build** com scroll-spy nas páginas longas, barra de progresso de leitura e voltar ao topo.
+- **Tema claro/escuro/automático** persistido e aplicado antes da primeira pintura.
+- **Progressive enhancement**: o `app.js` só acelera; com script bloqueado o acervo continua completo.
+
 ### Deploy
 
 - **GitHub Pages**: publique a pasta `public/` (ou use o workflow incluído). Ajuste `site_url`/`base_path` em `data/config.json`.
