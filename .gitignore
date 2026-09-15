@@ -10,3 +10,6 @@ data/bruto/
 
 # Sistema
 .DS_Store
+
+# Ferramentas de desenvolvimento (testes de interação)
+node_modules/

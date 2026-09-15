@@ -10,6 +10,7 @@ Dependências: apenas a biblioteca padrão do Python 3.
 import html
 import json
 import os
+import re
 import shutil
 from datetime import date
 
@@ -233,54 +234,142 @@ def bloco_jsonld(objetos):
     )
 
 # ---------------------------------------------------------------- estrutura
-NAV = [
-    ("/realizacoes/", "Realizações"),
-    ("/temas/", "Temas"),
-    ("/municipios/", "Municípios"),
-    ("/linha-do-tempo/", "Linha do tempo"),
-    ("/mandatos/", "Mandatos"),
-    ("/jucesp/", "Jucesp"),
-    ("/convenios/", "Convênios"),
-    ("/comunidade-nikkei/", "Comunidade nikkei"),
-    ("/clipping/", "Clipping do dia"),
-    ("/fontes/", "Fontes e método"),
+# Arquitetura de informação: três agrupamentos por intenção de visita.
+#   Acervo     → "o que foi feito" (a base e seus recortes)
+#   Dossiês    → "aprofunde um capítulo" (páginas longas de contexto)
+#   Acompanhe  → "o que está acontecendo e como conferir"
+# No desktop os dois últimos viram menus reveláveis; no drawer mobile os três
+# aparecem como seções rotuladas, sem esconder nada atrás de um toque.
+GRUPOS_NAV = [
+    ("Acervo", [
+        ("/realizacoes/", "Realizações"),
+        ("/temas/", "Temas"),
+        ("/municipios/", "Municípios"),
+        ("/linha-do-tempo/", "Linha do tempo"),
+    ]),
+    ("Dossiês", [
+        ("/mandatos/", "Mandatos na Câmara"),
+        ("/jucesp/", "Jucesp (2019–2023)"),
+        ("/convenios/", "Convênios de SP"),
+        ("/comunidade-nikkei/", "Comunidade nikkei"),
+    ]),
+    ("Acompanhe", [
+        ("/clipping/", "Clipping do dia"),
+        ("/atualizacoes/", "Atualizações do acervo"),
+        ("/fontes/", "Fontes e método"),
+    ]),
 ]
 
+def contagens_nav():
+    return {
+        "/realizacoes/": "%d registros" % len(REALIZACOES),
+        "/temas/": "%d temas" % len(TEMAS),
+        "/municipios/": "%d municípios" % len(MUNICIPIOS),
+        "/linha-do-tempo/": "%d marcos" % len(TIMELINE),
+        "/clipping/": "%d menções" % len(CLIPPING),
+        "/atualizacoes/": "%d incorporações" % len(ATUALIZACOES),
+        "/fontes/": "%d fontes" % len(FONTES["fontes"]),
+    }
+
+def _link_nav(caminho, rotulo, atual, extra=""):
+    atual_attr = ' aria-current="page"' if caminho == atual else ""
+    return '<a class="nav-item%s" href="%s"%s>%s</a>' % (extra, l(caminho), atual_attr, esc(rotulo))
+
+def _item_drawer(caminho, rotulo, atual, contagens):
+    atual_attr = ' aria-current="page"' if caminho == atual else ""
+    conta = contagens.get(caminho)
+    return ('<li><a href="%s"%s>%s%s</a></li>'
+            % (l(caminho), atual_attr, esc(rotulo),
+               ('<span class="conta-mini">%s</span>' % esc(conta)) if conta else ""))
+
 def cabecalho(atual):
-    itens = []
-    for caminho, rotulo in NAV:
-        classe = ' class="ativo"' if caminho == atual else ""
-        itens.append('<a href="%s"%s>%s</a>' % (l(caminho), classe, rotulo))
+    """Topo fixo: marca, atalho de busca, seletor de tema e navegação agrupada.
+    Inclui o drawer mobile (foco preso, cortina, Esc) — sem JS o conteúdo
+    continua acessível pelos links do rodapé e pela trilha de navegação."""
+    contagens = contagens_nav()
+    itens_desktop = []
+    grupos_drawer = []
+
+    for indice, (rotulo_grupo, itens) in enumerate(GRUPOS_NAV):
+        esta_aberto = any(caminho == atual for caminho, _ in itens)
+        if indice == 0:
+            # Acervo: sempre visível, é o caminho principal
+            for caminho, rotulo in itens:
+                itens_desktop.append(_link_nav(caminho, rotulo, atual))
+        else:
+            subitens = "".join(
+                '<li><a href="%s"%s>%s</a></li>'
+                % (l(c), ' aria-current="page"' if c == atual else "", esc(r))
+                for c, r in itens
+            )
+            itens_desktop.append(
+                '<details class="nav-grupo"%s><summary>%s</summary>'
+                '<ul class="nav-menu"><li class="nav-menu-nota">%s</li>%s</ul></details>'
+                % (" open" if esta_aberto else "", esc(rotulo_grupo), esc(rotulo_grupo), subitens)
+            )
+        grupos_drawer.append(
+            '<div class="drawer-grupo"><p class="drawer-grupo-titulo">%s</p><ul>%s</ul></div>'
+            % (esc(rotulo_grupo), "".join(_item_drawer(c, r, atual, contagens) for c, r in itens))
+        )
+
     return (
         '<header class="topo">'
-        '<div class="container">'
+        '<div class="topo-barra container">'
         '<a class="marca" href="%s"><span class="marca-nome">WALTER IHOSHI</span>'
         '<span class="marca-sub">Acervo de Atuação Pública</span></a>'
-        '<form class="busca-topo" action="%s" method="get">'
-        '<input type="search" name="q" placeholder="Pesquise por município, projeto ou assunto" aria-label="Pesquisar no acervo">'
-        '<button type="submit">Pesquisar</button></form>'
-        '<nav aria-label="Navegação principal">%s</nav>'
-        "</div></header>" % (l("/"), l("/busca/"), "".join(itens))
+        '<nav class="nav-principal" aria-label="Navegação principal">%s</nav>'
+        '<a class="util util-busca" href="%s"><span class="icone" aria-hidden="true">🔍</span>'
+        '<span class="rotulo">Buscar</span></a>'
+        '<button type="button" class="util util-tema" id="alternar-tema" '
+        'aria-label="Tema: automático (segue o sistema) — ativar para mudar" title="Tema: automático">'
+        '<span class="icone" aria-hidden="true">🌗</span></button>'
+        '<button type="button" class="util util-menu" id="abrir-menu" aria-expanded="false" '
+        'aria-controls="menu-lateral"><span class="icone" aria-hidden="true">☰</span>'
+        '<span class="rotulo">Menu</span></button>'
+        '</div></header>'
+        '<button type="button" class="cortina" id="cortina-menu" tabindex="-1" '
+        'aria-label="Fechar menu"></button>'
+        '<div class="drawer" id="menu-lateral" role="dialog" aria-modal="true" '
+        'aria-label="Menu de navegação" aria-hidden="true">'
+        '<div class="drawer-cab"><span class="drawer-titulo">Navegar no acervo</span>'
+        '<button type="button" class="drawer-fechar" id="fechar-menu">Fechar ✕</button></div>'
+        '%s'
+        '<div class="drawer-rodape">'
+        '<a class="util" href="%s"><span class="icone" aria-hidden="true">🔍</span>'
+        '<span class="rotulo">Buscar no acervo</span></a>'
+        '<p class="rodape-resp">%s</p>'
+        '</div></div>'
+        % (
+            l("/"), "".join(itens_desktop), l("/busca/"),
+            "".join(grupos_drawer), l("/busca/"), rodape_responsavel(),
+        )
     )
 
 def rodape():
+    """Rodapé como mapa de navegação secundário: garante saída para qualquer
+    seção mesmo sem o menu do topo (e sem JavaScript)."""
+    contagens = contagens_nav()
+    colunas = "".join(
+        '<div><p class="rodape-titulo">%s</p><ul>%s</ul></div>'
+        % (esc(rotulo_grupo), "".join(_item_drawer(c, r, "", contagens) for c, r in itens))
+        for rotulo_grupo, itens in GRUPOS_NAV
+    )
     return (
         '<footer class="rodape"><div class="container">'
-        "<p><strong>%s</strong> — %s</p>"
-        "<p>%s</p>"
-        '<p class="rodape-links"><a href="%s">Realizações</a> &middot; <a href="%s">Linha do tempo</a> '
-        '&middot; <a href="%s">Fontes e metodologia</a> &middot; <a href="%s">Últimas atualizações</a> '
-        '&middot; <a href="%s">Clipping</a> &middot; <a href="%s">Busca</a> &middot; '
-        '<a href="%s" target="_blank" rel="noopener">Feed RSS</a></p>'
+        '<div class="rodape-grade">'
+        '<div><p class="rodape-titulo">%s</p><p>%s</p>'
+        '<p class="rodape-links"><a href="%s" target="_blank" rel="noopener">Feed RSS</a> &middot; '
+        '<a href="%s">Como o acervo é construído</a></p></div>'
+        '%s'
+        '</div>'
+        '<div class="rodape-base">'
         '<p class="rodape-resp">%s</p>'
-        "<p>Atualizado em %s &middot; Dados e código auditáveis no repositório.</p>"
-        "</div></footer>" % (
-            esc(CFG["nome_projeto"]), esc(CFG["tagline"]),
-            esc(CFG["descricao"]),
-            l("/realizacoes/"), l("/linha-do-tempo/"), l("/fontes/"), l("/atualizacoes/"),
-            l("/clipping/"), l("/busca/"), l("/feed.xml"),
-            rodape_responsavel(),
-            fmt_data(HOJE),
+        "<p>Atualizado em %s &middot; Dados e código auditáveis no repositório público do projeto.</p>"
+        '<p><a href="%s">↑ Voltar ao topo</a></p>'
+        '</div></div></footer>'
+        % (
+            esc(CFG["nome_projeto"]), esc(CFG["descricao"]), l("/feed.xml"), l("/fontes/"),
+            colunas, rodape_responsavel(), fmt_data(HOJE), l("/"),
         )
     )
 
@@ -298,13 +387,73 @@ def rodape_responsavel():
         partes.append("Identificação do responsável pelo site a ser completada antes da publicação em período eleitoral (ver página de metodologia).")
     return " ".join(partes)
 
-def pagina(caminho, titulo, descricao, conteudo, jsonld, og_tipo="website", trilha=None):
-    """Monta e grava uma página HTML."""
+# ------------------------------------------------------------ sumário da página
+def _ids_e_sumario(conteudo):
+    """Garante id em todo <h2> e devolve a lista de seções para o sumário.
+    Feito no build (não no navegador): o índice existe mesmo sem JavaScript."""
+    itens = []
+    sequencia = [0]
+
+    def troca(m):
+        attrs, miolo = m.group(1), m.group(2)
+        existente = re.search(r'id="([^"]+)"', attrs)
+        if existente:
+            ident = existente.group(1)
+        else:
+            sequencia[0] += 1
+            ident = "secao-%d" % sequencia[0]
+            attrs = '%s id="%s"' % (attrs, ident)
+        texto = html.unescape(re.sub(r"<[^>]+>", "", miolo)).strip()
+        if texto:
+            itens.append((ident, texto))
+        return "<h2%s>%s</h2>" % (attrs, miolo)
+
+    return re.sub(r"<h2([^>]*)>(.*?)</h2>", troca, conteudo, flags=re.S), itens
+
+def sumario_html(itens):
+    if len(itens) < 3:
+        return ""
+    linhas = "".join('<li><a href="#%s">%s</a></li>' % (ident, esc(texto)) for ident, texto in itens)
+    return ('<nav class="sumario" aria-label="Índice desta página">'
+            '<p class="sumario-titulo">Nesta página</p><ol>%s</ol></nav>' % linhas)
+
+def breadcrumb(itens):
+    """Trilha de navegação como landmark real (<nav> + <ol>), não como texto solto."""
+    if not itens:
+        return ""
+    celulas = "".join(
+        '<li>%s</li>'
+        % ('<a href="%s">%s</a>' % (l(caminho), esc(nome)) if caminho
+           else '<span aria-current="page">%s</span>' % esc(nome))
+        for nome, caminho in itens
+    )
+    return '<nav class="trilha" aria-label="Trilha de navegação"><ol>%s</ol></nav>' % celulas
+
+# Tema aplicado antes da primeira pintura: evita o "flash" de tema errado.
+JS_TEMA_ANTIFLASH = (
+    "(function(){try{var t=localStorage.getItem('wi-tema');"
+    "if(t){document.documentElement.setAttribute('data-tema',t);}}catch(e){}})();"
+)
+
+def pagina(caminho, titulo, descricao, conteudo, jsonld, og_tipo="website", trilha=None,
+           sumario=True):
+    """Monta e grava uma página HTML completa (estrutura, estados e atalhos)."""
     if trilha:
         jsonld = list(jsonld) + [jsonld_trilha(trilha)]
+
+    corpo = conteudo
+    lateral = ""
+    # Sumário só onde a página é longa o bastante para precisar de um.
+    if sumario and len(conteudo) >= 6000:
+        corpo, secoes = _ids_e_sumario(conteudo)
+        lateral = sumario_html(secoes)
+
+    classe_pagina = "pagina pagina--com-lateral" if lateral else "pagina"
+    aside = ('<aside class="pagina-lateral">%s</aside>' % lateral) if lateral else ""
+
     html_doc = (
         "<!DOCTYPE html>\n"
-        '<html lang="pt-BR">\n<head>\n'
+        '<html lang="pt-BR" class="sem-js" data-tema="auto">\n<head>\n'
         '<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
         "<title>%s</title>\n"
@@ -323,43 +472,94 @@ def pagina(caminho, titulo, descricao, conteudo, jsonld, og_tipo="website", tril
         '<link rel="icon" type="image/svg+xml" href="%s">\n'
         '<link rel="stylesheet" href="%s">\n'
         '<link rel="alternate" type="application/rss+xml" title="%s" href="%s">\n'
-        "%s\n</head>\n<body>\n%s\n<main id=\"conteudo\">%s</main>\n%s\n</body>\n</html>"
+        '<script>%s</script>\n'
+        "%s\n</head>\n<body>\n"
+        '<a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>\n'
+        '<div class="progresso" id="progresso-leitura" aria-hidden="true"></div>\n'
+        "%s\n"
+        '<main id="conteudo" tabindex="-1"><div class="container %s">'
+        '<div class="pagina-corpo">%s</div>%s</div></main>\n'
+        "%s\n"
+        '<button type="button" class="voltar-topo" id="voltar-topo" aria-label="Voltar ao topo">'
+        '<span aria-hidden="true">↑</span></button>\n'
+        '<p class="sr-only" role="status" aria-live="polite" id="avisos"></p>\n'
+        '<script src="%s" defer></script>\n'
+        "</body>\n</html>"
     ) % (
         esc(titulo), esc(descricao), u(caminho), og_tipo,
         esc(CFG["nome_projeto"]), esc(titulo), esc(descricao), u(caminho),
-        u("/static/og.png"), l("/static/estilo.css"),
+        u("/static/og.png"), l("/static/favicon.svg"),
+        l("/static/estilo.css"),
         esc(CFG["nome_projeto"]), l("/feed.xml"),
-        l("/static/favicon.svg"),
+        JS_TEMA_ANTIFLASH,
         bloco_jsonld(jsonld),
-        cabecalho(caminho if caminho != "/" else "/"),
-        conteudo, rodape(),
+        cabecalho(caminho),
+        classe_pagina, corpo, aside,
+        rodape(),
+        l("/static/app.js"),
     )
-    destino = os.path.join(SAIDA, caminho.lstrip("/"), "index.html") if caminho != "/" else os.path.join(SAIDA, "index.html")
+    if caminho.endswith(".html"):
+        destino = os.path.join(SAIDA, caminho.lstrip("/"))
+    else:
+        destino = os.path.join(SAIDA, caminho.lstrip("/"), "index.html") if caminho != "/" \
+            else os.path.join(SAIDA, "index.html")
     os.makedirs(os.path.dirname(destino), exist_ok=True)
     with open(destino, "w", encoding="utf-8") as f:
         f.write(html_doc)
 
-def card_registro(r):
+def texto_busca_cartao(r):
+    """Cadeia indexável do cartão (usada pelos filtros client-side)."""
+    partes = [r["titulo"], r["resumo"], r.get("tipo_detalhe", ""), r.get("periodo", ""), r["cargo"]]
+    partes += [T[t]["nome"] for t in r["temas"] if t in T]
+    partes += [M[m]["nome"] for m in r["municipios"] if m in M]
+    partes += r.get("entidades", [])
+    return " ".join(p for p in partes if p).lower()
+
+def card_registro(r, ordem=0):
+    """Cartão de registro. O cartão inteiro é clicável (link esticado) e o
+    título continua sendo o único ponto de foco do teclado — sem duplicar
+    parada de tabulação."""
+    when = r.get("data") or (r.get("periodo") or "")
     return (
-        '<article class="card">'
+        '<article class="card" data-id="%s" data-tipo="%s" data-temas="%s" data-municipios="%s" '
+        'data-ev="%s" data-data="%s" data-ordem="%d" data-titulo="%s" data-texto="%s">'
         '<div class="card-tags"><span class="tag-tipo">%s</span>%s</div>'
+        '%s'
         '<h3><a href="%s">%s</a></h3>'
         "<p>%s</p>"
         '<p class="card-meta">%s%s</p>'
-        '<a class="card-link" href="%s">Ver registro completo com fontes &rarr;</a>'
+        '<span class="card-link">Ver registro completo com fontes &rarr;</span>'
         "</article>"
         % (
+            esc(r["id"]), esc(r["tipo"]),
+            esc(" ".join(r["temas"])), esc(" ".join(r["municipios"])),
+            esc(r["evidence_score"]), esc(r.get("data", "")), ordem,
+            esc(r["titulo"]), esc(texto_busca_cartao(r)),
             esc(tipo_rotulo(r["tipo"])), badge_evidencia(r["evidence_score"]),
+            ('<p class="card-data"><time datetime="%s">%s</time></p>'
+             % (esc(r["data"]), esc(fmt_data(r["data"])))) if r.get("data")
+            else ('<p class="card-data">%s</p>' % esc(when) if when else ""),
             l("/realizacoes/%s/" % r["id"]), esc(r["titulo"]),
             esc(r["resumo"]),
             chip_temas(r["temas"]), chip_municipios(r["municipios"]),
-            l("/realizacoes/%s/" % r["id"]),
         )
     )
 
-def lista_registros(registros, vazio="Nenhum registro nesta coleção."):
-    cards = "".join(card_registro(r) for r in registros)
-    return '<div class="grade">%s</div>' % cards if cards else "<p>%s</p>" % esc(vazio)
+def estado_vazio(titulo, texto, acoes=""):
+    """Estado vazio com caminho de saída — nunca uma tela morta."""
+    return ('<div class="estado estado-vazio"><p class="estado-titulo">%s</p><p>%s</p>%s</div>'
+            % (esc(titulo), esc(texto),
+               ('<div class="estado-acoes">%s</div>' % acoes) if acoes else ""))
+
+def lista_registros(registros, vazio="Nenhum registro documentado nesta coleção nesta versão do acervo."):
+    if not registros:
+        return estado_vazio(
+            "Nada documentado aqui (ainda)", vazio,
+            '<a class="btn btn-fantasma" href="%s">Ver todas as realizações</a>'
+            '<a class="btn" href="%s">Como o acervo é construído</a>' % (l("/realizacoes/"), l("/fontes/")),
+        )
+    cards = "".join(card_registro(r, i) for i, r in enumerate(registros))
+    return '<div class="grade">%s</div>' % cards
 
 def sec_fontes(ids, titulo="Fontes desta seção"):
     return '<section class="secao-fontes"><h2>%s</h2>%s</section>' % (
@@ -384,6 +584,11 @@ def pag_home():
         '<a href="%s">JUCESP</a> &middot; <a href="%s">Cadastro Positivo</a> &middot; '
         '<a href="%s">Marília</a> &middot; <a href="%s">microempresas</a> &middot; '
         '<a href="%s">Japão</a> &middot; <a href="%s">desburocratização</a></p>'
+        '<div class="atalhos">'
+        '<a class="atalho" href="%s">Ver os %d registros documentados</a>'
+        '<a class="atalho atalho-secundario" href="%s">Clipping do dia (%d menções)</a>'
+        '<a class="atalho atalho-secundario" href="%s">Como cada fato é verificado</a>'
+        '</div>'
         '<p class="hero-principio"><strong>%s</strong> — cada realização traz cargo, tipo de atuação e fontes consultadas.</p>'
         '<div class="hero-stats">'
         '<div class="stat"><b>%d</b><span>registros documentados</span></div>'
@@ -397,6 +602,9 @@ def pag_home():
             l("/busca/") + "?q=JUCESP", l("/busca/") + "?q=Cadastro+Positivo",
             l("/busca/") + "?q=Mar%C3%ADlia", l("/busca/") + "?q=microempresas",
             l("/busca/") + "?q=Jap%C3%A3o", l("/busca/") + "?q=desburocratiza%C3%A7%C3%A3o",
+            l("/realizacoes/"), len(REALIZACOES),
+            l("/clipping/"), len(CLIPPING),
+            l("/fontes/"),
             esc(CFG["tagline"]),
             len(REALIZACOES), len(FONTES["fontes"]), len(TEMAS), len(MUNICIPIOS),
         )
@@ -475,7 +683,7 @@ def pag_home():
     pagina("/", CFG["nome_projeto"] + " — fatos verificáveis da trajetória de Walter Ihoshi",
            "O que Walter Ihoshi fez por São Paulo: realizações, projetos, relatorias, mandatos (2007–2019), "
            "Jucesp (2019–2023), convênios (2023–2026) e relação com a comunidade nikkei — com fontes verificáveis.",
-           conteudo, [jsonld_person(), jsonld_website()], og_tipo="profile")
+           conteudo, [jsonld_person(), jsonld_website()], og_tipo="profile", sumario=False)
 
 def num_registros_tema(tid):
     return sum(1 for r in REALIZACOES if tid in r["temas"])
@@ -483,27 +691,140 @@ def num_registros_tema(tid):
 def num_registros_municipio(mid):
     return sum(1 for r in REALIZACOES if mid in r["municipios"])
 
+ORDEM_TIPOS = ["LEI", "RELATORIA", "EMENDA", "GESTÃO", "ARTICULAÇÃO", "CONVÊNIO",
+               "AÇÃO INSTITUCIONAL", "PROPOSTA", "REUNIÃO", "EVENTO"]
+
 def pag_realizacoes_lista():
-    grupos = {}
-    for r in REALIZACOES:
-        grupos.setdefault(r["tipo"], []).append(r)
-    ordem_tipos = ["LEI", "RELATORIA", "EMENDA", "GESTÃO", "ARTICULAÇÃO", "CONVÊNIO", "AÇÃO INSTITUCIONAL",
-                   "PROPOSTA", "REUNIÃO", "EVENTO"]
-    partes = ['<p class="lead">Cada registro identifica <strong>tipo de atuação</strong> (autoria, relatoria, gestão, '
-              "articulação…), cargo exercido, período, resultado documentado e fontes com nível de evidência. "
-              "Participação não é convertida em autoria; proposta não é apresentada como entrega.</p>"]
-    for tipo in ordem_tipos:
-        if tipo not in grupos:
-            continue
-        regs = grupos[tipo]
-        partes.append("<section><h2>%s <span class='conta'>(%d)</span></h2>%s</section>"
-                      % (esc(tipo_rotulo(tipo)), len(regs), lista_registros(regs)))
-    conteudo = "<h1>Realizações — base completa</h1>" + "".join(partes)
+    """Base completa com facetas. O HTML chega com os registros ordenados e
+    visíveis; o JavaScript acrescenta filtro, ordenação, contagem e paginação
+    progressiva, mantendo o estado na URL (filtros são compartilháveis)."""
+    registros = sorted(
+        REALIZACOES,
+        key=lambda r: (ORDEM_TIPOS.index(r["tipo"]) if r["tipo"] in ORDEM_TIPOS else 99,
+                       -(r.get("evidence_score") or 0), r["titulo"]),
+    )
+    por_tipo = {}
+    for r in registros:
+        por_tipo[r["tipo"]] = por_tipo.get(r["tipo"], 0) + 1
+    tipos_ordenados = sorted(por_tipo, key=lambda t: (ORDEM_TIPOS.index(t) if t in ORDEM_TIPOS else 99, t))
+
+    opcoes_tipo = "".join(
+        '<label class="chip-opcao"><input type="checkbox" name="tipo" value="%s">'
+        '<span>%s <span class="n">%d</span></span></label>'
+        % (esc(t), esc(tipo_rotulo(t)), por_tipo[t])
+        for t in tipos_ordenados
+    )
+    opcoes_tema = "".join(
+        '<option value="%s">%s (%d)</option>' % (esc(t["id"]), esc(t["nome"]), num_registros_tema(t["id"]))
+        for t in sorted(TEMAS, key=lambda x: x["nome"]) if num_registros_tema(t["id"])
+    )
+    opcoes_municipio = "".join(
+        '<option value="%s">%s (%d)</option>' % (esc(m["id"]), esc(m["nome"]), num_registros_municipio(m["id"]))
+        for m in sorted(MUNICIPIOS, key=lambda x: x["nome"]) if num_registros_municipio(m["id"])
+    )
+
+    filtros = (
+        '<form class="filtros" id="filtros-realizacoes" data-navegacao-secoes aria-label="Filtrar registros">'
+        '<div class="filtros-linha">'
+        '<div class="campo"><label for="f-texto">Filtrar por texto</label>'
+        '<input id="f-texto" name="q" type="search" autocomplete="off" '
+        'placeholder="Título, órgão, lei, cidade…"></div>'
+        '<div class="campo"><label for="f-tema">Tema</label>'
+        '<select id="f-tema" name="tema"><option value="">Todos os temas</option>%s</select></div>'
+        '<div class="campo"><label for="f-municipio">Município</label>'
+        '<select id="f-municipio" name="municipio"><option value="">Todos os municípios</option>%s</select></div>'
+        '<div class="campo"><label for="f-evidencia">Evidência mínima</label>'
+        '<select id="f-evidencia" name="evidencia">'
+        '<option value="0">Qualquer nível</option>'
+        '<option value="60">60+ — declaração/fonte própria</option>'
+        '<option value="70">70+ — imprensa profissional</option>'
+        '<option value="80">80+ — publicação institucional</option>'
+        '<option value="90">90+ — base oficial</option>'
+        '<option value="100">100 — documento oficial</option></select></div>'
+        '<div class="campo"><label for="f-ordem">Ordenar por</label>'
+        '<select id="f-ordem" name="ordem">'
+        '<option value="relevancia">Tipo de atuação (padrão)</option>'
+        '<option value="recente">Mais recentes</option>'
+        '<option value="antigo">Mais antigos</option>'
+        '<option value="evidencia">Maior nível de evidência</option>'
+        '<option value="titulo">Título (A–Z)</option></select></div>'
+        '</div>'
+        '<fieldset class="filtro-chips"><legend>Tipo de atuação</legend>'
+        '<div class="opcoes">%s</div></fieldset>'
+        '<ul class="filtros-aplicadas" id="filtros-aplicados"></ul>'
+        '<div class="filtros-rodape">'
+        '<p class="filtro-contagem" id="filtro-contagem" role="status" aria-live="polite"></p>'
+        '<div class="filtro-acoes">'
+        '<button type="button" class="btn btn-fantasma" id="limpar-filtros">Limpar filtros</button>'
+        '<div class="densidade" role="group" aria-label="Densidade da lista">'
+        '<button type="button" data-densidade="grade" aria-pressed="true">Grade</button>'
+        '<button type="button" data-densidade="densa" aria-pressed="false">Lista</button>'
+        '</div></div></div></form>'
+        % (opcoes_tema, opcoes_municipio, opcoes_tipo)
+    )
+
+    aviso = estado_vazio(
+        "Nenhum registro com esses filtros",
+        "A combinação escolhida não corresponde a nenhum registro publicado. "
+        "Isso não significa que a atuação não exista — significa que ainda não há fonte "
+        "suficiente para publicá-la como fato.",
+        '<button type="button" class="btn" id="limpar-filtros-2">Limpar filtros</button>'
+        '<a class="btn btn-fantasma" href="%s">Ver metodologia e níveis de evidência</a>' % l("/fontes/"),
+    ).replace('class="estado estado-vazio"', 'class="estado estado-vazio" id="filtro-aviso" hidden', 1)
+
+    cards = "".join(card_registro(r, i) for i, r in enumerate(registros))
+    conteudo = breadcrumb([("Início", "/"), ("Realizações", None)]) + (
+        "<h1>Realizações — base completa</h1>"
+        '<p class="lead">Cada registro identifica <strong>tipo de atuação</strong> (autoria, relatoria, gestão, '
+        "articulação…), cargo exercido, período, resultado documentado e fontes com nível de evidência. "
+        "Participação não é convertida em autoria; proposta não é apresentada como entrega.</p>"
+        '<p class="dica">%d registros publicados nesta versão. Use os filtros para recortar por tipo, tema, '
+        "município ou nível de evidência — o endereço da página guarda a sua combinação, então dá para "
+        "compartilhar o recorte exato.</p>"
+        "%s%s"
+        "<h2>Registros documentados</h2>"
+        '<div id="lista-registros"><div class="grade">%s</div></div>'
+        '<div class="carregar-mais"><button type="button" class="btn" id="carregar-mais">'
+        '<span>Mostrar mais registros</span></button></div>'
+        % (len(registros), filtros, aviso, cards)
+    )
     pagina("/realizacoes/", "O que Walter Ihoshi fez: realizações, projetos e ações documentadas",
            "Base completa de ações, projetos, entregas e atuações de Walter Ihoshi, cada uma com fonte, "
            "cargo, tipo de atuação e nível de evidência.", conteudo,
            [jsonld_colecao("Realizações de Walter Ihoshi", "Base completa de registros documentados.", "/realizacoes/")],
-           trilha=[("Início", "/"), ("Realizações", "/realizacoes/")])
+           trilha=[("Início", "/"), ("Realizações", "/realizacoes/")], sumario=False)
+
+def registros_ordenados():
+    """Mesma ordem usada na listagem — garante que "anterior/próximo"
+    corresponda ao que o visitante viu na página de base."""
+    return sorted(
+        REALIZACOES,
+        key=lambda r: (ORDEM_TIPOS.index(r["tipo"]) if r["tipo"] in ORDEM_TIPOS else 99,
+                       -(r.get("evidence_score") or 0), r["titulo"]),
+    )
+
+def navegacao_registro(r):
+    """Saída ao fim da leitura: nunca deixar o visitante num beco sem saída."""
+    ordem = registros_ordenados()
+    pos = [i for i, x in enumerate(ordem) if x["id"] == r["id"]]
+    if not pos:
+        return ""
+    i = pos[0]
+    anterior = ordem[i - 1] if i > 0 else None
+    proximo = ordem[i + 1] if i < len(ordem) - 1 else None
+    if not anterior and not proximo:
+        return ""
+
+    def celula(reg, classe, rotulo, seta):
+        if not reg:
+            return "<span></span>"
+        return ('<a class="%s" href="%s" rel="%s"><span class="rotulo">%s</span>%s %s</a>'
+                % (classe, l("/realizacoes/%s/" % reg["id"]), classe, esc(rotulo),
+                   seta if classe == "anterior" else "", esc(reg["titulo"]) + ("" if classe == "anterior" else " " + seta)))
+
+    return ('<nav class="anterior-proximo" aria-label="Outros registros da base">%s%s</nav>'
+            % (celula(anterior, "anterior", "Registro anterior", "←"),
+               celula(proximo, "proximo", "Próximo registro", "→")))
 
 def pag_realizacao(r):
     proposicao = ""
@@ -537,7 +858,7 @@ def pag_realizacao(r):
     )
     conteudo = (
         '<article class="registro">'
-        '<p class="breadcrumb"><a href="%s">Início</a> / <a href="%s">Realizações</a> / %s</p>'
+        + breadcrumb([("Início", "/"), ("Realizações", "/realizacoes/"), (r["titulo"], None)]) +
         '<div class="card-tags"><span class="tag-tipo">%s</span>%s</div>'
         "<h1>%s</h1>"
         '<p class="lead">%s</p>%s'
@@ -555,9 +876,8 @@ def pag_realizacao(r):
         "<h2>Resultado conhecido</h2><p>%s</p>"
         '<h2>Pessoas e instituições envolvidas</h2><ul class="entidades">%s</ul>'
         "%s"
-        "</article>%s%s"
+        "</article>%s%s%s"
     ) % (
-        l("/"), l("/realizacoes/"), esc(r["titulo"]),
         esc(tipo_rotulo(r["tipo"])), badge_evidencia(r["evidence_score"]),
         esc(r["titulo"]), esc(r["resumo"]), nota_ev,
         fmt_data(r.get("data")), (' <span class="periodo">(%s)</span>' % esc(r["periodo"])) if r.get("periodo") else "",
@@ -567,7 +887,7 @@ def pag_realizacao(r):
         esc(r["o_que_aconteceu"]), esc(r["participacao"]), esc(r["relevancia"]), esc(r["resultado"]),
         entidades or "<li>—</li>",
         sec_fontes(r["fontes"], "Documentos e fontes"),
-        share, relacionadas,
+        share, relacionadas, navegacao_registro(r),
     )
     pagina("/realizacoes/%s/" % r["id"],
            "%s" % r["titulo"],
@@ -584,16 +904,17 @@ def pag_temas_lista():
             else "%d registro(s) documentado(s) &rarr;" % num_registros_tema(t["id"])))
         for t in TEMAS
     )
-    conteudo = (
+    conteudo = breadcrumb([("Início", "/"), ("Temas", None)]) + (
         "<h1>Atuação por tema</h1>"
         '<p class="lead">Páginas temáticas reúnem os registros do acervo por assunto. Temas sem conteúdo documental '
         "suficiente não recebem página de realização — apenas indicação de existência de proposta eleitoral.</p>"
+        "<h2>Temas do acervo</h2>"
         '<div class="grade-grade">%s</div>' % cards
     )
     pagina("/temas/", "Walter Ihoshi por tema: micro e pequenas empresas, crédito, saúde, desburocratização e mais",
            "Organização temática da atuação documentada de Walter Ihoshi.",
            conteudo, [jsonld_colecao("Temas", "Organização temática do acervo.", "/temas/")],
-           trilha=[("Início", "/"), ("Temas", "/temas/")])
+           trilha=[("Início", "/"), ("Temas", "/temas/")], sumario=False)
 
 def pag_tema(t):
     regs = [r for r in REALIZACOES if t["id"] in r["temas"]]
@@ -603,8 +924,7 @@ def pag_tema(t):
         alerta = ('<div class="alerta"><strong>Transparência:</strong> nesta versão do acervo não há realização '
                   "documentada neste tema. Existe proposta de campanha para 2026, registrada como proposta — não como "
                   "entrega.</div>")
-    conteudo = (
-        '<p class="breadcrumb"><a href="%s">Início</a> / <a href="%s">Temas</a> / %s</p>'
+    conteudo = breadcrumb([("Início", "/"), ("Temas", "/temas/"), (t["nome"], None)]) + (
         "<h1><span class=\"tema-emoji grande\">%s</span> Walter Ihoshi e %s</h1>"
         '<p class="lead">%s</p>%s'
         '<dl class="ficha"><dt>Cargos em que atuou no tema</dt><dd>%s</dd>'
@@ -613,7 +933,6 @@ def pag_tema(t):
         "<h2>Localidades relacionadas</h2><p>%s</p>"
         "%s"
     ) % (
-        l("/"), l("/temas/"), esc(t["nome"]),
         emoji_tema(t["id"]), esc(t["nome"]), esc(t["resumo"]), alerta,
         cargos, len(regs),
         lista_registros(regs, "Nenhum registro documentado neste tema nesta versão do acervo."),
@@ -632,23 +951,23 @@ def pag_municipios_lista():
         % (l("/municipios/%s/" % m["id"]), esc(m["nome"]), esc(m["resumo"][:160] + "…"), num_registros_municipio(m["id"]))
         for m in MUNICIPIOS
     )
-    conteudo = (
+    conteudo = breadcrumb([("Início", "/"), ("Municípios", None)]) + (
         "<h1>Atuação por localidade</h1>"
         '<p class="lead">Páginas territoriais existem apenas onde há evidência real de atuação. A regional de Marília, '
         "dirigida por Walter Ihoshi a partir de 2023, atende 51 municípios — mas só têm página individual aqueles com "
         "registros documentados. Nenhuma página territorial vazia é criada.</p>"
+        "<h2>Municípios com registros</h2>"
         '<div class="grade-grade">%s</div>' % cards
     )
     pagina("/municipios/", "Walter Ihoshi por município: ações, projetos e atuação",
            "Onde Walter Ihoshi atuou: páginas territoriais com registros documentados.",
            conteudo, [jsonld_colecao("Municípios", "Organização territorial do acervo.", "/municipios/")],
-           trilha=[("Início", "/"), ("Municípios", "/municipios/")])
+           trilha=[("Início", "/"), ("Municípios", "/municipios/")], sumario=False)
 
 def pag_municipio(m):
     regs = [r for r in REALIZACOES if m["id"] in r["municipios"]]
     destaques = "".join("<li>%s</li>" % esc(d) for d in m["destaques"])
-    conteudo = (
-        '<p class="breadcrumb"><a href="%s">Início</a> / <a href="%s">Municípios</a> / %s</p>'
+    conteudo = breadcrumb([("Início", "/"), ("Municípios", "/municipios/"), (m["nome"], None)]) + (
         "<h1>Walter Ihoshi em %s: ações, projetos e atuação</h1>"
         '<p class="lead">%s</p>'
         "<h2>Histórico de atuação</h2><ul class='marcas'>%s</ul>"
@@ -656,7 +975,6 @@ def pag_municipio(m):
         "<h2>Assuntos relacionados</h2><p>%s</p>"
         "%s"
     ) % (
-        l("/"), l("/municipios/"), esc(m["nome"]),
         esc(m["nome"]), esc(m["resumo"]),
         destaques, lista_registros(regs),
         chip_temas(sorted({t for r in regs for t in r["temas"]})) or "—",
@@ -677,21 +995,31 @@ def pag_timeline():
         if ev.get("realizacao") and ev["realizacao"] in R:
             link = '<a class="tl-link" href="%s">Ver registro com fontes &rarr;</a>' % l("/realizacoes/%s/" % ev["realizacao"])
         itens.append(
-            '<li class="tl-item"><div class="tl-ano">%s</div><div class="tl-corpo"><h2>%s</h2>'
+            '<li class="tl-item" data-ano="%s"><div class="tl-ano">%s</div><div class="tl-corpo"><h2>%s</h2>'
             "<p>%s</p>%s<p class='tl-fontes'>Fontes: %s</p></div></li>"
-            % (esc(str(ev["ano"])), esc(ev["titulo"]), esc(ev["texto"]), link,
+            % (esc(str(ev["ano"])), esc(str(ev["ano"])), esc(ev["titulo"]), esc(ev["texto"]), link,
                ", ".join(esc(F[f]["nome"]) for f in ev["fontes"] if f in F))
         )
-    conteudo = (
+    decadas = sorted({int(str(ev["ano"])[:4]) // 10 * 10 for ev in TIMELINE})
+    botoes = '<button type="button" data-decada="" aria-pressed="true">Todas as décadas <span class="n">%d</span></button>' % len(TIMELINE)
+    botoes += "".join(
+        '<button type="button" data-decada="%d" aria-pressed="false">%d <span class="n">%d</span></button>'
+        % (d, d, sum(1 for ev in TIMELINE if int(str(ev["ano"])[:4]) // 10 * 10 == d))
+        for d in decadas
+    )
+    conteudo = breadcrumb([("Início", "/"), ("Linha do tempo", None)]) + (
         "<h1>Linha do tempo — trajetória pública (1961–2026)</h1>"
         '<p class="lead">Marcos documentais da trajetória de Walter Shindi Iihoshi. Cada marco aponta para fontes e, '
         "quando existente, para a página de registro detalhada.</p>"
-        '<ol class="timeline">%s</ol>' % "".join(itens)
+        '<div class="filtro-anos" id="filtro-anos" data-navegacao-secoes role="group" '
+        'aria-label="Filtrar e saltar por década">%s</div>'
+        '<p class="filtro-contagem" id="anos-contagem" role="status" aria-live="polite"></p>'
+        '<ol class="timeline">%s</ol>' % (botoes, "".join(itens))
     )
     pagina("/linha-do-tempo/", "Linha do tempo: a trajetória de Walter Ihoshi (1961–2026)",
            "Histórico cronológico documentado: formação, comércio, ACSP, Jabaquara, três mandatos, Jucesp, convênios e candidatura 2026.",
            conteudo, [jsonld_colecao("Linha do tempo", "Trajetória cronológica documentada.", "/linha-do-tempo/")],
-           trilha=[("Início", "/"), ("Linha do tempo", "/linha-do-tempo/")])
+           trilha=[("Início", "/"), ("Linha do tempo", "/linha-do-tempo/")], sumario=False)
 
 def pag_mandatos():
     tabela = "".join(
@@ -704,7 +1032,7 @@ def pag_mandatos():
            ("%s votos" % format(c["votos"], ",d").replace(",", ".")) if c["votos"] else "—")
         for c in ELEICOES["candidaturas"]
     )
-    migalha = '<p class="breadcrumb"><a href="%s">Início</a> / Mandatos</p>' % l("/")
+    migalha = breadcrumb([("Início", "/"), ("Mandatos", None)])
     conteudo = migalha + (
         "<h1>Atuação parlamentar na Câmara dos Deputados</h1>"
         '<p class="lead">Walter Ihoshi exerceu mandatos de deputado federal por São Paulo em três legislaturas. '
@@ -766,8 +1094,7 @@ def pag_mandatos():
            trilha=[("Início", "/"), ("Mandatos", "/mandatos/")])
 
 def pag_jucesp():
-    conteudo = (
-        '<p class="breadcrumb"><a href="%s">Início</a> / Jucesp</p>'
+    conteudo = breadcrumb([("Início", "/"), ("Jucesp", None)]) + (
         "<h1>Walter Ihoshi na Jucesp (2019–2023)</h1>"
         '<p class="lead">Presidiu a Junta Comercial do Estado de São Paulo entre fevereiro de 2019 e o início de 2023, '
         "período em que a autarquia digitalizou processos, aderiu ao Balcão Único nacional e registrou o recorde "
@@ -799,7 +1126,6 @@ def pag_jucesp():
         "saúde e finanças municipais (ver <a href='%s'>Assis</a>).</p>"
         "%s"
     ) % (
-        l("/"),
         lista_registros([R["nomeacao-jucesp"], R["desburocratizacao-jucesp"]]),
         l("/municipios/assis/"),
         sec_fontes(["giromarilia-jucesp", "assiscity-jucesp", "visaonoticias-jucesp", "dcomercio-balcao-unico",
@@ -813,8 +1139,7 @@ def pag_jucesp():
            trilha=[("Início", "/"), ("Jucesp", "/jucesp/")])
 
 def pag_convenios():
-    conteudo = (
-        '<p class="breadcrumb"><a href="%s">Início</a> / Convênios</p>'
+    conteudo = breadcrumb([("Início", "/"), ("Convênios", None)]) + (
         "<h1>Walter Ihoshi e os convênios do Governo de São Paulo (2023–2026)</h1>"
         '<p class="lead">Em setembro de 2023, foi nomeado pelo governador Tarcísio de Freitas e pelo secretário de '
         "Governo e Relações Institucionais, Gilberto Kassab, diretor do Escritório Regional de Marília — diretoria "
@@ -842,7 +1167,7 @@ def pag_convenios():
         "metodologia</a>) prevê a incorporação progressiva das referências documentais por convênio.</p>"
         "%s"
     ) % (
-        l("/"), l("/fontes/"),
+        l("/fontes/"),
         lista_registros([R["diretor-convenios-marilia"], R["convenios-marilia-2023-2026"], R["visita-suzano-2025"],
                          R["visita-assis-2021"]]),
         sec_fontes(["odiariodovale-convenios", "marilia-gov-regional", "psd-escritorio-marilia",
@@ -855,8 +1180,7 @@ def pag_convenios():
            trilha=[("Início", "/"), ("Convênios", "/convenios/")])
 
 def pag_nikkei():
-    conteudo = (
-        '<p class="breadcrumb"><a href="%s">Início</a> / Comunidade nikkei</p>'
+    conteudo = breadcrumb([("Início", "/"), ("Comunidade nikkei", None)]) + (
         "<h1>Walter Ihoshi e a comunidade nipo-brasileira</h1>"
         '<p class="lead">Filho de imigrantes japoneses — o pai, Migaku Iihoshi, veio de Kumamoto; a mãe, Yoshiko, '
         "nasceu em Guaiçara (SP) —, Walter Ihoshi cresceu na Liberdade e construiu ao longo da carreira pública uma "
@@ -881,7 +1205,6 @@ def pag_nikkei():
         "<h2>Registros do acervo</h2>%s"
         "%s"
     ) % (
-        l("/"),
         lista_registros([R["ponte-hiroshi-sumida"], R["requerimento-subcomissao-centenario"],
                          R["sessao-solene-centenario-2008"], R["indicacao-consulado-hamamatsu"],
                          R["sessao-107-anos-imigracao-alesp"], R["colonia-hirano-100-anos"],
@@ -911,7 +1234,7 @@ def pag_fontes():
     resp_nome = esc(autor.get("responsavel", ""))
     resp_site = esc(autor.get("site", ""))
     resp_site_limpo = esc(autor.get("site", "").replace("https://", "").replace("http://", "").rstrip("/"))
-    migalha = '<p class="breadcrumb"><a href="%s">Início</a> / Fontes e método</p>' % l("/")
+    migalha = breadcrumb([("Início", "/"), ("Fontes e método", None)])
     conteudo = migalha + (
         "<h1>Fontes, metodologia e critérios</h1>"
         '<p class="lead">Este acervo segue a lógica <strong>fato → evidência → contexto → território → tema → fonte</strong>. '
@@ -978,7 +1301,7 @@ def pag_atualizacoes():
         )
         for up in sorted(ATUALIZACOES, key=lambda x: x["data"], reverse=True)
     )
-    migalha = '<p class="breadcrumb"><a href="%s">Início</a> / Atualizações</p>' % l("/")
+    migalha = breadcrumb([("Início", "/"), ("Atualizações", None)])
     conteudo = migalha + (
         "<h1>Últimas atualizações do acervo</h1>"
         '<p class="lead">Não é um portal de notícias: esta página registra apenas novos registros incorporados ao '
@@ -988,7 +1311,7 @@ def pag_atualizacoes():
     pagina("/atualizacoes/", "Atualizações do acervo — novos registros incorporados",
            "Novos registros incorporados ao acervo de Walter Ihoshi, com fontes, temas e municípios.",
            conteudo, [jsonld_colecao("Atualizações", "Registro de incorporações ao acervo.", "/atualizacoes/")],
-           trilha=[("Início", "/"), ("Atualizações", "/atualizacoes/")])
+           trilha=[("Início", "/"), ("Atualizações", "/atualizacoes/")], sumario=False)
 
 # ---------------------------------------------------------------- clipping
 def pag_clipping():
@@ -1002,6 +1325,7 @@ def pag_clipping():
                 dias.append(d)
             por_dia.setdefault(d, []).append(c)
         dias.sort(reverse=True)
+        navegadores = []
         ontem_iso = str(date.fromordinal(date.today().toordinal() - 1))
         blocos = []
         for d in dias:
@@ -1012,10 +1336,14 @@ def pag_clipping():
             else:
                 rotulo = fmt_data(d)
             linhas = "".join(
-                '<li class="clip-item"><div class="clip-esq">%s</div>'
+                '<li class="clip-item" data-fonte="%s" data-oficial="%d" data-texto="%s">'
+                '<div class="clip-esq">%s</div>'
                 '<div><a href="%s" target="_blank" rel="noopener nofollow">%s</a>'
                 "<p class='clip-meta'>%s &middot; nível da fonte: %s%s%s</p></div></li>"
                 % (
+                    esc(c.get("fonte", "")),
+                    1 if int(c.get("fonte_nivel", 0) or 0) >= 80 else 0,
+                    esc(("%s %s %s" % (c["titulo"], c.get("fonte", ""), c.get("data", ""))).lower()),
                     badge_evidencia(min(c.get("fonte_nivel", 60), 100)),
                     esc(c["link"]), esc(c["titulo"]), esc(c.get("fonte", "")),
                     c.get("fonte_nivel", "—"),
@@ -1024,15 +1352,41 @@ def pag_clipping():
                 )
                 for c in por_dia[d]
             )
-            blocos.append("<section class='clip-dia'><h2>%s <span class='conta'>(%d)</span></h2><ul class='clip-lista'>%s</ul></section>" % (esc(rotulo), len(por_dia[d]), linhas))
-        corpo = "".join(blocos)
+            blocos.append("<section class='clip-dia' id='dia-%s'><h2>%s <span class='conta'>(%d)</span></h2><ul class='clip-lista'>%s</ul></section>"
+                          % (esc(d), esc(rotulo), len(por_dia[d]), linhas))
+            navegadores.append('<a class="chip" href="#dia-%s">%s <span class="conta-mini">%d</span></a>'
+                               % (esc(d), esc(rotulo.split(" (")[0]), len(por_dia[d])))
+        corpo = (('<nav class="filtro-anos" data-navegacao-secoes aria-label="Ir para um dia">'
+                  "%s</nav>") % "".join(navegadores)) if len(navegadores) > 1 else ""
+        corpo += "".join(blocos)
         atualizado = ("Última coleta: <strong>%s</strong>." % esc(str(CLIPPING_ATUALIZADO_EM)[:10].replace("-", "/"))) if CLIPPING_ATUALIZADO_EM else ""
     else:
         corpo = ("<p class='lead'>Ainda não há menções coletadas. A rotina diária de monitoramento (duas execuções "
                  "por dia) alimenta automaticamente esta página com tudo o que a imprensa e as fontes oficiais "
                  "publicarem sobre Walter Ihoshi.</p>")
         atualizado = ""
-    migalha = '<p class="breadcrumb"><a href="%s">Início</a> / Clipping</p>' % l("/")
+    migalha = breadcrumb([("Início", "/"), ("Clipping", None)])
+    painel_clip = ""
+    if itens:
+        painel_clip = (
+            '<form class="filtros" id="filtros-clipping" aria-label="Filtrar menções">'
+            '<div class="filtros-linha">'
+            '<div class="campo"><label for="clip-texto">Filtrar por texto ou veículo</label>'
+            '<input id="clip-texto" type="search" autocomplete="off" placeholder="Título da matéria, jornal, cidade…"></div>'
+            '<div class="campo"><label for="clip-oficiais">Tipo de fonte</label>'
+            '<label class="chip-opcao" style="margin-top:4px">'
+            '<input type="checkbox" id="clip-oficiais"><span>Somente fontes oficiais/institucionais (80+)</span></label>'
+            '</div></div>'
+            '<div class="filtros-rodape">'
+            '<p class="filtro-contagem" id="clip-contagem" role="status" aria-live="polite"></p>'
+            "</div></form>"
+            + estado_vazio(
+                "Nenhuma menção com esse filtro",
+                "Nenhuma menção coletada corresponde ao filtro escolhido. Fontes oficiais e institucionais "
+                "só entram no clipping quando a coleta diária as encontra — a ausência aqui é ausência de "
+                "menção, não de atuação.",
+            ).replace('class="estado estado-vazio"', 'class="estado estado-vazio" id="clip-aviso" hidden', 1)
+        )
     conteudo = migalha + (
         "<h1>Clipping do dia — menções a Walter Ihoshi</h1>"
         '<p class="lead">Monitoramento diário e automático do nome <strong>Walter Ihoshi / Walter Iihoshi</strong> '
@@ -1041,13 +1395,13 @@ def pag_clipping():
         "matéria é o fato documentado. Ele não equivale aos <a href='%s'>registros verificados do acervo</a>: menções "
         "com conteúdo relevante são validadas (fonte, tipo de atuação, resultado) e promovidas a registros com nível "
         "de evidência.</div>%s" % (l("/realizacoes/"), atualizado)
-    ) + corpo
+    ) + painel_clip + corpo
     pagina("/clipping/", "Clipping do dia: o que a imprensa publica sobre Walter Ihoshi",
            "Monitoramento diário de menções a Walter Ihoshi (Walter Iihoshi) na imprensa e em fontes oficiais, "
            "com link para cada matéria e separação clara entre menção e registro verificado.",
            conteudo,
            [jsonld_colecao("Clipping diário", "Menções a Walter Ihoshi coletadas automaticamente.", "/clipping/")],
-           trilha=[("Início", "/"), ("Clipping", "/clipping/")])
+           trilha=[("Início", "/"), ("Clipping", "/clipping/")], sumario=False)
 
 
 # ---------------------------------------------------------------- busca
@@ -1088,59 +1442,61 @@ def montar_indice_busca():
                       "ch": "%s %s" % (c["titulo"], c.get("fonte", ""))})
     return itens
 
-JS_BUSCA = """
-(function(){
-  var dados = JSON.parse(document.getElementById('dados-busca').textContent);
-  var normalizar = function(s){return s.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'');};
-  var input = document.getElementById('campo-busca');
-  var saida = document.getElementById('resultados');
-  function render(q){
-    var termo = normalizar(q.trim());
-    if(termo.length < 2){ saida.innerHTML = '<p class="dica">Digite ao menos duas letras. Exemplos: JUCESP, Cadastro Positivo, Marília, microempresas, Japão.</p>'; return; }
-    var palavras = termo.split(/\\s+/);
-    var resultados = [];
-    dados.forEach(function(item){
-      var alvo = normalizar(item.ch + ' ' + item.t + ' ' + item.d);
-      var pontos = 0;
-      palavras.forEach(function(p){
-        if(alvo.indexOf(p) === -1){ pontos = -999; } else if(normalizar(item.t).indexOf(p) !== -1){ pontos += 3; } else { pontos += 1; }
-      });
-      if(pontos > 0){ resultados.push([pontos, item]); }
-    });
-    resultados.sort(function(a,b){ return b[0]-a[0]; });
-    if(!resultados.length){ saida.innerHTML = '<p class="dica">Nenhum resultado para “' + q.replace(/[<>&]/g,'') + '” nesta versão do acervo.</p>'; return; }
-    var html = '';
-    resultados.slice(0, 60).forEach(function(par){
-      var item = par[1];
-      html += '<article class="card"><span class="tag-tipo">' + item.cat + '</span><h3><a href="' + item.u + '">' +
-        item.t.replace(/[<>&]/g, function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;'}[c];}) + '</a></h3><p>' +
-        item.d.replace(/[<>&]/g, function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;'}[c];}) + '</p></article>';
-    });
-    saida.innerHTML = '<p class="conta-resultados">' + resultados.length + ' resultado(s)</p><div class="grade">' + html + '</div>';
-  }
-  input.addEventListener('input', function(){ render(input.value); });
-  var qs = new URLSearchParams(window.location.search).get('q');
-  if(qs){ input.value = qs; render(qs); } else { render(''); }
-})();
-"""
+def indice_sem_js():
+    """Rota de fuga quando não há JavaScript: o índice curado do acervo,
+    renderizado no build. Buscar é conveniência; encontrar é obrigação."""
+    blocos = []
+    blocos.append("<div><p class=\"rodape-titulo\">Dossiês</p><ul>%s</ul></div>" % "".join(
+        '<li><a href="%s">%s</a></li>' % (l(c), esc(r))
+        for c, r in [("/mandatos/", "Mandatos na Câmara dos Deputados"),
+                     ("/jucesp/", "Presidência da Jucesp (2019–2023)"),
+                     ("/convenios/", "Convênios do Governo de São Paulo"),
+                     ("/comunidade-nikkei/", "Comunidade nipo-brasileira"),
+                     ("/linha-do-tempo/", "Linha do tempo 1961–2026")]))
+    blocos.append("<div><p class=\"rodape-titulo\">Temas</p><ul>%s</ul></div>" % "".join(
+        '<li><a href="%s">%s</a> <span class="conta-mini">%d</span></li>'
+        % (l("/temas/%s/" % t["id"]), esc(t["nome"]), num_registros_tema(t["id"]))
+        for t in sorted(TEMAS, key=lambda x: x["nome"])))
+    blocos.append("<div><p class=\"rodape-titulo\">Municípios</p><ul>%s</ul></div>" % "".join(
+        '<li><a href="%s">%s</a> <span class="conta-mini">%d</span></li>'
+        % (l("/municipios/%s/" % m["id"]), esc(m["nome"]), num_registros_municipio(m["id"]))
+        for m in sorted(MUNICIPIOS, key=lambda x: x["nome"])))
+    return '<div class="rodape-grade">%s</div>' % "".join(blocos)
 
 def pag_busca():
     itens = montar_indice_busca()
     dados_json = json.dumps(itens, ensure_ascii=False).replace("</", "<\\/")
     conteudo = (
-        '<p class="breadcrumb"><a href="%s">Início</a> / Busca</p>'
+        breadcrumb([("Início", "/"), ("Busca", None)]) +
         "<h1>Busca no acervo</h1>"
-        '<p class="lead">Pesquise realizações, municípios, temas, cargos, proposições e marcos da linha do tempo.</p>'
-        '<form onsubmit="return false"><input id="campo-busca" type="search" placeholder="Pesquise por município, projeto ou assunto" '
-        'aria-label="Campo de busca" autocomplete="off"></form>'
-        '<div id="resultados" aria-live="polite"></div>'
+        '<p class="lead">Pesquise realizações, municípios, temas, cargos, proposições e marcos da linha do tempo. '
+        "O índice cobre <strong>%d itens</strong> desta versão do acervo.</p>"
+        '<p class="dica">Atalhos: pressione <kbd>/</kbd> ou <kbd>Ctrl</kbd>+<kbd>K</kbd> em qualquer página para '
+        "vir direto para cá; use <kbd>↑</kbd> <kbd>↓</kbd> para percorrer os resultados e <kbd>Esc</kbd> para limpar.</p>"
+        '<form class="busca-pagina" role="search" action="%s" method="get">'
+        '<label class="sr-only" for="campo-busca">Buscar no acervo</label>'
+        '<div class="campo-busca-grande">'
+        '<input id="campo-busca" name="q" type="search" autocomplete="off" '
+        'placeholder="Pesquise por município, projeto, lei ou assunto">'
+        '<button type="button" class="busca-limpar" id="limpar-busca" aria-label="Limpar a busca">'
+        '<span aria-hidden="true">✕</span></button></div>'
+        '<noscript><button type="submit" class="btn">Buscar</button></noscript>'
+        "</form>"
+        '<p class="busca-atalhos" id="buscas-recentes" hidden></p>'
+        '<p class="conta-resultados" id="conta-resultados" role="status" aria-live="polite"></p>'
+        '<div id="resultados"></div>'
+        "<noscript>"
+        + estado_vazio(
+            "A busca instantânea precisa de JavaScript",
+            "Sem JavaScript o campo acima não filtra em tempo real. Todo o conteúdo continua acessível "
+            "pelos índices abaixo — nada deste site fica atrás do script.",
+        ) + indice_sem_js() + "</noscript>"
         '<script type="application/json" id="dados-busca">%s</script>'
-        "<script>%s</script>"
-    ) % (l("/"), dados_json, JS_BUSCA)
+    ) % (len(itens), l("/busca/"), dados_json)
     pagina("/busca/", "Busca no acervo de Walter Ihoshi",
            "Pesquise por município, projeto ou assunto na trajetória documentada de Walter Ihoshi.",
            conteudo, [jsonld_colecao("Busca", "Busca no acervo.", "/busca/")],
-           trilha=[("Início", "/"), ("Busca", "/busca/")])
+           trilha=[("Início", "/"), ("Busca", "/busca/")], sumario=False)
 
 # ---------------------------------------------------------------- feeds e índices
 def gerar_sitemap(paginas):
@@ -1179,15 +1535,36 @@ def gerar_indice_json():
     with open(os.path.join(SAIDA, "search-index.json"), "w", encoding="utf-8") as f:
         json.dump(montar_indice_busca(), f, ensure_ascii=False)
 
-JS_COPIAR = """
-document.addEventListener('click', function(e){
-  if(e.target && e.target.classList && e.target.classList.contains('copiar')){
-    var url = e.target.getAttribute('data-url');
-    if(navigator.clipboard){ navigator.clipboard.writeText(url).then(function(){ e.target.textContent = 'Link copiado!'; }); }
-    else { e.target.textContent = url; }
-  }
-});
-"""
+# ---------------------------------------------------------------- 404
+def pag_404():
+    """Erro 404 como página de recuperação: explica, oferece busca e dá
+    saída para as seções principais. Nunca um beco sem saída."""
+    contagens = contagens_nav()
+    atalhos = "".join(
+        '<a class="btn btn-fantasma" href="%s">%s <span class="conta">%s</span></a>'
+        % (l(c), esc(r), esc(contagens.get(c, "")))
+        for c, r in [("/realizacoes/", "Realizações"), ("/temas/", "Temas"),
+                     ("/municipios/", "Municípios"), ("/linha-do-tempo/", "Linha do tempo"),
+                     ("/fontes/", "Fontes e método")]
+    )
+    conteudo = (
+        '<h1>Página não encontrada</h1>'
+        '<p class="lead">O endereço acessado não existe neste acervo. Isso acontece quando um registro é '
+        "renomeado, quando o link foi copiado pela metade, ou quando a página simplesmente nunca existiu.</p>"
+        '<div class="estado estado-erro">'
+        '<p class="estado-titulo">Como recuperar o que você procurava</p>'
+        "<p>Nada foi publicado aqui sem fonte, e nada foi removido sem deixar rastro: o histórico completo "
+        "de alterações do acervo é público no repositório do projeto.</p>"
+        '<div class="estado-acoes"><a class="btn btn-ouro" href="%s">Buscar no acervo</a>%s</div>'
+        "</div>"
+        '<p class="dica">Se você chegou aqui por um link de outro site, avise o responsável pela publicação '
+        "(endereço no rodapé) para que a referência seja corrigida.</p>"
+        % (l("/busca/"), atalhos)
+    )
+    pagina("/404.html", "Página não encontrada — Acervo de Walter Ihoshi",
+           "O endereço acessado não existe no acervo de atuação pública de Walter Ihoshi. "
+           "Use a busca ou navegue pelas seções.",
+           conteudo, [], sumario=False)
 
 # ---------------------------------------------------------------- main
 def main():
@@ -1216,10 +1593,7 @@ def main():
     pag_atualizacoes()
     pag_clipping()
     pag_busca()
-
-    # script auxiliar de compartilhamento
-    with open(os.path.join(SAIDA, "static", "app.js"), "w", encoding="utf-8") as f:
-        f.write(JS_COPIAR)
+    pag_404()
 
     paginas = [("/", "daily", "1.0"), ("/realizacoes/", "weekly", "0.9"), ("/temas/", "weekly", "0.8"),
                ("/municipios/", "weekly", "0.8"), ("/linha-do-tempo/", "monthly", "0.8"),
