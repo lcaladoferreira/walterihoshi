@@ -9,7 +9,8 @@ APP = PUBLIC / "static" / "app.js"
 CSS = PUBLIC / "static" / "estilo.css"
 POLISH = RAIZ / "static" / "ux-polish-v4.css"
 TIMELINE = RAIZ / "static" / "timeline-redesign.css"
-ASSET_VERSION = "20260915-ux5"
+HIDDEN_FIX = RAIZ / "static" / "hidden-state-fix.css"
+ASSET_VERSION = "20260915-ux6"
 
 
 def replace_once(texto, antigo, novo, rotulo):
@@ -73,12 +74,16 @@ def main():
     css = CSS.read_text(encoding="utf-8")
     extra = POLISH.read_text(encoding="utf-8")
     timeline = TIMELINE.read_text(encoding="utf-8")
+    hidden_fix = HIDDEN_FIX.read_text(encoding="utf-8")
     marcador = "/* UX-POLISH-VERCEL */"
     marcador_timeline = "/* TIMELINE-REDESIGN-VERCEL */"
+    marcador_hidden = "/* HIDDEN-STATE-FIX-VERCEL */"
     if marcador not in css:
         css += "\n\n" + marcador + "\n" + extra + "\n"
     if marcador_timeline not in css:
         css += "\n\n" + marcador_timeline + "\n" + timeline + "\n"
+    if marcador_hidden not in css:
+        css += "\n\n" + marcador_hidden + "\n" + hidden_fix + "\n"
     CSS.write_text(css, encoding="utf-8")
 
     html_alterados = 0
@@ -102,6 +107,8 @@ def main():
         raise RuntimeError("Camada de organização visual não foi aplicada")
     if "TIMELINE-REDESIGN-VERCEL" not in css_final:
         raise RuntimeError("Redesign da linha do tempo não foi aplicado")
+    if "HIDDEN-STATE-FIX-VERCEL" not in css_final or "[hidden]" not in css_final or "display: none !important" not in css_final:
+        raise RuntimeError("Correção de visibilidade dos filtros não foi aplicada")
     if html_alterados == 0:
         raise RuntimeError("Cache busting não foi aplicado em nenhum HTML")
 
@@ -111,7 +118,7 @@ def main():
     if f'/static/app.js?v={ASSET_VERSION}' not in home:
         raise RuntimeError("Home não referencia a versão nova do JS")
 
-    print(f"UX Vercel OK: organização visual, filtros e linha do tempo corrigidos; assets versionados em {html_alterados} HTMLs.")
+    print(f"UX Vercel OK: organização visual, filtros, estados hidden e linha do tempo corrigidos; assets versionados em {html_alterados} HTMLs.")
 
 
 if __name__ == "__main__":
