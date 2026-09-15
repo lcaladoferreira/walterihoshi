@@ -22,6 +22,7 @@ def main():
     CONFIG.write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "gerar.py")], cwd=RAIZ, check=True)
+    subprocess.run([sys.executable, str(RAIZ / "scripts" / "clipping_status.py")], cwd=RAIZ, check=True)
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "seo_p0.py")], cwd=RAIZ, check=True)
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "ux_polish_vercel.py")], cwd=RAIZ, check=True)
 
@@ -36,6 +37,12 @@ def main():
         raise RuntimeError("Build do Vercel ainda contém base_path do GitHub Pages")
     if '<link rel="canonical" href="https://walterihoshi.vercel.app/">' not in html:
         raise RuntimeError("Canonical da home não aponta para o domínio de produção")
+
+    clipping = RAIZ / "public" / "clipping" / "index.html"
+    if clipping.exists():
+        clipping_html = clipping.read_text(encoding="utf-8")
+        if "Última atualização do clipping:" not in clipping_html or "08:17 e 20:17" not in clipping_html:
+            raise RuntimeError("Página de clipping não exibe data/hora da última atualização")
 
     css = RAIZ / "public" / "static" / "estilo.css"
     if not css.exists() or css.stat().st_size < 1000:
@@ -55,7 +62,7 @@ def main():
     if not robots.exists() or "https://walterihoshi.vercel.app/sitemap.xml" not in robots.read_text(encoding="utf-8"):
         raise RuntimeError("robots.txt não aponta para o sitemap de produção")
 
-    print("Build Vercel OK: raiz /, SEO P0, organização visual e filtros validados em public/.")
+    print("Build Vercel OK: raiz /, SEO P0, clipping com timestamp, organização visual e filtros validados em public/.")
 
 
 if __name__ == "__main__":
