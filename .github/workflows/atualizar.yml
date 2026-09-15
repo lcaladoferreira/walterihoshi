@@ -31,9 +31,10 @@ jobs:
 
       - name: Clipping diário — monitora menções a Walter Ihoshi e regenera o site
         run: |
-          python3 scripts/monitorar.py
+          python3 scripts/monitorar_expandido.py
           python3 scripts/gerar.py
           python3 scripts/clipping_status.py
+          python3 scripts/clipping_revisar.py
           python3 scripts/inline_css.py
 
       - name: Publica dados atualizados (clipping e fila de validação)
@@ -44,10 +45,6 @@ jobs:
           git diff --cached --quiet || git commit -m "Clipping/monitoramento diário: coleta e regeração ($(date -u +%F))"
           git push
 
-      # Portão de qualidade: roda depois do commit dos dados (a coleta não para
-      # por causa de CSS) e antes de publicar. Se a verificação falhar, o job
-      # falha e o site NÃO é republicado — o endereço público segue com a última
-      # versão boa até alguém corrigir. A suíte não tem dependências.
       - name: Verificação de UX e acessibilidade (bloqueia publicação quebrada)
         run: python3 scripts/testar_ux.py
 
