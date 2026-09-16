@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-09-15T21:06:31",
+ "atualizado_em": "2026-09-16T01:25:31",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-f19866dde6371369",
+   "data": "2026-09-15",
+   "titulo": "Morango cravejado ganha fama e vira desejo nas redes sociais - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNUFlmbGZzdXlkYi02eGI4MUlGeWtoT2ZqbElHQjQ5U20tLUVrSjFSX0Vrd3ZINC05ejdXci1QTjlMRDh2Zkhxb3JjekUtLWtZXzZXZ2pLeU5DU05jcURsMWotX1ZSSWR3YU1BUWgxanBlMkk4dVFyN25YRWdOV1VhMTFvX2lEN2xBNG1BTXg3cXdVX3ZZTTktQktLSFk?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-16"
+  },
   {
    "id": "clip-e0cbd341694d193c",
    "data": "2026-09-14",
