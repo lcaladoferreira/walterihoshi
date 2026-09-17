@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-09-17T01:25:11",
+ "atualizado_em": "2026-09-17T15:34:07",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -319,17 +319,6 @@
    "fonte_nivel": 60,
    "tema_proposto": "relacoes-brasil-japao",
    "municipio_proposto": "sao-paulo",
-   "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-cd60aa99e7a8766e",
-   "data": "2026-06-18",
-   "titulo": "Caiado diz que caso de Jaques Wagner é “marca forte do PT” - Poder360",
-   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPNk1XMlgzU2NaVmhjemk0clRqUzRaWHdwLVJlZ0QwWnZIRFRTLWhVY014YktmZmRMcS15bGpKS01GbGVBYjg0enJpZ05KMmItOG1XeUVBZTdEcjFNckZvYlJ0aENGZW9VajNIWnRpVDJ6dXoxbzFIcXhoVi1NQXlqMFplTXJ4dnNWNlNLYkw1ZFQtWmlVSDRfajBHR29scENRblE?oc=5",
-   "fonte": "Poder360",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": null,
    "coletado_em": "2026-09-15"
   }
  ]
