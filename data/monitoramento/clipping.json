@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-09-18T01:17:17",
+ "atualizado_em": "2026-09-18T15:01:29",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -287,6 +287,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-0977bdd8257d7074",
+   "data": "2026-07-25",
+   "titulo": "MN TV: Invasões e furtos atormentam comerciantes no Centro - marilianoticia.com.br",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOMXVwTEplbC1UQzBLcGtEYmFrdi1ocGo4d0twMFV5c2IyeGVBNjhYc1RxcWZwVnFkX0Z5em1rdTQtVTZaWlk1ZGtLSTUzd09ycThNMWFaM05HenhkNFNJZXFwUXJLczY1T2w0MG9aNTFlRHh2RHpDQUtBcFQ5eHZUZHNFR2VlYW1UU3lMV243aUoyNFRobUhPcQ?oc=5",
+   "fonte": "marilianoticia.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-18"
   },
   {
    "id": "clip-ce0dd6411b753f28",
