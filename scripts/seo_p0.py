@@ -6,12 +6,18 @@ Mantém o gerador principal independente da hospedagem e aplica somente as
 regras de indexação/canonical necessárias ao domínio de produção.
 """
 from pathlib import Path
+import json
 import re
 import xml.etree.ElementTree as ET
 
 RAIZ = Path(__file__).resolve().parent.parent
 PUBLIC = RAIZ / "public"
-SITE = "https://walterihoshi.vercel.app"
+CONFIG = RAIZ / "data" / "config.json"
+
+_cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
+SITE = str(_cfg.get("site_url", "")).rstrip("/")
+if not SITE.startswith("https://"):
+    raise RuntimeError(f"site_url inválido para SEO P0: {SITE!r}")
 
 # Rotas úteis para navegação interna, mas que não devem disputar SERP nem
 # consumir atenção do sitemap principal nesta fase.
@@ -119,7 +125,7 @@ def main():
     validar_canonicals()
     validar_robots()
     validar_resultado()
-    print("SEO P0 OK: /busca/ noindex, sitemap limpo, canonical e robots validados.")
+    print(f"SEO P0 OK: {SITE} validado com sitemap, canonicals e robots.")
 
 
 if __name__ == "__main__":

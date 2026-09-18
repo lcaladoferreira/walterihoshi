@@ -7,11 +7,12 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 CONFIG = RAIZ / "data" / "config.json"
+PRODUCTION_DOMAIN = "https://acervowalterihoshi.lcfconsulting.com.br"
 
 
 def main():
     cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
-    cfg["site_url"] = "https://walterihoshi.vercel.app"
+    cfg["site_url"] = PRODUCTION_DOMAIN
     cfg["base_path"] = ""
     CONFIG.write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
@@ -29,7 +30,7 @@ def main():
         raise RuntimeError("HTML do Vercel não referencia /static/estilo.css")
     if '/walterihoshi/static/estilo.css' in html:
         raise RuntimeError("Build do Vercel ainda contém base_path do GitHub Pages")
-    if '<link rel="canonical" href="https://walterihoshi.vercel.app/">' not in html:
+    if f'<link rel="canonical" href="{PRODUCTION_DOMAIN}/">' not in html:
         raise RuntimeError("Canonical da home não aponta para o domínio de produção")
 
     clipping = RAIZ / "public" / "clipping" / "index.html"
@@ -47,13 +48,13 @@ def main():
         raise RuntimeError("Correções de filtro não foram aplicadas")
 
     sitemap = RAIZ / "public" / "sitemap.xml"
-    if not sitemap.exists() or "https://walterihoshi.vercel.app/" not in sitemap.read_text(encoding="utf-8"):
+    if not sitemap.exists() or f"{PRODUCTION_DOMAIN}/" not in sitemap.read_text(encoding="utf-8"):
         raise RuntimeError("Sitemap de produção ausente ou incorreto")
     robots = RAIZ / "public" / "robots.txt"
-    if not robots.exists() or "https://walterihoshi.vercel.app/sitemap.xml" not in robots.read_text(encoding="utf-8"):
+    if not robots.exists() or f"{PRODUCTION_DOMAIN}/sitemap.xml" not in robots.read_text(encoding="utf-8"):
         raise RuntimeError("robots.txt não aponta para o sitemap de produção")
 
-    print("Build Vercel OK: clipping funcional, timestamp, SEO e UX validados.")
+    print("Build Vercel OK: domínio oficial, sitemap, robots, clipping, SEO e UX validados.")
 
 
 if __name__ == "__main__":
