@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-09-17T15:34:07",
+ "atualizado_em": "2026-09-18T01:17:17",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-55134ba790310207",
+   "data": "2026-09-17",
+   "titulo": "Ihoshi inclui Aeroporto de Marília em agenda de desenvolvimento regional - marilianoticia.com.br",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPWGRsLVcyQ1JNdklDX2NISDdOZmpfZHloeHUyS3BKYTRRUjlFRXRzbktEZmdwVl80enVGVkY5UXZEWTRDVUpPWVkzREVLWUlyOEpvT2R4M3QwRFE4SUFjM1hQR1ZyejNGMVBkVGJCNXdES0l6SUV6ZTVuZVZ0cVg1Zm5VNzNMOEdESlVKb1FMU1ZjN3FoN1Bic0tNMTVaUGxnd1RTbjNnenNtV3Vo?oc=5",
+   "fonte": "marilianoticia.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-18"
+  },
   {
    "id": "clip-f19866dde6371369",
    "data": "2026-09-15",
@@ -308,17 +319,6 @@
    "fonte_nivel": 60,
    "tema_proposto": null,
    "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-f4a80594581f7ade",
-   "data": "2026-06-19",
-   "titulo": "Caiado defende apoio ao empresariado e aproximação com o Japão em São Paulo - DComercio",
-   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPc1lva1dMQ0xENmpMM0lrV0RrU1o1VnhDd2dDNk4xNk9uMm1pZHpVZU5UYjBod095ZVVLWEVlLWZZOGhyZGx1UHVMaV9GMDZfTG5TOFFZQ0tURkM0NEszZ0ZMLW9rR01TVTllY2ZrSlkzYUFZRmNVTVJ3OWxvS2ltUE5NWDY0ZDVXbHlrUlcwSmRLclN1al9GVll2WTVQckN3RUxUa1p3SjlnVUliMUFHV2ExZw?oc=5",
-   "fonte": "DComercio",
-   "fonte_nivel": 60,
-   "tema_proposto": "relacoes-brasil-japao",
-   "municipio_proposto": "sao-paulo",
    "coletado_em": "2026-09-15"
   }
  ]
