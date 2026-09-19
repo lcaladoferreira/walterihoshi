@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-09-19T01:10:06",
+ "atualizado_em": "2026-09-19T14:28:43",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-f25c3561bdfef2e2",
+   "data": "2026-09-18",
+   "titulo": "Gusttavo Lima leva multidão à abertura do rodeio; veja como foi no MN TV - marilianoticia.com.br",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPOHBsejRNcDlMRk1CU09nc1JYMmwtNUdpTXNEY3ZQTDhhelJvbTRsY1RuSmxodnJ2WFFtaGlRalR0cHdON2N5Q012RTJJbVE2VHhnc3JnVERXcXZSdUFmRzFoY2I3WmdjNUpvNFlYWUNkeG1yRTVVeFIyYnlnWVQxekNNSVU4QUhlTTdsUGFKNGJKMDU3WEFQcTFBdFU2dTEzNnc3YQ?oc=5",
+   "fonte": "marilianoticia.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-19"
+  },
   {
    "id": "clip-55134ba790310207",
    "data": "2026-09-17",
@@ -309,6 +320,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-57eff27192485ff7",
+   "data": "2026-07-03",
+   "titulo": "MN TV: Golpe do falso advogado faz milhares de vítimas pelo Brasil - marilianoticia.com.br",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQWlZENVgwNWFYZ0FJdVFBSDJlNHVMNHBJWEdHTFlNNEpkbkJFVHI2MnNTUzNFZWpJcUJhZXZkMjQ4X1BENlI3SUNDSmxyRkg3VnVQSnBsaFBIVnBrSEpka1V6NzEwVkRnblNnY2l0ZmU2LWNCQXRfTC1aQTNkS1NxWEJVRTZmUnFJOFUtY25OV1NLTUtKTFU5R0cxbmpSUWtnQ2pj?oc=5",
+   "fonte": "marilianoticia.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-19"
   },
   {
    "id": "clip-a534043d795530f9",
