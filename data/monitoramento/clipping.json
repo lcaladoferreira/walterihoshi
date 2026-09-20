@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-09-20T01:08:52",
+ "atualizado_em": "2026-09-20T14:42:59",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -254,6 +254,17 @@
    "tema_proposto": "micro-e-pequenas-empresas",
    "municipio_proposto": null,
    "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-dd3fa136fd785ca2",
+   "data": "2026-08-10",
+   "titulo": "Walter Ihoshi 5599 - Candidato a deputado federal de SP pelo PSD | Eleições 2026 - ndmais.com.br",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQeTFDVFk3WVpnaF84SGZreUoxNVJJOUpfTkI1QVlMMGxnX2pYQWFZSmtpQ1pKR1VUREUwSUFvNHBIU0NwcDRqX3NPY3pEempDeGVXVTlpcHBTOURyNW1Ga3ZYaTRkWkdBTEJmZmZVZDFhNU5LLUgya2lmUWRlcE1lYjhhQUlZZmlYOUxjSjdWZw?oc=5",
+   "fonte": "ndmais.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-09-20"
   },
   {
    "id": "clip-seed-010",
