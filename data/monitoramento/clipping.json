@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-09-21T01:07:58",
+ "atualizado_em": "2026-09-21T17:09:02",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-b8c418510005823f",
+   "data": "2026-09-21",
+   "titulo": "Walter Ihoshi destaca papel de deputado na busca por recursos para a saúde - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQaFpmQjBKZVdYcS1BelYxMzNQWmhZU2NrUTE4TVUwTG9jVmRQTHZ5LXJzUU5mZ01JcUNFcDZKVzRCN25SdWZvcGVUN1NmVHlmbzN3WGVLeGE4bjA5V3I4OXFtRktoWEtCR2V3WmFoSkgwOEJNajFuSTNZeDlHQTNjcTY3WTREVWZ6Y0dGUnNOVUl4RHB4UlFuWF9YbWU3dTR1dFYyd3FCTG5WdVUyczZF?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": "saude",
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-21"
+  },
   {
    "id": "clip-f25c3561bdfef2e2",
    "data": "2026-09-18",
@@ -223,6 +234,17 @@
    "coletado_em": "2026-09-15"
   },
   {
+   "id": "clip-cad81305bfff23c3",
+   "data": "2026-08-20",
+   "titulo": "MN TV: Rogerinho lança campanha a deputado estadual com apoio de lideranças nacionais - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxORzVZSlRQNUdCWlFub1lUbGdUSHBCYjJZLWhUSUxZZ3dlZG1aUG1oYURiLXJUUmdIMGlyWDU0d0xCNUY4UlBLSWdDR0JPRnpMQ29XY1BIOHh1NTBCc01QRVVuMnYyVld0S1F5MlpyZTlVT1pSaEwwWFhUMUJERFE2Y0d4MnQyWlBINC1wMlRjZm1QaHplTWpqTk1md3BjejdNTGVZS19mMlM0SGxYUVdOa3RZS1g2UWh6SHEzSA?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-21"
+  },
+  {
    "id": "clip-seed-008",
    "data": "2026-08-20",
    "titulo": "Ihoshi ajuda Marília a conquistar R$ 36 milhões para ciclovia, recapeamento e parque da criança",
@@ -309,6 +331,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-d81b75dd88a7b557",
+   "data": "2026-07-27",
+   "titulo": "Frente arrecada 2,7 milhões de assinaturas pela redução de impostos sobre remédios - camara.leg.br",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNaG8yVldqLUJhNk10SlB6bk41Wm5rbDFzNEdaaWJodVhPRkN0QzI3OXRzQTJ0Qi10aTJZOHM2QmhEYlp5dWVZcXlPWElVdXJNdE40TklrV1RIby1jX0xzd1ltX1I0V0hOd1ppWmduSWZmY1hfMUZZS0MyOHBNVWticjhkWm5Cb2dHOFUyT3pXbTN1TDJlVDcybV9nVmd6Ykprb2szd2NwTlRIMGZKdFBsbmUzSExZSks0TUtMbzYtWTI?oc=5",
+   "fonte": "camara.leg.br",
+   "fonte_nivel": 60,
+   "tema_proposto": "saude",
+   "municipio_proposto": null,
+   "coletado_em": "2026-09-21"
   },
   {
    "id": "clip-0977bdd8257d7074",
