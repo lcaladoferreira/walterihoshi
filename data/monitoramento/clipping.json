@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-09-21T17:09:02",
+ "atualizado_em": "2026-09-22T01:36:43",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -254,6 +254,17 @@
    "tema_proposto": "convenios",
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-8ffbbda32a95be3f",
+   "data": "2026-08-16",
+   "titulo": "candidato walter ihoshi | eleiçoes 2026 - GZH",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQR3B4TzJTVDV0dVVlWnljWjR2cHVPcGFxT213bEVoQzBsLW5hYlBqODdFYUpQZ0d5amcxYlZCaDFOQlZ3TGZ4Yy1jeVJjSkFZeFYyLTBMQnIwZU9hZ3BWNy1uY1hjbEdNTmRrMERaSGZVZkdwckR2d2x3QURtSnRwNkl6X3NJVzQ4aW8xWlUzdVFoVm5QaV9mdkVvbmpFUlV0?oc=5",
+   "fonte": "GZH",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-09-22"
   },
   {
    "id": "clip-16f0f360fa37d819",
