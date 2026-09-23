@@ -1,0 +1,46 @@
+name: IndexNow — descoberta de URLs
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "40 11 * * *"
+    - cron: "40 23 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow-acervo
+  cancel-in-progress: true
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Gera e valida artefatos canônicos de produção
+        run: python3 scripts/build_vercel.py
+
+      - name: Aguarda a chave IndexNow ficar pública no domínio canônico
+        run: |
+          KEY="202e4b3de199cff1c7f73a7f88dab545"
+          URL="https://acervowalterihoshi.lcfconsulting.com.br/${KEY}.txt"
+          for i in $(seq 1 18); do
+            if curl --fail --silent --show-error "$URL" | grep -qx "$KEY"; then
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "A chave IndexNow ainda não está pública no domínio de produção."
+          exit 1
+
+      - name: Notifica IndexNow com as URLs do sitemap canônico
+        run: python3 scripts/indexnow.py
