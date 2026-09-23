@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-09-22T15:33:35",
+ "atualizado_em": "2026-09-23T01:30:32",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -298,6 +298,17 @@
    "tema_proposto": null,
    "municipio_proposto": null,
    "coletado_em": "2026-09-20"
+  },
+  {
+   "id": "clip-42bbe9e1c699f519",
+   "data": "2026-08-09",
+   "titulo": "Ihoshi aposta na experiência e nos serviços prestados à região para voltar à Câmara - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPUmN1SzlSNXBjN3JmYko5Rl9GSFVSUEF6N1FhREs4VzFnVXlzZnVTOE1Xa2dncUdKWW9NR3llX1FZWDktUlFTX2RZXy1wUGhrT3pjNTZQSkVtVGhoLWZTNEVFQk80NTA1WWp6QnpjWFVpMFlFQjFRWHV3M1NyWWNSaWRpZnoxaTZsQ09sREMzNmlEQVNCRkRWR0RjQzR1SWRtMEF0YXVzdmxOV0w4cUVJRnQ0YnpmVjV1MkhVNjhoU0tOU3pBaEx6Zg?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-23"
   },
   {
    "id": "clip-seed-010",
