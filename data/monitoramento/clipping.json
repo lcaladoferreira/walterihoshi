@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-09-23T01:30:32",
+ "atualizado_em": "2026-09-23T15:30:58",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-fda36e432926a3d0",
+   "data": "2026-09-23",
+   "titulo": "Walter Ihoshi coloca hospitais e redução de impostos entre prioridades se eleito - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOLUhBdms4NTBVX0l4dEx6dENtd21zNlVadFd1eVotenBJWlluWjZoSWFyR1pENHpPSkxlYjR4TDFoTWtHeWF2NDRQT1pJOW13Q1BzNVB4eXJKMWpBT3RqSmh1a2l4WkdkRDYtbUxwWmhfLWhQbkpfNDgyckF1YnhvZkVobVpjaWRoS0FDd1BLQlNaVzBhSzBBU0FNd0pUTURTYmRJUzUyZlR4Mzl0S29JM3dNSVY4eGZpaVZuRTlqY2NtOVBt?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-23"
+  },
   {
    "id": "clip-b8c418510005823f",
    "data": "2026-09-21",
