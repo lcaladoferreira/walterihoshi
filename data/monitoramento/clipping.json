@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-09-23T15:30:58",
+ "atualizado_em": "2026-09-24T01:26:49",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -12,6 +12,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-23"
+  },
+  {
+   "id": "clip-d64bd0f0e678e532",
+   "data": "2026-09-23",
+   "titulo": "Na reta final da campanha para deputado estadual, Rogerinho amplia agenda regional - marilianoticia.com.br",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQekE1a0lxMEticmM1b3ZTS2t1REJNMG9INlFXejh1YzZhY1JIaDRsSnJtQjgydk40bDFTV0o5aDdaWWpBR3pwNzRpRHFQMklmOVFBUG5WQVVTRDJQbndQLXBXWGIwa21CTm40OFRPbzlwODNONEd2UTVqdWxLN09GWExDUnlDZHJhcE96TXFpY1VudGJqU09SMWxqX0N2S0NxZ1NGeHBmZkU2ZThiUjN1OThuYmo5cHUtaHpOb1JfRTJWcGRaS1E?oc=5",
+   "fonte": "marilianoticia.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-24"
   },
   {
    "id": "clip-b8c418510005823f",
