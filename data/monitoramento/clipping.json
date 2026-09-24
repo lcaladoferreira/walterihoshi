@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-09-24T01:26:49",
+ "atualizado_em": "2026-09-24T15:53:13",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -232,6 +232,17 @@
    "tema_proposto": "saude",
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-e1156a0b8c333d35",
+   "data": "2026-08-25",
+   "titulo": "Walter Ihoshi destaca atuação por recursos e ampliação da rede hospitalar de Marília - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQdTA4SlduYzU4Tm1FdGtSRXNVT1VlNURua05yY3FyTkxOS2lBOFUtaFNvckVsUkJ3N0s2OTFNLUhvak8ybVJuSkRqcTAwQjZVSHdSX3FWU2d6Z1RBS0JkYW1Cb1dudG92V0FoOXVnSjZaOHZjbWVicXZHQU9JQV9VVFlqMmhaRkFMVVE3MkpKa0ZrSGRMUnZZTHo2ZlFNVzhkRF92OFZZNGdMY0g3MXA2dWtrdjAzZDFGV0hwNFdzVk1rX1NHdTJz?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": "saude",
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-24"
   },
   {
    "id": "clip-seed-006",
