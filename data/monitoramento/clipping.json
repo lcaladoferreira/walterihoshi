@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-09-24T15:53:13",
+ "atualizado_em": "2026-09-25T01:30:07",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -157,6 +157,17 @@
    "coletado_em": "2026-09-15"
   },
   {
+   "id": "clip-21f29b5abc787526",
+   "data": "2026-09-03",
+   "titulo": "Ihoshi diz que vai destravar contorno e duplicação da BR-153 se eleito - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQb1JLUXdiU1N0UUZoNVkyZ2ZKR0w5MkhjcXA2Zk93Vm5FOW5LQ0k5N1UyaVkzOWlQZ2NaVTNlMDVLVnE5UXVkemRVbUNBYWplM0FPRWdINS1YQ1pkZllLenBDSDhOMEl3cTFiZWVPazc5Z0Utb3hMYzItcURxcWs1TkdnWVBaYTVCa1BwNnQzWTVrWHNTazVuWTJqd1IzeGpxdE1oOU1yTTh1VUdXWTBmOHR0NFIzWDA?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-25"
+  },
+  {
    "id": "clip-916dd65d552997f4",
    "data": "2026-09-01",
    "titulo": "Ihoshi ajuda Marília a conquistar R$ 36 milhões para ciclovia, recapeamento e parque - Marília Notícia",
@@ -177,6 +188,17 @@
    "tema_proposto": null,
    "municipio_proposto": "sao-paulo",
    "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-e6fb70aed6b2e9af",
+   "data": "2026-08-30",
+   "titulo": "WALTER IHOSHI - CNN Brasil",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQVEk0YV9NNVlPUGd0NGZtejNOYlNabEFOeEpvbnNKbmQ3a3hXTGcxTzJidFJFV1dXTTBXaDYzOWxzUDFIelR6UWtJUnJ1OTZYWlZzUWJWZHNUS2ZwVEE0cFltdUhWUlN6YmwzSGhRMmQ1bk9JVVNoUGtVdjB6c1NrYVJsbmJ1OEFINGJIZDhCczlqVHJMM2hJR0lHSzFyZw?oc=5",
+   "fonte": "CNN Brasil",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-09-25"
   },
   {
    "id": "clip-seed-003",
