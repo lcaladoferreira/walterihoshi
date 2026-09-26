@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-09-26T01:33:48",
+ "atualizado_em": "2026-09-26T15:02:05",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-67ed9ebb24bfacea",
+   "data": "2026-09-26",
+   "titulo": "Walter Ihoshi visita Espaço Potencial e conhece atendimento a autistas - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNQk9LYmg3amxsVnd0VFpGVEh3WlItR1ExU0FPMG8yT3NNREFaOXo1R1NNVW40MmYxUERFSTNjQldhRTk4ZXZBZktuX3Vla3hSX2UzWUhiZS04R014eHhVay1FY2VVTHJIbWdZcVROWndCUXFWbHdYVXNyQjg0VjF5RElVTHVST0tTUmVLbmNQMWxwc0VTc0hpd2ltQXNTY2JKSlgycGh3ZUhybVRDLS1hTmhzNVk3YWs?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-26"
+  },
   {
    "id": "clip-12c6ba54668c2d06",
    "data": "2026-09-24",
@@ -11,6 +22,17 @@
    "fonte_nivel": 60,
    "tema_proposto": null,
    "municipio_proposto": null,
+   "coletado_em": "2026-09-26"
+  },
+  {
+   "id": "clip-af693c075d0357ed",
+   "data": "2026-09-24",
+   "titulo": "Em campanha, Tarcísio acompanha obra de hospital e reúne multidão em Marília - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOel9pSzZkRFNGRC1LR3hRbnh6dmJYREdWY01KLTZrRTllMXlJb0ZKZW9zazJqM1FOUG1QSzdUM1kyLUpzSk1scHlXaEtLaV9laHhlUWpFVGZIVVF2cHNoMndEVHdtOHp3b0NiVjQ3aUdOS1VUUFd2QUxjSm1PSl9rVmx1elJDa3VWTWl3SndkV3pDZWVRS1JDbjVVSFhuOVF1S1hneHVESjlKRGJUdXlNNA?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": "saude",
+   "municipio_proposto": "marilia",
    "coletado_em": "2026-09-26"
   },
   {
@@ -287,6 +309,17 @@
    "tema_proposto": "saude",
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-5ce8523bef78d935",
+   "data": "2026-08-25",
+   "titulo": "Rogerinho lança campanha a deputado estadual com apoio de lideranças nacionais - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQU3pQTW9Ub1R0S25QSTFzdEFoMmpsbXNseFlFQ3pzZEc0MldScnl4X1FFbGEwR1V1MW5TWko4UmhWY0hUS01FaXprRTZJRUp2b2pBS3BGV0RZZXE5Y3VnTUFrM1dEN3kwQWwtVkxJNWc5NnNDUUVicTBBQzF3MTNxa0FTajBpMkNzNkdDUzAxdlZMY01fRE9xb0pyS2hDbnFkWUNmaDFFM0g0UGM1RlpCMHhFNHQ?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-26"
   },
   {
    "id": "clip-2aae3070e40b478d",
