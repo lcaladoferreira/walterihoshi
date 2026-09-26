@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-09-25T15:50:44",
+ "atualizado_em": "2026-09-26T01:33:48",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-12c6ba54668c2d06",
+   "data": "2026-09-24",
+   "titulo": "Ihoshi em busca do tetra, por Mario Jun Okuhara - brasilnippou.com",
+   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE10RjI0c1JESWIwTGxwMkV2YzJyNDM0WTFURHQzVTYxUXNQX1kza1dDOTJudkVLejJwelNxcHJ5Slk2a0ZWU1czNGo2VnJ1OUNFMWxKclUzV01fVFRLNDZZbUZBRQ?oc=5",
+   "fonte": "brasilnippou.com",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-09-26"
+  },
   {
    "id": "clip-fda36e432926a3d0",
    "data": "2026-09-23",
@@ -458,17 +469,6 @@
    "data": "2026-07-01",
    "titulo": "Pré-candidato à Presidência da República, Caiado vem a Marília - marilianoticia.com.br",
    "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOT2djZGZGRVJndXBvSjVtVks3b085d3lrRDN0SnU4WHVDU2pydmJ3SkRCcGNYZU1vMGFSMTgtUGdmZk9rVExmNWpVVTNPajZkQTlQM0ppWkRXUjZab1pNenFrSUNyRno2Sy1uREp3VmozQTQxQlNreHd1aWo1Snh0QTNtNHdudGRROVoxajhsUXFWQjJ2SWUxbDJRLVFnTjRmQ0djWWRoYS1xQ19VWDdXRHAwSWc1QTJwcUZIeVowYkszUQ?oc=5",
-   "fonte": "marilianoticia.com.br",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-1f6cac7e7f8e2e5c",
-   "data": "2026-06-27",
-   "titulo": "MN TV: Transmissão travada na hora do jogo? Aí não dá! - marilianoticia.com.br",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQZTBwV0hHbGo5WHp0X2d4Y2RLRll4Tk03eTJRbkN6aV9UTDVxUmdKb2hQRU41Y2JZVEg5NVdYa3UwT3lNbm5QZ0lVUjF5RzhGbUtQaWsyT3lNVHFXS2Q5aGNFZHRFcjY1WGpGM3BLRjVoV0ktdHhYcDBRbmN2RTBVV1gyU0V2YjljNjQtRjlxbWc?oc=5",
    "fonte": "marilianoticia.com.br",
    "fonte_nivel": 60,
    "tema_proposto": null,
