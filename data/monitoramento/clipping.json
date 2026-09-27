@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-09-27T01:30:16",
+ "atualizado_em": "2026-09-27T15:43:36",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-17c8239f813cbd80",
+   "data": "2026-09-27",
+   "titulo": "Walter Ihoshi acompanha Tarcísio em visitas e encontros políticos no interior - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNeDZjdHJXZTZId0hVSmoxUWJxUjVzNXZyMFpHTGNyUEhGb2xXQWQtdmpXcHM3dmVGV09aVWlLX1BqckNsTEkxdy1LNGpZeWpwbmVJZE9lWmFyZnhSZ3VjUDBYbnl6TF9yMUFmczdTNlM2eG81RmNHYVBmSGlKRkdTSjdSZWYzU1F2bzZyZ0d0M2dyLWMzaVQzT1NXdklfTXdJbDJ2SHMtU05YbWlWa1FtRlJncHJnN000dmx5UFoyS2s?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-27"
+  },
   {
    "id": "clip-67ed9ebb24bfacea",
    "data": "2026-09-26",
