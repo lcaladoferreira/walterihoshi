@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-09-26T15:02:05",
+ "atualizado_em": "2026-09-27T01:30:16",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -210,6 +210,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-e3db64b0d36dff77",
+   "data": "2026-08-30",
+   "titulo": "Walter Ihoshi, PSD, veja o número do candidato a Deputado Federal em São Paulo - Rádio Itatiaia",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxObUMtOEc1UnJhNzEzUklLMnhoVjRqQlFqSHA0X0ZFY2MtRlRYWmE4VW85X2hpVlRDaUFWWHNoc1VHZXkwSF9OdEVSNU43aThCeHQzRmJZS0UwY3B5UFFmMHBGeWUzeW96aWtHcUxCTFhDQ0Iya09GUnVhWHNPOVlXVk96bWVpVV9DeXF0TGl1U2tTWHVZNDBpb1RfSHRRN3Q4UmlXTEtYaGw?oc=5",
+   "fonte": "Rádio Itatiaia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "sao-paulo",
+   "coletado_em": "2026-09-27"
   },
   {
    "id": "clip-ce66f3f3705d2a7f",
