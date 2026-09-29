@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-09-29T02:34:32",
+ "atualizado_em": "2026-09-29T16:54:35",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-d9844c8c5fb44dfb",
+   "data": "2026-09-29",
+   "titulo": "Candidatos a deputado federal pelo PSD em SP; veja quem são e os números - G1",
+   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNejhCbElVM0I2aFpyUkkxYlhKaVM5VjJxdEpqN2VRQUtpbVBEOWxxYktDbE5ncXRmellwNnp3VkRjakZKU255U0tMN0FUQ2ZWX2c0TDJJRlJQdDNMWnNnRHJOazc3dGd4clhBT20yZE0xYjdZS0l5Q0lMLUdxdWlKb0Z1WWdWNDNYQ3RVTHBaRXIxOTd2dGJjMUZTRTNsOEpPcVVSODlvV29reEVOalpwSmVmeUNta1FQVTByY2Q2Qnh3QkVFcWtZMEVNbzZsRjRlMHoyZ2xpMEFuVVd4VlllSTN1cDNMM1lJcTRn0gHrAUFVX3lxTE16OEJsSVUzQjZoWnJSSTFiWEppUzlWMnF0Smo3ZVFBS2ltUEQ5bHFiS0NsTmdxdGZ6WXA2endWRGNqRkpTbnlTS0w3QVRDZlZfZzRMMklGUlB0M0xac2dEck5rNzd0Z3hyWEFPbTJkTTFiN1lLSXlDSUwtR3F1aUpvRnVZZ1Y0M1hDdFVMcFpFcjE5N3Z0YmMxRlNFM2w4Sk9xVVI4OW9Xb2t4RU5qWnBKZWZ5Q21rUVBVMHJjZDZCeHdCRUVxa1kwRU1vNmxGNGUwejJnbGkwQW5VV3hWWWVJM3VwM0wzWUlxNGc?oc=5",
+   "fonte": "G1",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-09-29"
+  },
   {
    "id": "clip-be13a0d429880b43",
    "data": "2026-09-28",
@@ -199,6 +210,17 @@
    "tema_proposto": "empreendedorismo",
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-32dcfbb6ab50d325",
+   "data": "2026-09-06",
+   "titulo": "Walter Ihoshi 5599 (PSD): candidato a Deputado Federal pelo SP - Gazeta do Povo",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOb1RucU1MZm9EWDBqTnVpNjhsRG9DRnFBZ2JTekhtWDNGYXJKeG0xNGJndDZBSzdwQmJVOUplWmpaMXBOQTJqYkJUQ3l2YnRsOGhhYWVkM0s4LW9LcDBmYUNHNjlDMzM5SGVick05X0RWQkRBbzBsY1FOXzdMczdLaEkzTlp3MHV3ZXYySm9URjFlY0tzbDV5OXYwc0dkRjB1Rnc?oc=5",
+   "fonte": "Gazeta do Povo",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-09-29"
   },
   {
    "id": "clip-d834193a05c74bb0",
