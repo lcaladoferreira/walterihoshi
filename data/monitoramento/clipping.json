@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-09-28T18:38:34",
+ "atualizado_em": "2026-09-29T02:34:32",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-be13a0d429880b43",
+   "data": "2026-09-28",
+   "titulo": "“É esse japonês aqui”, brinca Tarcísio ao recomendar voto em Ihoshi - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQQXdYZmM4R2t2UmJzeHc2M3pSNk1xZDNXXzdMOGpqVzd5cU5UTmVwb3NhTUVBNFdXS2QxdWh3alZfQlk1TVpPSTVQeHFoZGxBSEtZWGh3cFdjSEEtbDNPYnk4OGlsN0w1bklEMGJHdzVrQVc3SU5qTHRNLTZlTVdONkg0MERYdk41SGRTajZXLWZ6M2NpaUtQTmlwajFzRWY0Y2lPc3RBdUYwYUxsTldz?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-09-29"
+  },
   {
    "id": "clip-17c8239f813cbd80",
    "data": "2026-09-27",
