@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-09-29T16:54:35",
+ "atualizado_em": "2026-09-30T02:07:36",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -551,17 +551,6 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-19"
-  },
-  {
-   "id": "clip-a534043d795530f9",
-   "data": "2026-07-01",
-   "titulo": "Pré-candidato à Presidência da República, Caiado vem a Marília - marilianoticia.com.br",
-   "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOT2djZGZGRVJndXBvSjVtVks3b085d3lrRDN0SnU4WHVDU2pydmJ3SkRCcGNYZU1vMGFSMTgtUGdmZk9rVExmNWpVVTNPajZkQTlQM0ppWkRXUjZab1pNenFrSUNyRno2Sy1uREp3VmozQTQxQlNreHd1aWo1Snh0QTNtNHdudGRROVoxajhsUXFWQjJ2SWUxbDJRLVFnTjRmQ0djWWRoYS1xQ19VWDdXRHAwSWc1QTJwcUZIeVowYkszUQ?oc=5",
-   "fonte": "marilianoticia.com.br",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-15"
   }
  ]
 }
