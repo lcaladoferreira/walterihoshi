@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-10-02T02:15:42",
+ "atualizado_em": "2026-10-02T16:40:20",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-089f23f185780a78",
+   "data": "2026-10-02",
+   "titulo": "Ihoshi encerra campanha com orientação sobre o direito cívico de votar - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPWDgyMjU4UHllRURsWWg1U3IxLVdvZDBBbkh4Y0tMLWRubTlGTmNmSUFrVVAxNjF1RWxBTUxILUV1NTdaUVB3TVVvVHhyMUs4bGN2TEphdHlDQlZPRlRfNC1NbVBmNThNSzVlTTVpNURFN0V5aEtfUWZWN3VvV2N4VzZWUmdZc0d4Z0ZKenlqZEhMaFBOSFlmUUczaFlQVnB6N0JwVFhMcnM5WDFfa1c2TVpyUDFONDA?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-02"
+  },
   {
    "id": "clip-03a80c5e2303a032",
    "data": "2026-10-01",
@@ -353,6 +364,17 @@
    "tema_proposto": "desburocratizacao",
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-d8e743aed0963e59",
+   "data": "2026-08-26",
+   "titulo": "Walter Ihoshi - O TEMPO",
+   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQVlVNWlM5QmcyRmUxcmVMTTN2ZDFNZV8ydmxvQzd2SUxKS2tuaHFJbHd3ZmFGR3FVWUFHSGZJSGdlcU96aWlTdWsxQ1RkMzdvUllnUU90ZVJVazQwNmEtQzZXVFM4LXdIMjFsREtHVkd5VS1TZWd6bWRvbnFmbnR5MTZCS0JjaFhlQ29EV3dPdDUwYTRaRlhvZFgyYWk?oc=5",
+   "fonte": "O TEMPO",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-10-02"
   },
   {
    "id": "clip-seed-007",
