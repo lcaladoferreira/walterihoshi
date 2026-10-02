@@ -1,7 +1,29 @@
 {
- "atualizado_em": "2026-10-01T17:24:18",
+ "atualizado_em": "2026-10-02T02:15:42",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-03a80c5e2303a032",
+   "data": "2026-10-01",
+   "titulo": "Ihoshi faz balanço da campanha após agenda em cidades do interior paulista - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNWWJtQXBJYUpOa2drdmlFZHJxSE5SZzNPeFhSTDBxVVdFbjBwaWE4dnU0dmlSRVIzUUlnQnl0c3J4WHZwdnNiclY5cHd6TkViMnB6TDBFdXJMeWppRU9fc2FnTkdDZzBIenlBeWItOUVWWnNhbTQwRFpmTDZ2NTVUOFdCNWlCM3BwNzAzeGI4ejZPelhtZFRyQThRdkR5VHdWczdPd2RsNWFTTG5jVnZQOHhLT0xxeGZHRUxfQg?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-02"
+  },
+  {
+   "id": "clip-eb0b11f52a2032bb",
+   "data": "2026-10-01",
+   "titulo": "20 mil quilômetros depois, Ihoshi chega à reta final de olho no quarto mandato - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOTDllOU9FMzF5a3lGUDkwVDdsWHE2c2RyV3NvbjNOeUZvY3FjSlRYNUhKQjZDTXBBWTNNZWJSUk9ZVE9mb1lpWjZXZUMzRFBHQnlxLWl5QWV4cGlQUnVpdUJHTDdMcEFfbi1fT1Q0bXF5OHNSa29jWWVoTFBxb2RhM0UteDEwdWpkNUNSSjg4RmUtb1hGd0tzdFAtLUFpOFpzTmk3aEtDZFhkcXlVdlpDVU9qbw?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-02"
+  },
   {
    "id": "clip-d9844c8c5fb44dfb",
    "data": "2026-09-29",
@@ -540,17 +562,6 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-57eff27192485ff7",
-   "data": "2026-07-03",
-   "titulo": "MN TV: Golpe do falso advogado faz milhares de vítimas pelo Brasil - marilianoticia.com.br",
-   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQWlZENVgwNWFYZ0FJdVFBSDJlNHVMNHBJWEdHTFlNNEpkbkJFVHI2MnNTUzNFZWpJcUJhZXZkMjQ4X1BENlI3SUNDSmxyRkg3VnVQSnBsaFBIVnBrSEpka1V6NzEwVkRnblNnY2l0ZmU2LWNCQXRfTC1aQTNkS1NxWEJVRTZmUnFJOFUtY25OV1NLTUtKTFU5R0cxbmpSUWtnQ2pj?oc=5",
-   "fonte": "marilianoticia.com.br",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-19"
   }
  ]
 }
