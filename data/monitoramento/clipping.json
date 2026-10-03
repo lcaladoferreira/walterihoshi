@@ -1,7 +1,40 @@
 {
- "atualizado_em": "2026-10-03T01:56:35",
+ "atualizado_em": "2026-10-03T15:09:25",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-af70e2fa3ca898df",
+   "data": "2026-10-03",
+   "titulo": "Candidatos de Marília movimentam R$ 6,3 milhões nas campanhas eleitorais - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOdVpMd1NvV0Y4NUc0YTZwelFhM2llM0RzUV90N18ydDhQbllITjZIVmpGb3RfQXZONm5ydGJTMFN0RVNwUy02SUlJTmFpZk05QnNXSWo5NUF3ZlBLc0ZKTUxUUjg2SnA0YTVLekQ1N3J1azd0QW5MczhrRnFBMElhREJBSFR2bjhCTUtFNFQycU83SUVaSzYzLTBINGc1NlR3RWlQUEh0NTktYzZRM2VFZGNlNUpjbU0?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-03"
+  },
+  {
+   "id": "clip-eb6153c26d074170",
+   "data": "2026-10-03",
+   "titulo": "Campanhas eleitorais chegam ao fim com 233 denúncias em Marília e região - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNd1ptcUtYSzQ4Z0ZWak9jZGtHekRodklWTVQtekNnUlBhcUFTWGFFVjdXOFFQTlJULTVIem1kZTFqcExlc3R0a253eXFSczY3eG1SR01FSUhTZjRjMHhGS2pjSVFmVmZ5elNZVF90QWZmYm5ZZVJDUFBRcFlrQUtoQ1dsckZqZ0hESGVFUURQdlZRbFRwSzVIVTFjQUozNnpzS3ZLZVM5TWItNUxJRndvaTN0SG9wa3g1Q3c?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-03"
+  },
+  {
+   "id": "clip-efba936261fa245a",
+   "data": "2026-10-03",
+   "titulo": "\"Farei o meu melhor\", diz Ihoshi em último ato em Marília antes da eleição - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOd0FDTktiNGk3V1loNmNrRVRfTnFEdVRPMjZuRHRzVWsyaEpxblNBalVpbFRscGs1SEVmZE8yODNsd1lKQTZpLTQ1cmlMWWl6M0UyRDVPdGpqbWVYdW9KY3hjenp6MFd6SE9jX1BaLUpkaWJlX0VwTDktZDNKMF9pTnZvWlFXLUtrOERsdnRtbkEzWllWekJ2MURJa0huQkFpZTMyNFZ6YVdhTVpqdXlPVGUtTVVvc0lC?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-03"
+  },
   {
    "id": "clip-089f23f185780a78",
    "data": "2026-10-02",
@@ -584,6 +617,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-18"
+  },
+  {
+   "id": "clip-7247cafb46c823c6",
+   "data": "2026-07-11",
+   "titulo": "MN TV: Castração de cães e gatos continua neste fim de semana - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNdFBWMkhyMkJ0UmxXdDBBU042Nzd4SElmeUpNRDB0aldWenYwbHZ6d2tJczN5MXNJOXhkaWxEampNT1Q3UnBidEpWVm5rV0xLNnU1UTlGS1FsQndhdkNPY1NoQnRfZFVPaVVjVzVWQkZ3SVBURlZVcW5RS0xaWHQ0YWVvX2VKc3R4cWNoQ05kZkpjUzlHUWlqWW9vSmhOUWxzaG5jSmNkQ3E?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-03"
   },
   {
    "id": "clip-ce0dd6411b753f28",
