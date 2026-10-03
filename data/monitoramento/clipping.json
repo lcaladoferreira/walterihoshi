@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-02T16:40:20",
+ "atualizado_em": "2026-10-03T01:56:35",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -34,6 +34,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-10-02"
+  },
+  {
+   "id": "clip-41ea1796ee0a7843",
+   "data": "2026-09-29",
+   "titulo": "Candidatos a deputado federal pelo PSD em SP; veja quem são e os números - Grupo Jota Sidney",
+   "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNSGZqWEJXN3VYc2o3ZlZraDRZV1o3QlQ5RGVTWUE5dTlMYVU5S3kwRXRUZjJNX0tkMlRWT0U2RUFCZVZpN2JFTzk1V1VZZFo5aGhfTC0yaWo1MUhidHZsQV9MTXhwZEdodndBSEw5Y1dmaGY5TEtqVndJdWlMUUJfWVFJS2xHQkhXUXlmWEJFaFlUQmZXMHJnMmh3dk5rZEJHcGFsYXVJVkZsUzFUQVV4Und6WlJya2pGa3YwYk9ReEFfb0Fya1JFV1F6ZDhVVXh5NFNLT1pORlkwYWhsVDlvbWRXSENMbmfSAewBQVVfeXFMUFp3a041cTZnZ3VQdm1UU080UW56WTROajd0VjFNNFFZOEdXRTcyZS1yUW1EZWFrMEtOcmNISjhsV0k3TkVqcmxxeUl0LXhfTnI4MFRPZFNuc25JMTdjT2VxMkdwZFUxbHBZLVlFd3doOXZBSC1NZzlldmVJZDVYZy0xMEQ2cGR4Y3NEUjEyUGhQZGljcTVmWTNXS1dMUExlazdkUzVNMmFXVi1fblhHWUJ2TzlvdWtpelNWaFZqSWlqQkJiMlh1cmRjOHVmSXpWNWx0bXpqZlFUd0xzMFI5SnAwR0dvN04tWEN6azY?oc=5",
+   "fonte": "Grupo Jota Sidney",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-10-03"
   },
   {
    "id": "clip-d9844c8c5fb44dfb",
