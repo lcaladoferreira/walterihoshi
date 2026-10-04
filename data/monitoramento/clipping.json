@@ -1,7 +1,29 @@
 {
- "atualizado_em": "2026-10-04T02:39:25",
+ "atualizado_em": "2026-10-04T15:49:23",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-a5b3221fcec102b8",
+   "data": "2026-10-04",
+   "titulo": "Walter Ihoshi vota em Marília e diz estar ‘confiante e preparado’ - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNbnlkM01UcHJYczdCdXhNMklncHR4V3RCVmV3X0EtZ0hjLWFMV09FdTJuRTdvT1BpODRPa1JlREN5NG1ZdTBuU3huVXRsWWh1eUZDZXJHZ21vMEExYnhTMDdSZWFVNlhhS1B2cVp3V1lBWDdxZHEyT2JycGlhenhxVkxiNDR6cGU4MjhIbGw0TVp5ckl6YnZ0bXNTNWozY19yb1pXX0JreENXbUVZQVE?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-04"
+  },
+  {
+   "id": "clip-740833f71e094f3a",
+   "data": "2026-10-04",
+   "titulo": "Marília e região vão às urnas: veja tudo o que você precisa saber para votar neste domingo - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQaldqWTZUdXNtUTZiWS1KMHRKT3ZMTThud1hJTlRLUDNUNFNzZHlUc2xzb2xieGQ2ZWRNSUNSVDlrdDFLb25WOEl0Sk1xRlMzZ3kxOXpUdFV5UnFTRFAwclB0NXZ5UXU1T0lIRWF4NVFlYmxDTEZ5U28tR1ZOSmNPS1BRcjEzb3BSVVl2SnFOT3lhMFVrNVZLR1VZZi1OUWpzM0ZPV1kycWY2ZVhHaWsydktvSkRVb2h3TW5CcTBqX3ZSczctVlludnBYT0h3Tklj?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-04"
+  },
   {
    "id": "clip-f2651065731c0d6f",
    "data": "2026-10-03",
