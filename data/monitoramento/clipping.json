@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-10-03T15:09:25",
+ "atualizado_em": "2026-10-04T02:39:25",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-f2651065731c0d6f",
+   "data": "2026-10-03",
+   "titulo": "Eleições 2026: Ficha de Walter Ihoshi (PSD) - Folha de S.Paulo",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQM3BKZzJsd1QxZUdNYnd3dUE1c0dlb2RGSWp1Y3hfVGF1ZXF3R3ZSQ2hvLUg4TVZLTTdNa2p6ZnI5djY1QzdqWnVEcGxabTZCVlJNajBtN2RUdnBselRtR2F3ZGxuMEJxa2NNLWlXXy1ZQnhPTl9MQWQtaHg4SFM0bnhqbG9MRkk3eVJIbXR3OVVMT0NFSWFTb2VMTDFjR3k1T19lMHkzQXprVy1CS0U2XzZiVQ?oc=5",
+   "fonte": "Folha de S.Paulo",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-10-04"
+  },
   {
    "id": "clip-af70e2fa3ca898df",
    "data": "2026-10-03",
@@ -518,6 +529,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-2819c35c0a29e091",
+   "data": "2026-08-13",
+   "titulo": "Walter Ihoshi (PSD) 5599: Candidato a Deputado Federal em São Paulo | Eleições 2026 - Tribuna do Paraná",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOaGphZHBnZmdFM1FkTFpHd3lXN2Rzbk5xS1pmSk4tdmZIakFTRWNVdWxnZ1ZjMzA4cWJhUmxtaXM4TjlBaElEdlRXRGhyR1N4NU5MdUNhNUIwc1Y2Z3QtNHVwQ2J4ME1OaU53bnVXQ2VwcDNwcHVWOUIyc1Axd3ozdXk0ZU1mekNsdnpQOWpNb2dLNHFBbTd3TnFDeFpGQQ?oc=5",
+   "fonte": "Tribuna do Paraná",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "sao-paulo",
+   "coletado_em": "2026-10-04"
   },
   {
    "id": "clip-seed-009",
