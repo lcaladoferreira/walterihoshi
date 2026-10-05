@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-04T15:49:23",
+ "atualizado_em": "2026-10-05T02:03:52",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -14,6 +14,50 @@
    "coletado_em": "2026-10-04"
   },
   {
+   "id": "clip-91947eaef326ab7e",
+   "data": "2026-10-04",
+   "titulo": "Temporal em Marília: árvore de grande porte cai e interdita avenida Rio Branco - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPcG5tSW5yVTIyazl2eUc1b2RZWEVOMHdwblZzNkpPZXRCRXpiS1p3VHNsVU8yRWxsbzFYR1RkMjdEVU1LdG9hclg0cnpZa1Q0bHVqdXo5aGhWRkczVlAtTVhDZ1JXcXN1dkVLUk9uV0JRMlpGQ0FMOXg3UDJ4b2RGOGJwZmJLTkhUUlNsS3cyUXgtSl83NFF1Y2RWN0g0dHF2NXpyLU1NR0M5ajN6S0c4Z3JrdjBFbDBfT3c?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-05"
+  },
+  {
+   "id": "clip-42d57ae1faa08ecb",
+   "data": "2026-10-04",
+   "titulo": "Temporal causa estragos em diversos pontos de Marília; votação segue normalmente - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxORHZBN1dZck1MZVItVGgtc2xlRkRnaWxlOTRDaXhZXy1jQmF4NE5STEZqOGdOYVdnQTZGZWlOQV9HbzJMUndNa0V2VTZkUFVac0pvRzZGZmU3NXRXSDlVZXdsNzlGT0JMNVIzSGlhT3JMblN5X3ZFaUpEclBuMndZZVozaDk3Ui0xQ0hBeEdhMFlIN2NJVjhNYmFralRTalRLaGVYOHBIM0NzTzAwVWF2WXE4c09qamlFaDVBTWZCcE54TGM?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-05"
+  },
+  {
+   "id": "clip-6eea0ffc9f450a9d",
+   "data": "2026-10-04",
+   "titulo": "Rossana Camacho vota em Marília e agradece apoio durante campanha - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPc2FjbmpxNnBfai0zTzFmbzROZzJiaVR0eGEtMEF5aGh6djdySFZPOXBseW1OQTlubC14LVNiQVFXMFdCZklyNWlaLWJkRTR1ZU5zTndCS2pjVTlQbWRUSnB2Mm9FaFRmS1pLa0w2UFg4NS1aMUJKYkpyeXJydzc0ODdnM2d4dUlnelBGRDFDMTVOc0x6Z21helFsTzBPR2NrdFFSN0RlRDhuWjZjUkU3cA?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-05"
+  },
+  {
+   "id": "clip-d891a0de552055cf",
+   "data": "2026-10-04",
+   "titulo": "Rogerinho vota em Marília e demonstra confiança no resultado das urnas - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPNm12d3hDeDNyenNuUVNRVjk3QWhOQkRTVHdGTzZydHFMOWRkcmRkajcyRUxOS05CaGJGal9ISThkbHV3MGllOGxkLXRPemg5VGtUMlZELWVaN3dSMGlnbGxHeXlGZW9oalU1cFlCVWNIQldkSmIzZnJCVFFEWGRDNWliRDZxLXFJcnFlSGN4TjdWaEdBWnR3S0VPdy1Hckd5SG4zNlJEQ2d3Y00xajVldnd3eVNYSWM?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-05"
+  },
+  {
    "id": "clip-740833f71e094f3a",
    "data": "2026-10-04",
    "titulo": "Marília e região vão às urnas: veja tudo o que você precisa saber para votar neste domingo - Marília Notícia",
@@ -23,6 +67,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-10-04"
+  },
+  {
+   "id": "clip-bb7d72720bce9085",
+   "data": "2026-10-04",
+   "titulo": "Dani Alonso vota em Marília e fala em ‘novo capítulo’ após campanha - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPRE1yUlhQcFV3X3FzVVNHcWNjeldvbEEtS19abnA4SFgzVm9ZOG5odFVaN2ZhdDdMc0VZRUN0eDMtUC1jeFZpQkJhWWtVRlFiWXZzaFEyTERPMVUwS3paWjJpMG1yWnFSUThNcWY1Vi1iM3hKaXBNWHVOU2VLbjNkcDQ0ZVQ2c2p2bHl5Y3oteTB1cUdYalVtazhzY2NsTTRIRF9makRqYy1wYmZZUkZoVg?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-05"
   },
   {
    "id": "clip-f2651065731c0d6f",
@@ -78,6 +133,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-10-02"
+  },
+  {
+   "id": "clip-beb63e2dd95656a1",
+   "data": "2026-10-02",
+   "titulo": "Apuração das Eleições 2026 para Deputado Federal em São Paulo - CGN",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNTTJORnpUVDd1NDgxTWVPdzZuY000ZWRKN19udWJGMjViUXFkbFNWQm1FMnFaaWVPSEVweEVJOG1adEV4V1l0eFNfLWc2eGVDcjdRcGd0ZUluSzVhQl81TG9mc0t1eU14dDJNcTFmZkxNYVY4eTBtOXc0VG9GRjNzYnZR?oc=5",
+   "fonte": "CGN",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "sao-paulo",
+   "coletado_em": "2026-10-05"
   },
   {
    "id": "clip-03a80c5e2303a032",
