@@ -1,7 +1,29 @@
 {
- "atualizado_em": "2026-10-05T02:03:52",
+ "atualizado_em": "2026-10-06T02:58:23",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-f1df9fa2df8ce1fe",
+   "data": "2026-10-05",
+   "titulo": "Veja como Marília votou para deputado federal nas Eleições 2026 - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxONmpMSE5EeHpXWjNGY19vR3RraVZFSkxHZ0pUa1hLRnBDTXgxZG1LQWNuY0VGQkg1NGRnNFlWaV9fd0RKZXphX3NNOGwxa2VlT1ZJQUxrY3NNaDROLS1FWmYwVTBEMjBCWFc4bUFsbC04aWlrOGVzZ3hBaEwtNTR5UWoxeGN0Y0w3LWVUdE1rR09HWDVoTHR3amYxZW80SUFtcS10U0VmclA2czVZYWc?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-06"
+  },
+  {
+   "id": "clip-50dd61f84149a032",
+   "data": "2026-10-05",
+   "titulo": "Eleições em Tupã (SP): veja a apuração do 1º turno - O GLOBO",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPZFhuVm5hZnB1MlVUaG42VzZ6STlHVU83WGpKZ0lvY2N0WmNnV1dmZnBBZ3JtUWo0LTNoRl9LQnlDb09WOTEzNlNXUWhZS1RwbXA4NVhNRXFYOWV0aFlOZ0wyOUVxeld5NUsza3o5WTlUdTh5TTZSRXl0enFpcGVFamZTN0FVaFI0UDJUNEJxQnQxcXFLR2xuT2VVNExMSW93UUtNVlZHdFZQaFFGaGQ0ZDhXRHF4VEE5cjFvMHBXRU5na0VNbTRwX2ln0gHKAUFVX3lxTE9kWG5WbmFmcHUyVVRobjZXNnpJOUdVTzdYakpnSW9jY3RaY2dXV2ZmcEFncm1RajQtM2hGX0tCeUNvT1Y5MTM2U1dRaFlLVHBtcDg1WE1FcVg5ZXRoWU5nTDI5RXF6V3k1SzNrejlZOVR1OHlNNlJFeXR6cWlwZUVqZlM3QVVoUjRQMlQ0QnFCdDFxcUtHbG5PZVU0TExJb3dRS01WVkd0VlBoUUZoZDRkOFdEcXhUQTlyMW8wcFdFTmdrRU1tNHBfaWc?oc=5",
+   "fonte": "O GLOBO",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-10-06"
+  },
   {
    "id": "clip-a5b3221fcec102b8",
    "data": "2026-10-04",
@@ -69,6 +91,17 @@
    "coletado_em": "2026-10-04"
   },
   {
+   "id": "clip-51cb0bee96306769",
+   "data": "2026-10-04",
+   "titulo": "Eleições 2026: Conheça os candidatos a deputado mais votados em Platina - assiscity.com",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOY3U2TEpsczJ4dVJ2elRoQnNRZkhSRWE1ak9qaFNGd0tPSlVGbElSNmIxdGFhdGdOazlMajNyaWIxSVR5eDVyNTB6U3hySmVXS1hreTlTb2s0REVkdFpjeFpqclVnOTB2U1lINkMzWHRqaWZZSXlVUGJGZnA2Z0hBSDNsVEJaMXZZZ2tGZEpja1I5Y05OdWhKMnZVUWFrZw?oc=5",
+   "fonte": "assiscity.com",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "assis",
+   "coletado_em": "2026-10-06"
+  },
+  {
    "id": "clip-bb7d72720bce9085",
    "data": "2026-10-04",
    "titulo": "Dani Alonso vota em Marília e fala em ‘novo capítulo’ após campanha - Marília Notícia",
@@ -78,6 +111,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-10-05"
+  },
+  {
+   "id": "clip-13c5fb509f608196",
+   "data": "2026-10-04",
+   "titulo": "Apuração da Eleição 2026 para Deputado Federal - São Paulo (SP) | 1º Turno - UOL Notícias",
+   "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxObWZKOHBxa00xaGNHM3VvYmtmQnRRS1JyelJRVnNnaUprLXJMSXlsdFRtaWlYSVNfcF9vXzB6aFhJY2txR3lrZWhCU2JFcl9FemtndWNMcVBNaEozT215dXRWMEgtWDVoaWdDQnA0Y3ctczBON1pQTEZRVUxuLVRCT0F6N0xGYjZIUGFPa2cwNi1YTUxpRkRPMFRZSElMYXp0YjJFaTV3RXMzbUJO?oc=5",
+   "fonte": "UOL Notícias",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "sao-paulo",
+   "coletado_em": "2026-10-06"
   },
   {
    "id": "clip-f2651065731c0d6f",
