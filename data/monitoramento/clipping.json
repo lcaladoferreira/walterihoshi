@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-07T02:23:21",
+ "atualizado_em": "2026-10-07T17:50:38",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -34,6 +34,17 @@
    "tema_proposto": null,
    "municipio_proposto": null,
    "coletado_em": "2026-10-06"
+  },
+  {
+   "id": "clip-0341bac27a1ce828",
+   "data": "2026-10-05",
+   "titulo": "Eleições 2026: quem foi mais votado em Marília (SP) no 1º turno - O GLOBO",
+   "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOS1BBX05WaXUxYjJ4a2lZZ3lFQWF0YmJ6ekZLN1lDNDFHeUZtempMXzN2NzRvYVlkX2lwNDU4UU9LaFNTV3BJYjVMVjNnTGRqQmNTZmxhYWtRTzJlQ1l1a3ZXYjJXeDhmNmNMcURpcmhaR00xSUdmRUxOTW1pZkY0WUp3a195aGRBOE5WLW5odXNhWVNnUHY4bGNSck1wOVlYclByUk1pSXZNUU45VFNlMUdGdWxzNTFhUkpETFBNY0d3NjNCaUdhai1IZk4xSDVRWHZsX3FKckJZV0nSAdsBQVVfeXFMTktQQV9OVml1MWIyeGtpWWd5RUFhdGJienpGSzdZQzQxR3lGbXpqTF8zdjc0b2FZZF9pcDQ1OFFPS2hTU1dwSWI1TFYzZ0xkakJjU2ZsYWFrUU8yZUNZdWt2V2IyV3g4ZjZjTHFEaXJoWkdNMUlHZkVMTk1taWZGNFlKd2tfeWhkQThOVi1uaHVzYVlTZ1B2OGxjUnJNcDlZWHJQclJNaUl2TVFOOVRTZTFHRnVsczUxYVJKRExQTWNHdzYzQmlHYWotSGZOMUg1UVh2bF9xSnJCWVdJ?oc=5",
+   "fonte": "O GLOBO",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-07"
   },
   {
    "id": "clip-a5b3221fcec102b8",
