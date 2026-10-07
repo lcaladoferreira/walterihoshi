@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-10-06T17:14:58",
+ "atualizado_em": "2026-10-07T02:23:21",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-68be79d888be500a",
+   "data": "2026-10-06",
+   "titulo": "Apuração para Deputado Federal em São Paulo - Opera Mundi",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQUHFrbTNvVHJBeEx2aFJGUy03dHpJdEpRZ21qYlBzbmlqX2UwUFc5OU5vVmNlRk9OTHJQY0U1TjU4ekUyZmVuN0ZCWG5YTDhiMHlqMWxVUnJwZmRuWVRRemprOTktYVBUU2ZKMTBFWndkNUI2cWVOeTlTZ3dNOHZhZm42eF9IUTVzbWVfOUZiSQ?oc=5",
+   "fonte": "Opera Mundi",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "sao-paulo",
+   "coletado_em": "2026-10-07"
+  },
   {
    "id": "clip-f1df9fa2df8ce1fe",
    "data": "2026-10-05",
@@ -34,6 +45,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-10-04"
+  },
+  {
+   "id": "clip-7ea0ef00bffd72b5",
+   "data": "2026-10-04",
+   "titulo": "Urnas eletrônicas chegam ao Cartório Eleitoral de Marília para apuração - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQOE01bUVaR01LQS1tLUc2NzNVV2tzOUdPajN5dld2c2JTVF9PaVYzU2RhYzJmbHU2WnRZcFJCRURYSXR1ZmNCUzI3Y3lrSUlJQ1dFY1c4QWlPQ2NlV2dISWFEZDlfZ3Z2c0dIQmRLZnVsa0U5Q1ktMXhKWndWbGJVSkZNSDYyWXJHOEpPMDdidHZka3RTUVZJcU9qRkMxU2VuQzc4Ulc2RFp3QnV5WGEydkhNNVJ1bGd2?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-07"
   },
   {
    "id": "clip-91947eaef326ab7e",
