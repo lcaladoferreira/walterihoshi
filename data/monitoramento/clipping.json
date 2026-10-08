@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-08T02:41:51",
+ "atualizado_em": "2026-10-08T17:53:40",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -815,17 +815,6 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-10-03"
-  },
-  {
-   "id": "clip-ce0dd6411b753f28",
-   "data": "2026-07-09",
-   "titulo": "MN TV: Florada das cerejeiras marca abertura da festa em Garça - marilianoticia.com.br",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQTHVFQXZpT005ZWhDc1FUYUhRQ1l6djRPOVc5UE9jdXN2N3BaMWpYSG92RUFmWVM1aXU3OU8yOUh1dUU3VF9fSmNRUk5yUl9tVE9GVm9fb0t0NFRzbTN2LWVHdUZJTjhyc1NCNXdMTWE0eXNfY05FU1pPeUhOTGYyQVQwLUVpRjAtb3dCRHRQLUdmREpDMWljTTdXQUh5dw?oc=5",
-   "fonte": "marilianoticia.com.br",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-15"
   }
  ]
 }
