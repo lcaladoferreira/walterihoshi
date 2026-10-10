@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-09T17:27:39",
+ "atualizado_em": "2026-10-10T02:20:00",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -751,6 +751,17 @@
    "coletado_em": "2026-09-15"
   },
   {
+   "id": "clip-3f58980cda4df850",
+   "data": "2026-08-08",
+   "titulo": "Walter Ihoshi (Walter Shindi Iihoshi) — dep. federal SP 2026 - www.plural.jor.br",
+   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFA2QjBKMkFvcE0yWVhiWmVCTnRBVjYzVTZ5Z0lLbTFkcVJ4bUJNMENaY3hjZmpTbHBIQlZ3WGJlbXdzSF82eEJpX0h3TjU4Y1llaGtmRjFjNmcyUFF4?oc=5",
+   "fonte": "www.plural.jor.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-10-10"
+  },
+  {
    "id": "clip-6ff192ef14ab5eba",
    "data": "2026-08-08",
    "titulo": "SC Sagamihara x Roasso Kumamoto placar ao vivo, H2H e escalações - Sofascore",
@@ -804,17 +815,6 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-18"
-  },
-  {
-   "id": "clip-7247cafb46c823c6",
-   "data": "2026-07-11",
-   "titulo": "MN TV: Castração de cães e gatos continua neste fim de semana - Marília Notícia",
-   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNdFBWMkhyMkJ0UmxXdDBBU042Nzd4SElmeUpNRDB0aldWenYwbHZ6d2tJczN5MXNJOXhkaWxEampNT1Q3UnBidEpWVm5rV0xLNnU1UTlGS1FsQndhdkNPY1NoQnRfZFVPaVVjVzVWQkZ3SVBURlZVcW5RS0xaWHQ0YWVvX2VKc3R4cWNoQ05kZkpjUzlHUWlqWW9vSmhOUWxzaG5jSmNkQ3E?oc=5",
-   "fonte": "Marília Notícia",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-10-03"
   }
  ]
 }
