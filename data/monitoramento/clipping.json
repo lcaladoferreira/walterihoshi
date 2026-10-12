@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-12T02:24:02",
+ "atualizado_em": "2026-10-12T20:19:06",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -584,6 +584,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
+  },
+  {
+   "id": "clip-ffdc2087d0950d80",
+   "data": "2026-08-27",
+   "titulo": "Trajetória de Walter Ihoshi une raízes imigrantes, experiência empresarial, gestão da Jucesp e forte liderança política - Conexão Marília",
+   "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOdUdvbVdoSGx2NG85QnZ6ajBWSUt4Q0ZEQUFOY1gxQTlZZHg5NGZvQWdzUEd4TEhQRHl1N1RwNGY1dVFiaUlmZjVYS3J1UXpWNVBTRFpyYzdMLXQzRF9tT1VWYVYyWVFXRHZZSzlnTnVCMEVDZDZtaEJHelNRYTJXOWRtNmtMV00yRjZkajlUTlBXMVM5RUU4OHRSVWI3eV9NUXFKRUVpZl9DYk1MdUZ1enluLUM1XzJZY1YzZ0R0WEN5bWt1ZDcwbGg2SDIxTFdwMjhBWXEyUmlKaktlX2FKZUdzWlVDM1k5SElTN2hJSF8?oc=5",
+   "fonte": "Conexão Marília",
+   "fonte_nivel": 60,
+   "tema_proposto": "desburocratizacao",
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-12"
   },
   {
    "id": "clip-seed-005",
