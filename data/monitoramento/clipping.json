@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-11T16:39:47",
+ "atualizado_em": "2026-10-12T02:24:02",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -331,6 +331,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-23"
+  },
+  {
+   "id": "clip-f2079334da38b77e",
+   "data": "2026-09-23",
+   "titulo": "Walter Ihoshi (PSD) — Deputado Federal de São Paulo 2026 - tmc.com.br",
+   "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE8yNzk0c2phQWtZVXQySi1UZmxtUTRRQjh6dGQ3SmV6MG0wVGU4UHU0ams4VEJha0NnUjhGeGl4N3pIeDlSTmo1MkxNSVgwNW9hTjVnUzJVZHhxaFJNTXdfbmNR?oc=5",
+   "fonte": "tmc.com.br",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "sao-paulo",
+   "coletado_em": "2026-10-12"
   },
   {
    "id": "clip-d64bd0f0e678e532",
