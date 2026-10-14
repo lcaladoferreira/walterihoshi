@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-13T18:21:36",
+ "atualizado_em": "2026-10-14T01:54:35",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -298,6 +298,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-26"
+  },
+  {
+   "id": "clip-05619575e3533826",
+   "data": "2026-09-25",
+   "titulo": "Saiba quem são os candidatos a deputado federal pelo PSD em SP - CNN Brasil",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNNVRUdHE0YU5nZXFaZG5DdERHa0pDdFhUQlZXaEtIZWFZbFJaMm4yTmZaMmUyVzJjemZLdWE3OWNINmZxUWFzcnE4dGlhaHdmb2tyZW5jcXFnUHJLNjNsMnd5YU53Wm1BTDBDaTdmd29jampEZHdUUGdGamVZT3B6WEtzSW9NOGVKSmUzZ1A4M2kwaEpXazJlUEU4WUN1aE94eDA4?oc=5",
+   "fonte": "CNN Brasil",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-10-14"
   },
   {
    "id": "clip-12c6ba54668c2d06",
