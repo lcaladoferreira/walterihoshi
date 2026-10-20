@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-10-19T17:31:15",
+ "atualizado_em": "2026-10-20T01:50:05",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-bba81f0233ebe624",
+   "data": "2026-10-06",
+   "titulo": "Deputados federais mais votados em Marília: veja o ranking dos 10 primeiros - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPZURBV2IzeXhoRDlGbGFVd2lvUFhfZUlXUm9oU2pmejI3a3ptTlZZZDVfYUlrN0JGcmFZU01mX0lfX19HVGRFOVJFWm9henkyd1ZPUk5WTXJxYmRKekZzM1gwSkRPWHB2OTdITjJBNnpPaE9GdjBsemdqMzM2LUl6UEZsSklNbnNzbnBYaFo0OGhCczllTjBwSFJINWVpWGRPeGN5Z3lLVXFVdWh2dWVjMmpxVG8?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-20"
+  },
   {
    "id": "clip-68be79d888be500a",
    "data": "2026-10-06",
