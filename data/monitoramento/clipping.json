@@ -1,7 +1,18 @@
 {
- "atualizado_em": "2026-10-20T01:50:05",
+ "atualizado_em": "2026-10-20T15:40:17",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
+  {
+   "id": "clip-26d6cbe8609f38fa",
+   "data": "2026-10-13",
+   "titulo": "Walter Ihoshi defende porte de armas de fogo para guarda-parque - Portal da Câmara dos Deputados",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQUk1XTWtQT2J0bEM0QVM1MXR5emYtQ0FqaHRIaTN1cVdEdzZ6WUItdTl6bXZ0ci05dDZTbzdMb3p4MGc5ZGZRQUhud2hOb0pBMm82U3BRTDJPR19mQnRoNXZGZVZKdGJyTjVpVkZuaXU3QzNaQldiN1ZSeGhWRTktd1piMHdvcklOX2xFQzJsNVdGXy1zQ1YzTjFDVXpEWlVTMEtJa080ZHZrR0lPSUVVeU1vMDQzd0NRRmhtZDF0WGh2UnlrMFE?oc=5",
+   "fonte": "Portal da Câmara dos Deputados",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-10-20"
+  },
   {
    "id": "clip-bba81f0233ebe624",
    "data": "2026-10-06",
