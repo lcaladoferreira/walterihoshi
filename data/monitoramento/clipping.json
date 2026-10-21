@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-21T01:35:22",
+ "atualizado_em": "2026-10-21T15:58:55",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -177,6 +177,17 @@
    "tema_proposto": null,
    "municipio_proposto": "sao-paulo",
    "coletado_em": "2026-10-06"
+  },
+  {
+   "id": "clip-5d4f7c1517a014e9",
+   "data": "2026-10-04",
+   "titulo": "Apuração da Eleição 2026 para Deputado Federal - São Paulo (SP) | 1º Turno - UOL Notícias",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPZjM1RTJ4UFlIVGVLTVZwbmpCLUh4aEdseUJLLTRRdUZnbHI2dHBwZ1lCS2VTbV9XTERIWE51VEs1TlVmVUhKYkp6RGR5cHlqaXRSUjV2X0pRN3hteTJFZzJ3T0tyUkx4Mmt4RzJTWVNWY3BkWXpEUWxFTEJIOEFJNFhGMkx5U2xTTUo5Y0tRMFBXbjByQ0I5Nl9PUQ?oc=5",
+   "fonte": "UOL Notícias",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "sao-paulo",
+   "coletado_em": "2026-10-21"
   },
   {
    "id": "clip-f2651065731c0d6f",
@@ -388,6 +399,17 @@
    "coletado_em": "2026-09-24"
   },
   {
+   "id": "clip-2ea9f014f15c760d",
+   "data": "2026-09-23",
+   "titulo": "Além de Assis: região tem mais de 30 candidatos a deputado na Eleições 2026 - Assiscity",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPT09GZlhoeTNlSjlFN3dfdjZ1Skg5eHVuQ3VlRHQ0Qmh5YzEtNFNRcFZBT2RZdTYxVDdEQVJ1MnBDRnVfMTc5eDUwTzJSYjR5RVo3Z3hKRkV3RUo1R3p5RE92ZXlOYXJCMTJpQVhEUlRFYW1CbTctYkRFYXlmdTFSam1Nb09RaFBiR1l4bURRbXRxN1NiQndCQ20xN0xkb0I1SkxF?oc=5",
+   "fonte": "Assiscity",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "assis",
+   "coletado_em": "2026-10-21"
+  },
+  {
    "id": "clip-b8c418510005823f",
    "data": "2026-09-21",
    "titulo": "Walter Ihoshi destaca papel de deputado na busca por recursos para a saúde - Marília Notícia",
@@ -584,6 +606,17 @@
    "tema_proposto": null,
    "municipio_proposto": null,
    "coletado_em": "2026-09-25"
+  },
+  {
+   "id": "clip-3468be7003db34d2",
+   "data": "2026-08-30",
+   "titulo": "Maioria dos deputados mais votados de fora ignorou Marília após eleição - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPTjhjWVgwQklLNGhVeHVnblF2QWZMNG5lajlzQ1pwbmdVdUxybTZqaFNxUXRPNmI1TGtyd24zdGxjeGR2czA2ZUxGWDNzNFlSamNJa2d6R01vQldNaVBaLWNlcFZQOWJYUUdWaHpaMllIQjgtUFFZRTB4alhyQXFhUS13Rnp2UnJ3bGxrMWo3VGM2RkRxT0JjTVNRMUw5Q0J6bmc0MUYzWTE1M2cwdnFsbVkybTh5bnV2aTNF?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-21"
   },
   {
    "id": "clip-seed-003",
