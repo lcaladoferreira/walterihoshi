@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-21T15:58:55",
+ "atualizado_em": "2026-10-22T01:31:44",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -78,6 +78,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-10-04"
+  },
+  {
+   "id": "clip-abc6ebb022391525",
+   "data": "2026-10-04",
+   "titulo": "Walter Ihoshi vota em Marília e diz estar ‘confiante e preparado’ - Marília Notícia",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOVVRsSXhtVVpjanFfZjRJODNmNUFSZE56dEJGZkd2eVRkMjZiQk1NSkdqYVBVOTdmZVhJbm02MmhhZnB1eG1hM2VMZ2FnV09USWlOUjFQTy1SeTQtMjBEM2wteTUwdWF4c2ZxUC1LcWhoSGljZW5OWHFFeWJyRjdlU2U5UHFmTTExV1UzcjUwaDlRQ3RKaFNpZlU4a1BQbUlMcGRCY0lQWk9tNW8?oc=5",
+   "fonte": "Marília Notícia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "marilia",
+   "coletado_em": "2026-10-22"
   },
   {
    "id": "clip-7ea0ef00bffd72b5",
