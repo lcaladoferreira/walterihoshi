@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-25T01:10:01",
+ "atualizado_em": "2026-10-25T14:57:55",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -12,6 +12,17 @@
    "tema_proposto": null,
    "municipio_proposto": null,
    "coletado_em": "2026-10-20"
+  },
+  {
+   "id": "clip-b846233ce8e9097c",
+   "data": "2026-10-13",
+   "titulo": "Relações Exteriores conclui fiscalização sobre Movimento Origami - Portal da Câmara dos Deputados",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNMXN3V1VidEM0NHBjdHNES0dCa0czTk9PQ1lkSTc3QWREUjBmSVg2OV9RRnlzNUIwN2lTQ2QyemFVSlVWR2FibExfUDNrS2kzcjYtNXBEWkNqN1RONV9xSjQ0bHZ3VVhZSkdUbjdYWTRUUzQ1bEltTmpkdVVQdU1YOXFYRFYtTGRqcVUxU3dpT280cmhYNzFYSS1BbVBXWmQyZlp3Sl9UR0JiQQ?oc=5",
+   "fonte": "Portal da Câmara dos Deputados",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-10-25"
   },
   {
    "id": "clip-bba81f0233ebe624",
@@ -914,17 +925,6 @@
    "tema_proposto": "saude",
    "municipio_proposto": null,
    "coletado_em": "2026-09-21"
-  },
-  {
-   "id": "clip-0977bdd8257d7074",
-   "data": "2026-07-25",
-   "titulo": "MN TV: Invasões e furtos atormentam comerciantes no Centro - marilianoticia.com.br",
-   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOMXVwTEplbC1UQzBLcGtEYmFrdi1ocGo4d0twMFV5c2IyeGVBNjhYc1RxcWZwVnFkX0Z5em1rdTQtVTZaWlk1ZGtLSTUzd09ycThNMWFaM05HenhkNFNJZXFwUXJLczY1T2w0MG9aNTFlRHh2RHpDQUtBcFQ5eHZUZHNFR2VlYW1UU3lMV243aUoyNFRobUhPcQ?oc=5",
-   "fonte": "marilianoticia.com.br",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-18"
   }
  ]
 }
