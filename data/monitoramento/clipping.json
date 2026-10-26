@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-25T14:57:55",
+ "atualizado_em": "2026-10-26T01:09:39",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -188,6 +188,17 @@
    "tema_proposto": null,
    "municipio_proposto": "assis",
    "coletado_em": "2026-10-06"
+  },
+  {
+   "id": "clip-f6c877b72bf20130",
+   "data": "2026-10-04",
+   "titulo": "Eleições 2026: Conheça os candidatos a deputado mais votados em Cândido Mota - Assiscity",
+   "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxObHJWUlNiMUUtZ0RNOWkzNnNmTUVMRExWUWdzS0NQSUtXamFtbzFST0Rvbk5oemxybVdPY2JRTng2blY4UEs2YmEyQnlJWW9MZTZvRWdtZ1BrUnpSajZmc2J0Q01ncm9fTWt5djNlM2RoVTQwVHM0TVRwY1FLVmxyQkFuTEdDRHA0S0JnVGpFalR3UEVFWFp3ODRnTDdwck9jMXFjeA?oc=5",
+   "fonte": "Assiscity",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": "assis",
+   "coletado_em": "2026-10-26"
   },
   {
    "id": "clip-bb7d72720bce9085",
@@ -914,17 +925,6 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-d81b75dd88a7b557",
-   "data": "2026-07-27",
-   "titulo": "Frente arrecada 2,7 milhões de assinaturas pela redução de impostos sobre remédios - camara.leg.br",
-   "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNaG8yVldqLUJhNk10SlB6bk41Wm5rbDFzNEdaaWJodVhPRkN0QzI3OXRzQTJ0Qi10aTJZOHM2QmhEYlp5dWVZcXlPWElVdXJNdE40TklrV1RIby1jX0xzd1ltX1I0V0hOd1ppWmduSWZmY1hfMUZZS0MyOHBNVWticjhkWm5Cb2dHOFUyT3pXbTN1TDJlVDcybV9nVmd6Ykprb2szd2NwTlRIMGZKdFBsbmUzSExZSks0TUtMbzYtWTI?oc=5",
-   "fonte": "camara.leg.br",
-   "fonte_nivel": 60,
-   "tema_proposto": "saude",
-   "municipio_proposto": null,
-   "coletado_em": "2026-09-21"
   }
  ]
 }
