@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-27T02:04:33",
+ "atualizado_em": "2026-10-27T16:42:48",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -56,6 +56,17 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-10-06"
+  },
+  {
+   "id": "clip-3ce4d2fd2d71750e",
+   "data": "2026-10-05",
+   "titulo": "Pavanato e Motta lideram entre os eleitos com mais votos em Tupã - TupãCity",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPRld3MHpvZ2pmMU94UGVDV0hjNmEzSUthV3B2MjVIcU1SUmdRNVNCeU9mTzlkZWI4emJMTVlDanRRSU84QmViMGlmYm1IMHlCTTlFNjcwQ2dfN2g5ZUhOd0R0dExSY0ZFN25ZU29IZ1IwSGZSVXI1Ulp1V01HWW9rWWdFNkVHS2ZKbGRlZnVwX0g4VmRpMUdQdnZhUHhoRWZX?oc=5",
+   "fonte": "TupãCity",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-10-27"
   },
   {
    "id": "clip-50dd61f84149a032",
