@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-08T17:05:44",
+ "atualizado_em": "2026-11-09T02:42:28",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -858,72 +858,6 @@
    "fonte_nivel": 60,
    "tema_proposto": "micro-e-pequenas-empresas",
    "municipio_proposto": null,
-   "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-dd3fa136fd785ca2",
-   "data": "2026-08-10",
-   "titulo": "Walter Ihoshi 5599 - Candidato a deputado federal de SP pelo PSD | Eleições 2026 - ndmais.com.br",
-   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQeTFDVFk3WVpnaF84SGZreUoxNVJJOUpfTkI1QVlMMGxnX2pYQWFZSmtpQ1pKR1VUREUwSUFvNHBIU0NwcDRqX3NPY3pEempDeGVXVTlpcHBTOURyNW1Ga3ZYaTRkWkdBTEJmZmZVZDFhNU5LLUgya2lmUWRlcE1lYjhhQUlZZmlYOUxjSjdWZw?oc=5",
-   "fonte": "ndmais.com.br",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": null,
-   "coletado_em": "2026-09-20"
-  },
-  {
-   "id": "clip-42bbe9e1c699f519",
-   "data": "2026-08-09",
-   "titulo": "Ihoshi aposta na experiência e nos serviços prestados à região para voltar à Câmara - Marília Notícia",
-   "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPUmN1SzlSNXBjN3JmYko5Rl9GSFVSUEF6N1FhREs4VzFnVXlzZnVTOE1Xa2dncUdKWW9NR3llX1FZWDktUlFTX2RZXy1wUGhrT3pjNTZQSkVtVGhoLWZTNEVFQk80NTA1WWp6QnpjWFVpMFlFQjFRWHV3M1NyWWNSaWRpZnoxaTZsQ09sREMzNmlEQVNCRkRWR0RjQzR1SWRtMEF0YXVzdmxOV0w4cUVJRnQ0YnpmVjV1MkhVNjhoU0tOU3pBaEx6Zg?oc=5",
-   "fonte": "Marília Notícia",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-23"
-  },
-  {
-   "id": "clip-seed-010",
-   "data": "2026-08-09",
-   "titulo": "Ihoshi aposta na experiência e nos serviços prestados à região para voltar à Câmara",
-   "link": "https://marilianoticia.com.br/ihoshi-aposta-na-experiencia-e-nos-servicos-prestados-a-regiao-para-voltar-a-camara-2/",
-   "fonte": "Marília Notícia",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-3f58980cda4df850",
-   "data": "2026-08-08",
-   "titulo": "Walter Ihoshi (Walter Shindi Iihoshi) — dep. federal SP 2026 - www.plural.jor.br",
-   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFA2QjBKMkFvcE0yWVhiWmVCTnRBVjYzVTZ5Z0lLbTFkcVJ4bUJNMENaY3hjZmpTbHBIQlZ3WGJlbXdzSF82eEJpX0h3TjU4Y1llaGtmRjFjNmcyUFF4?oc=5",
-   "fonte": "www.plural.jor.br",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": null,
-   "coletado_em": "2026-10-10"
-  },
-  {
-   "id": "clip-6ff192ef14ab5eba",
-   "data": "2026-08-08",
-   "titulo": "SC Sagamihara x Roasso Kumamoto placar ao vivo, H2H e escalações - Sofascore",
-   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQY3dtM25NRGVYcXJiNGJlYVRsV3hQc0xwTDRhRUdkZ3d6bTA1eDlfZHV1YjRWaFdxX3pBVUROZ3BMSHNhNy1zOXYzNXBhSG1qdXFtaHFoS01uQkVPOE4zd096MF9hZU9SUHRMLWVydHBtc05oTDU0UnVzanNZaW0wVHZZZEVsb0xZUlE?oc=5",
-   "fonte": "Sofascore",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": null,
-   "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-e921f65827a2df58",
-   "data": "2026-08-08",
-   "titulo": "MN TV: Quantidade de imóveis fechados no centro chama atenção - marilianoticia.com.br",
-   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQZGtKRWxZVUFYaE5nOU1kN2FZMG85ZDFRdmZrSVQ0eU9qSFo4ZlctYVRQbGJxRFBtcE5PVUpERHZndzZZTjBRYjMtcU42U0E5WjNHS29oZGozX1FmRkgzcy1WMlhvQ3BFcjVGSHRTY1pSSGxidWMxSU44Q1lDSlJfMVA4aUpEZjRjYzZwckxHUlBRdnlvamIzcThnaWZxaWc?oc=5",
-   "fonte": "marilianoticia.com.br",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
   }
  ]
