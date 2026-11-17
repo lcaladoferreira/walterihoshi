@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-16T21:04:32",
+ "atualizado_em": "2026-11-17T05:04:59",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -814,50 +814,6 @@
    "fonte_nivel": 60,
    "tema_proposto": "convenios",
    "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-8ffbbda32a95be3f",
-   "data": "2026-08-16",
-   "titulo": "candidato walter ihoshi | eleiçoes 2026 - GZH",
-   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQR3B4TzJTVDV0dVVlWnljWjR2cHVPcGFxT213bEVoQzBsLW5hYlBqODdFYUpQZ0d5amcxYlZCaDFOQlZ3TGZ4Yy1jeVJjSkFZeFYyLTBMQnIwZU9hZ3BWNy1uY1hjbEdNTmRrMERaSGZVZkdwckR2d2x3QURtSnRwNkl6X3NJVzQ4aW8xWlUzdVFoVm5QaV9mdkVvbmpFUlV0?oc=5",
-   "fonte": "GZH",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": null,
-   "coletado_em": "2026-09-22"
-  },
-  {
-   "id": "clip-16f0f360fa37d819",
-   "data": "2026-08-16",
-   "titulo": "Campanha eleitoral nas ruas e propaganda virtual começam neste domingo - marilianoticia.com.br",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxORC1vbG5ESXhUVFkzbnBOR21EVmFkS2lWWEkybkpleEI0cXBXeFBEYUltbDhldUJRcnk2SVN5a2FZTVNmWGFubzA4ZnV5bGFaOEY4Z3h5VTlCRjZZNU9Oc3gyRF9uNFlaRmk0V1pzNGl4RnpHNGFYVS04QmtLcUQ5WXRDUVFEbG82MU9GUXU5bmduR0xQWVhzQ3JWQnF4UnllZmFtb1NVdURZY2hqZW5KZExtYkg?oc=5",
-   "fonte": "marilianoticia.com.br",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-2819c35c0a29e091",
-   "data": "2026-08-13",
-   "titulo": "Walter Ihoshi (PSD) 5599: Candidato a Deputado Federal em São Paulo | Eleições 2026 - Tribuna do Paraná",
-   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOaGphZHBnZmdFM1FkTFpHd3lXN2Rzbk5xS1pmSk4tdmZIakFTRWNVdWxnZ1ZjMzA4cWJhUmxtaXM4TjlBaElEdlRXRGhyR1N4NU5MdUNhNUIwc1Y2Z3QtNHVwQ2J4ME1OaU53bnVXQ2VwcDNwcHVWOUIyc1Axd3ozdXk0ZU1mekNsdnpQOWpNb2dLNHFBbTd3TnFDeFpGQQ?oc=5",
-   "fonte": "Tribuna do Paraná",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "sao-paulo",
-   "coletado_em": "2026-10-04"
-  },
-  {
-   "id": "clip-seed-009",
-   "data": "2026-08-12",
-   "titulo": "Ihoshi quer retomar agenda de apoio a pequenos negócios no Congresso",
-   "link": "https://marilianoticia.com.br/ihoshi-quer-retomar-agenda-de-apoio-a-pequenos-negocios-no-congresso/amp/",
-   "fonte": "Marília Notícia",
-   "fonte_nivel": 60,
-   "tema_proposto": "micro-e-pequenas-empresas",
-   "municipio_proposto": null,
    "coletado_em": "2026-09-15"
   }
  ]
