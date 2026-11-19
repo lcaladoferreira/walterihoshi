@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-19T04:13:28",
+ "atualizado_em": "2026-11-19T19:30:00",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -784,6 +784,17 @@
    "coletado_em": "2026-09-26"
   },
   {
+   "id": "clip-16bbda4a9b33fb9e",
+   "data": "2026-08-22",
+   "titulo": "Votação de Walter Ihoshi para deputado federal - Eleições 2026 - Agência Sertão",
+   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPczdIeE1RSnJzRFNmR0VtTVliNWwyR1NGRnFSOVI3bXVUMW81ZGkwazFjS1ZVcE93QlRFa0xjNFp4WXpEY1lQUHdBOGRwMDJRLXdDa214dFpwVXJRbGRLNjNQOS1qZlJpUDlBdlF5Xzl4NEVVazJncGM0dDVpVnBtTGVsdV9uNUl2V2hVSTBQWmFtX2pWUzB0MFhnZDRqa0VFc3lLOW8wMjBuVDFwNTJOZENxZVFFbmgyQzk4bGR0SU90VnhSdXBYN3B2cEdZVzVCTEFBd3lrak1hRnBDei0zZElEYzBLNXB6WEdv?oc=5",
+   "fonte": "Agência Sertão",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-11-19"
+  },
+  {
    "id": "clip-2aae3070e40b478d",
    "data": "2026-08-21",
    "titulo": "Walter Ihoshi ajuda Marília conquistar R$ 36 milhões para ciclovia, recapeamento e Parque da Criança - Conexão Marília",
@@ -791,28 +802,6 @@
    "fonte": "Conexão Marília",
    "fonte_nivel": 60,
    "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-cad81305bfff23c3",
-   "data": "2026-08-20",
-   "titulo": "MN TV: Rogerinho lança campanha a deputado estadual com apoio de lideranças nacionais - Marília Notícia",
-   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxORzVZSlRQNUdCWlFub1lUbGdUSHBCYjJZLWhUSUxZZ3dlZG1aUG1oYURiLXJUUmdIMGlyWDU0d0xCNUY4UlBLSWdDR0JPRnpMQ29XY1BIOHh1NTBCc01QRVVuMnYyVld0S1F5MlpyZTlVT1pSaEwwWFhUMUJERFE2Y0d4MnQyWlBINC1wMlRjZm1QaHplTWpqTk1md3BjejdNTGVZS19mMlM0SGxYUVdOa3RZS1g2UWh6SHEzSA?oc=5",
-   "fonte": "Marília Notícia",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-21"
-  },
-  {
-   "id": "clip-seed-008",
-   "data": "2026-08-20",
-   "titulo": "Ihoshi ajuda Marília a conquistar R$ 36 milhões para ciclovia, recapeamento e parque da criança",
-   "link": "https://marilianoticia.com.br/ihoshi-ajuda-marilia-a-conquistar-r-36-milhoes-para-ciclovia-recapeamento-e-parque-da-crianca/",
-   "fonte": "Marília Notícia",
-   "fonte_nivel": 60,
-   "tema_proposto": "convenios",
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
   }
