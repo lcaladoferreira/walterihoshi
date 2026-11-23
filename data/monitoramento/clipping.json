@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-23T03:43:43",
+ "atualizado_em": "2026-11-23T22:42:08",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -782,28 +782,6 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-26"
-  },
-  {
-   "id": "clip-16bbda4a9b33fb9e",
-   "data": "2026-08-22",
-   "titulo": "Votação de Walter Ihoshi para deputado federal - Eleições 2026 - Agência Sertão",
-   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPczdIeE1RSnJzRFNmR0VtTVliNWwyR1NGRnFSOVI3bXVUMW81ZGkwazFjS1ZVcE93QlRFa0xjNFp4WXpEY1lQUHdBOGRwMDJRLXdDa214dFpwVXJRbGRLNjNQOS1qZlJpUDlBdlF5Xzl4NEVVazJncGM0dDVpVnBtTGVsdV9uNUl2V2hVSTBQWmFtX2pWUzB0MFhnZDRqa0VFc3lLOW8wMjBuVDFwNTJOZENxZVFFbmgyQzk4bGR0SU90VnhSdXBYN3B2cEdZVzVCTEFBd3lrak1hRnBDei0zZElEYzBLNXB6WEdv?oc=5",
-   "fonte": "Agência Sertão",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": null,
-   "coletado_em": "2026-11-19"
-  },
-  {
-   "id": "clip-ddcbef05e39c3c35",
-   "data": "2026-08-22",
-   "titulo": "Votação de WALTER IHOSHI para deputado federal por município e seção - Eleições 2018 - Agência Sertão",
-   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQWEZhS2N1TUpFdlNUNXJRVnBWTGhOTWZqeENQeXF0bDVlbkoxN18tbVFQbmo3b01WODh6OWZOUkFLNnkwRUlxZkw1YXVScF9pcnRldlZyQ0dkc2h5ZFVXZjlfWU94M1l6Q1dhVVIzSllhWkttX2xVSzBYUkd6c3NkLTZ0UmtpWE8yRWgteVJpZmZ2N0FuMUtRVmM2V3BOS1BZWFJEVVhqNWJwakI1ajNILXdXRUNRZTVCUFdUb1pySmFJc2dPckRLcjNILWhVeDVsWmNJcTZ2OUd3NkRqYmRDNzE0Q25nSm96anhz?oc=5",
-   "fonte": "Agência Sertão",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": null,
-   "coletado_em": "2026-11-20"
   }
  ]
 }
