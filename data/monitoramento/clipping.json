@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-25T20:29:35",
+ "atualizado_em": "2026-11-26T05:03:25",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -243,6 +243,17 @@
    "tema_proposto": null,
    "municipio_proposto": "sao-paulo",
    "coletado_em": "2026-10-21"
+  },
+  {
+   "id": "clip-c9b6cc0de04c5aa6",
+   "data": "2026-10-04",
+   "titulo": "Apuração ao vivo dos votos em Pompéia (SP) nas Eleições 2026 | Veja quem são os candidatos mais votados - Rádio Itatiaia",
+   "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9IZVloeG5DbmF3RFVhRjBYaE9HZnk5dUpvbW9wN095OWZPTEw3NXNsaVBfZzF2WG96TWZYX29jTDc5WjBLT3M0Vk1HbTF2dDJTOXo5aDVQXzJrcENZbU5mN0pzVUVQcG9yRENRWW1jU01pRndxWmZZTW5nQQ?oc=5",
+   "fonte": "Rádio Itatiaia",
+   "fonte_nivel": 60,
+   "tema_proposto": null,
+   "municipio_proposto": null,
+   "coletado_em": "2026-11-26"
   },
   {
    "id": "clip-f2651065731c0d6f",
@@ -705,83 +716,6 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-ffdc2087d0950d80",
-   "data": "2026-08-27",
-   "titulo": "Trajetória de Walter Ihoshi une raízes imigrantes, experiência empresarial, gestão da Jucesp e forte liderança política - Conexão Marília",
-   "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOdUdvbVdoSGx2NG85QnZ6ajBWSUt4Q0ZEQUFOY1gxQTlZZHg5NGZvQWdzUEd4TEhQRHl1N1RwNGY1dVFiaUlmZjVYS3J1UXpWNVBTRFpyYzdMLXQzRF9tT1VWYVYyWVFXRHZZSzlnTnVCMEVDZDZtaEJHelNRYTJXOWRtNmtMV00yRjZkajlUTlBXMVM5RUU4OHRSVWI3eV9NUXFKRUVpZl9DYk1MdUZ1enluLUM1XzJZY1YzZ0R0WEN5bWt1ZDcwbGg2SDIxTFdwMjhBWXEyUmlKaktlX2FKZUdzWlVDM1k5SElTN2hJSF8?oc=5",
-   "fonte": "Conexão Marília",
-   "fonte_nivel": 60,
-   "tema_proposto": "desburocratizacao",
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-10-12"
-  },
-  {
-   "id": "clip-seed-005",
-   "data": "2026-08-27",
-   "titulo": "Trajetória de Walter Ihoshi une raízes imigrantes, experiência empresarial, gestão da Jucesp e forte liderança política",
-   "link": "https://conexaomarilia.com.br/2026/08/27/trajetoria-de-walter-ihoshi-une-raizes-imigrantes-experiencia-empresarial-gestao-da-jucesp-e-forte-lideranca-politica/",
-   "fonte": "Conexão Marília",
-   "fonte_nivel": 60,
-   "tema_proposto": "desburocratizacao",
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-d8e743aed0963e59",
-   "data": "2026-08-26",
-   "titulo": "Walter Ihoshi - O TEMPO",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQVlVNWlM5QmcyRmUxcmVMTTN2ZDFNZV8ydmxvQzd2SUxKS2tuaHFJbHd3ZmFGR3FVWUFHSGZJSGdlcU96aWlTdWsxQ1RkMzdvUllnUU90ZVJVazQwNmEtQzZXVFM4LXdIMjFsREtHVkd5VS1TZWd6bWRvbnFmbnR5MTZCS0JjaFhlQ29EV3dPdDUwYTRaRlhvZFgyYWk?oc=5",
-   "fonte": "O TEMPO",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": null,
-   "coletado_em": "2026-10-02"
-  },
-  {
-   "id": "clip-seed-007",
-   "data": "2026-08-25",
-   "titulo": "Walter Ihoshi tem atuação voltada para o fortalecimento dos hospitais de Marília, com recursos e interlocução com Estado",
-   "link": "https://conexaomarilia.com.br/2026/08/25/walter-ihoshi-tem-atuacao-voltada-para-o-fortalecimento-dos-hospitais-de-marilia-com-recursos-e-interlocucao-com-estado/",
-   "fonte": "Conexão Marília",
-   "fonte_nivel": 60,
-   "tema_proposto": "saude",
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-e1156a0b8c333d35",
-   "data": "2026-08-25",
-   "titulo": "Walter Ihoshi destaca atuação por recursos e ampliação da rede hospitalar de Marília - Marília Notícia",
-   "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQdTA4SlduYzU4Tm1FdGtSRXNVT1VlNURua05yY3FyTkxOS2lBOFUtaFNvckVsUkJ3N0s2OTFNLUhvak8ybVJuSkRqcTAwQjZVSHdSX3FWU2d6Z1RBS0JkYW1Cb1dudG92V0FoOXVnSjZaOHZjbWVicXZHQU9JQV9VVFlqMmhaRkFMVVE3MkpKa0ZrSGRMUnZZTHo2ZlFNVzhkRF92OFZZNGdMY0g3MXA2dWtrdjAzZDFGV0hwNFdzVk1rX1NHdTJz?oc=5",
-   "fonte": "Marília Notícia",
-   "fonte_nivel": 60,
-   "tema_proposto": "saude",
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-24"
-  },
-  {
-   "id": "clip-seed-006",
-   "data": "2026-08-25",
-   "titulo": "Walter Ihoshi destaca atuação por recursos e ampliação da rede hospitalar de Marília",
-   "link": "https://marilianoticia.com.br/walter-ihoshi-destaca-atuacao-por-recursos-e-ampliacao-da-rede-hospitalar-de-marilia/",
-   "fonte": "Marília Notícia",
-   "fonte_nivel": 60,
-   "tema_proposto": "saude",
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-5ce8523bef78d935",
-   "data": "2026-08-25",
-   "titulo": "Rogerinho lança campanha a deputado estadual com apoio de lideranças nacionais - Marília Notícia",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQU3pQTW9Ub1R0S25QSTFzdEFoMmpsbXNseFlFQ3pzZEc0MldScnl4X1FFbGEwR1V1MW5TWko4UmhWY0hUS01FaXprRTZJRUp2b2pBS3BGV0RZZXE5Y3VnTUFrM1dEN3kwQWwtVkxJNWc5NnNDUUVicTBBQzF3MTNxa0FTajBpMkNzNkdDUzAxdlZMY01fRE9xb0pyS2hDbnFkWUNmaDFFM0g0UGM1RlpCMHhFNHQ?oc=5",
-   "fonte": "Marília Notícia",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-26"
   }
  ]
 }
