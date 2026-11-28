@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-11-28T04:43:58",
+ "atualizado_em": "2026-11-28T18:58:50",
  "nota": "Menções coletadas automaticamente pela rotina de monitoramento (scripts/monitorar.py). Publicadas na página /clipping/ como menções da imprensa — distintas dos registros verificados do acervo.",
  "itens": [
   {
@@ -683,39 +683,6 @@
    "tema_proposto": null,
    "municipio_proposto": "marilia",
    "coletado_em": "2026-10-21"
-  },
-  {
-   "id": "clip-seed-003",
-   "data": "2026-08-29",
-   "titulo": "Maioria dos deputados mais votados de fora ignorou Marília após eleição",
-   "link": "https://marilianoticia.com.br/mariliaeregiao/maioria-dos-deputados-mais-votados-de-fora-ignorou-marilia-apos-eleicao",
-   "fonte": "Marília Notícia",
-   "fonte_nivel": 70,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-seed-004",
-   "data": "2026-08-28",
-   "titulo": "Em campanha, Ihoshi lembra trajetória política e aposta em atuação municipalista",
-   "link": "https://marilianoticia.com.br/mariliaeregiao/marilia/em-campanha-ihoshi-lembra-trajetoria-politica-e-aposta-em-atuacao-municipalista",
-   "fonte": "Marília Notícia",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-15"
-  },
-  {
-   "id": "clip-e7de9887cb80c269",
-   "data": "2026-08-28",
-   "titulo": "Conheça a trajetória política de Walter Ihoshi e suas propostas para a região - Marília Notícia",
-   "link": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQaXhQVHZ6UmpCVVltWnByZDc3OUZzOEZuMnY3R2YzSkZHSDlBZ2pDc1MtS2FJUU1ndHpNbnlRNUlwYlZjajc4akpjSGtaQ2NZTGRlM3pjbzJIRUdrejhxUkJ6LW5fbnlpTE9SX2NpcldTUkhxQjVpRVJmQWxJallqYVNGbm1sekhFdi1vTjQzQ051OXZtR1ZpTEd0bDVlUFljNUdfTExfUl9lbWNUc2lWZy1iU2kwVC11VG82aEpIcElkOVZuYjJfamxIT09pQQ?oc=5",
-   "fonte": "Marília Notícia",
-   "fonte_nivel": 60,
-   "tema_proposto": null,
-   "municipio_proposto": "marilia",
-   "coletado_em": "2026-09-15"
   }
  ]
 }
